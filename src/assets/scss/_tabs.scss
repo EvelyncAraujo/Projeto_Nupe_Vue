@@ -1,0 +1,23 @@
+nav.tabs {
+  ul {
+    li.is-active {
+      a {
+        color: $primary !important;
+        border-bottom-color: $primary !important;
+      }
+    }
+
+    li {
+      a {
+        color: #727C8F !important;
+      }
+    }
+  }
+}
+
+.tabs {
+  a:hover {
+    color: $primary !important;
+    border-bottom-color: $primary !important;
+  }
+}
