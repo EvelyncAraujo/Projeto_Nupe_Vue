@@ -15,9 +15,12 @@
     "@mdi/font": "^7.4.47",
     "buefy": "npm:@ntohq/buefy-next@^0.1.4",
     "bulma-css-vars": "^0.8.0",
+    "dayjs": "^1.11.12",
     "pinia": "^2.1.7",
     "vue": "^3.4.29",
-    "vue-router": "^4.3.3"
+    "vue-gravatar": "^1.4.1",
+    "vue-router": "^4.3.3",
+    "vuex": "^4.1.0"
   },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.8.0",
