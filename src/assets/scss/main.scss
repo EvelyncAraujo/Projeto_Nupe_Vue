@@ -25,4 +25,6 @@
 @import 'taginput';
 
 /* Animate.css custom build (just selected animations to minimize bundle size) */
-@import '@/assets/css/animate.min.css';
+// @import '@/assets/css/animate.min.css';
+
+@import 'buefy/src/scss/buefy.scss'

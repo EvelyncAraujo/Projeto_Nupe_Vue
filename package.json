@@ -8,13 +8,12 @@
     "build": "vite build",
     "preview": "vite preview",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore",
-    "format": "prettier --write src/",
-    "bulma-css-vars": "bulma-css-vars"
+    "format": "prettier --write src/"
   },
   "dependencies": {
     "@mdi/font": "^7.4.47",
     "buefy": "npm:@ntohq/buefy-next@^0.1.4",
-    "bulma-css-vars": "^0.9.3",
+    "bulma": "^0.9.3",
     "dayjs": "^1.11.12",
     "pinia": "^2.1.7",
     "vue": "^3.4.29",

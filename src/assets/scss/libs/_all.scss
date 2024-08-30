@@ -1,5 +1,5 @@
 /* Buefy has Bulma included. So we import just that */
-@import '~bulma';
-@import '~buefy/src/scss/buefy';
+@import 'bulma/bulma.sass';
+@import 'buefy/src/scss/buefy.scss';
 
-@import '~buefy/src/scss/buefy-build';
+@import 'buefy/src/scss/buefy-build.scss';
