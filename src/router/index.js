@@ -6,6 +6,8 @@ import StudentView from '../views/StudentView.vue'
 import InstituicaoView from '@/views/InstituicaoView.vue'
 import AtendimentoView from '@/views/AtendimentoView.vue'
 import LoginView from '../views/LoginView.vue'
+import ProfileView from '@/views/ProfileView.vue'
+import FormsProfileView from '@/views/FormsProfileView.vue'
 
 
 const router = createRouter({
@@ -61,6 +63,16 @@ const router = createRouter({
         path: '/atendimento',
         name: 'atendimento',
         component: AtendimentoView
+      },
+      {
+        path: '/perfil',
+        name: 'perfil',
+        component: ProfileView
+      },
+      {
+        path: '/formulario',
+        name: 'formulario',
+        component: FormsProfileView
       },
       ]
     }
