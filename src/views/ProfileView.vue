@@ -24,21 +24,7 @@ export default {
     <div class="perfil-Info">
         <h1>Atualizar dados institucionais</h1>
         <form @submit.prevent="submitForm">
-            <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="email" id="email" v-model="form.email" placeholder="Digite seu email" required />
-            </div>
-            <div class="form-group">
-                <label for="senha">Senha:</label>
-                <input type="password" id="senha" v-model="form.senha" placeholder="Digite sua senha" required />
-            </div>
-            <div class="form-group">
-                <label for="confirmar-senha">Confirmar Senha:</label>
-                <input type="password" id="confirmar-senha" v-model="form.confirmarSenha"
-                    placeholder="Confirme sua senha" required />
-            </div>
-            <button type="submit">Enviar</button>
-            <p v-if="errorMessage" class="error">{{ errorMessage }}</p>
+          
         </form>
     </div>
 </template>
