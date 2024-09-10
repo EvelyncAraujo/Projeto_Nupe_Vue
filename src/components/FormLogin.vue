@@ -44,7 +44,7 @@
           </div>
         </b-field>
       </b-field>
-      <b-button type="is-primary" expanded>Algum problema ─></b-button>
+
     </form>
   </div>
 </template>
