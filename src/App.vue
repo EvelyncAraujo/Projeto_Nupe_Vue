@@ -1,13 +1,12 @@
 <script>
-import ProfileView from '@/views/ProfileView.vue'
-import FormsProfileView from '@/views/FormsProfileView.vue';
+
 
 
 export default {
   name: 'App',
   components: {
-    ProfileView,
-    FormsProfileView
+
+   
   }
 };
 </script>
@@ -15,9 +14,10 @@ export default {
 
 <template>
   <div id="app">
-    <ProfileView />
-    <FormsProfileView />
+   
+  
     <router-view />
+   
   </div>
 </template>
 
