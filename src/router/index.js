@@ -7,6 +7,7 @@ import InstituicaoView from '@/views/InstituicaoView.vue'
 import AtendimentoView from '@/views/AtendimentoView.vue'
 import LoginView from '../views/LoginView.vue'
 import ProfileView from '@/views/ProfileView.vue'
+import SectorView from '@/views/SectorView.vue'
 
 
 const router = createRouter({
@@ -26,11 +27,7 @@ const router = createRouter({
           name: 'about',
           component: () => import('../views/AboutView.vue')
         },
-        {
-          path: '/sector',
-          name: 'sector',
-          component: () => import('../views/Sector.vue')
-        }
+        
       ]
 
     },
@@ -43,6 +40,11 @@ const router = createRouter({
           name: 'login',
           component: LoginView
 
+        },
+        {
+          path: '/sector',
+          name: 'sector',
+          component: SectorView
         },
 
       {
