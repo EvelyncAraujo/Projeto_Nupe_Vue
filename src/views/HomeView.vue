@@ -1,5 +1,5 @@
-<script setup></script>
+<script ></script>
 
 <template>
-  <main>oi</main>
+<p>pagina </p>
 </template>

@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import HomeView from '@/views/HomeView.vue'
 import BlankLayout from '@/layouts/BlankLayout.vue'
 import DefaultLayout from '@/layouts/DefaultLayout.vue'
 import StudentView from '../views/StudentView.vue'
@@ -17,11 +17,7 @@ const router = createRouter({
       path: '/',
       component: DefaultLayout,
       children: [
-        {
-          path: '/',
-          name: 'home',
-          component: HomeView
-        },
+      
         {
           path: '/about',
           name: 'about',
@@ -35,6 +31,12 @@ const router = createRouter({
       path: '/',
       component: BlankLayout,
       children: [
+
+        {
+          path: '/',
+          name: 'home',
+          component: HomeView
+        },
         {
           path: '/login',
           name: 'login',
