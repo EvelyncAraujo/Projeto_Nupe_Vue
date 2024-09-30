@@ -8,7 +8,8 @@ import AtendimentoView from '@/views/AtendimentoView.vue'
 import LoginView from '../views/LoginView.vue'
 import ProfileView from '@/views/ProfileView.vue'
 import SectorView from '@/views/SectorView.vue'
-
+import CamposView from '@/views/CamposView.vue'
+import RazoesAtendimentoView from  '@/views/RazoesAtendimendoView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -68,6 +69,17 @@ const router = createRouter({
         path: '/perfil',
         name: 'perfil',
         component: ProfileView
+      },
+
+      {
+        path: '/campos',
+        name: 'campos',
+        component: CamposView
+      },
+      {
+        path: '/razoes atendimento',
+        name: 'razoes atendimento',
+        component: RazoesAtendimentoView
       },
      
       ]
