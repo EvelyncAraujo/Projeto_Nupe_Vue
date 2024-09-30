@@ -1,6 +1,6 @@
-<script>
+<script >
   import { ref, onMounted } from 'vue';
-  import { useAxios } from '@/composables/axios'; // Supondo que use um composable para axios, ajuste se necessário.
+  import axios from 'axios';// Supondo que use um composable para axios, ajuste se necessário.
   
   export default {
     setup(props, { emit }) {
@@ -9,7 +9,7 @@
       const hoverable = ref(true);
       const focusable = ref(true);
       const scrollable = ref(true);
-      const isPaginated = ref(true);
+     const isPaginated = ref(true);
       const isPaginationSimple = ref(false);
       const isPaginationRounded = ref(false);
       const paginationPosition = ref('bottom');
@@ -20,7 +20,7 @@
       const data = ref([]);
       const backup = ref([]);
   
-      const axios = useAxios();
+
   
       const fetchAllAttendances = async () => {
         data.value = await axios.get('/api/v1/attendance/');
@@ -205,7 +205,7 @@
   
   
   
-  <style scoped>
+  <style >
   /* Seu estilo aqui */
   </style>
   
