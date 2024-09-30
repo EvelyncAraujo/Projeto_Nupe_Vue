@@ -8,7 +8,7 @@
   
   export default {
     components: {
-      ListAttendance,
+      ListAttendance, 
       CreateAttendance,
       MyAttendance,
       ReportAttendance,
