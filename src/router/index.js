@@ -8,7 +8,7 @@ import AtendimentoView from '@/views/AtendimentoView.vue'
 import LoginView from '../views/LoginView.vue'
 import ProfileView from '@/views/ProfileView.vue'
 import SectorView from '@/views/SectorView.vue'
-import CamposView from '@/views/CamposView.vue'
+import CamposView from '@/views/CampusView.vue'
 import RazoesAtendimentoView from  '@/views/RazoesAtendimendoView.vue'
 
 const router = createRouter({
