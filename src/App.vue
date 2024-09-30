@@ -1,13 +1,18 @@
 <script>
+import Menu from '@/views/MenuView.vue'
+
 export default {
   name: 'App',
-  components: {}
-}
+  components: {
+    Menu
+  }
+};
 </script>
 
 <template>
   <div id="app">
     <router-view />
+    <!-- <menu-view /> -->
   </div>
 </template>
 
