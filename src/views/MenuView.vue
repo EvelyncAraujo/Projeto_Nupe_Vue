@@ -18,7 +18,10 @@ export default {
 
 <template>
     <nav class="menu">
+       
         <ul>
+            <p>NupeOnline</p>
+
             <li v-for="item in menuItems" :key="item.text">
                 <a :href="item.link">{{ item.text }}</a>
             </li>
@@ -27,9 +30,15 @@ export default {
 </template>
 
 <style>
+p{
+   font-size: larger;
+   color: black;
+   font-weight: bolder;
+}
 .menu {
     background-color: #325c32a9;
     padding: 10px;
+ 
 }
 
 .menu ul {
@@ -37,7 +46,8 @@ export default {
     padding: 0;
     margin: 0;
     display: flex;
-
+    gap: 6rem;
+    margin-left: 15rem;
 }
 
 .menu li {

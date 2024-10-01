@@ -5,7 +5,6 @@
   import ReportAttendance from "@/components/register/Attendance/ReportAttendance";
   import CreateAttendance from "@/components/register/Attendance/CreateAttendance";
   import SelectAttendance from "@/components/register/Attendance/SelectAttendance";
-  
   export default {
     components: {
       ListAttendance, 
@@ -13,6 +12,7 @@
       MyAttendance,
       ReportAttendance,
       SelectAttendance,
+
     },
     setup() {
       const editing = ref(false);
@@ -20,6 +20,7 @@
       const personal = ref(false);
       const report = ref(false);
       const currentAttendance = ref({});
+    
       const value = ref("");
   
       const cancelEdit = () => {
@@ -56,11 +57,14 @@
         createAttendance,
         editAttendance,
         reportAttendance,
+        
       };
     },
   };
   </script>
   <template>
+
+    <Menu-view />
     <section class="section is-main-section">
       <div class="is-vcentered">
         <select-attendance
