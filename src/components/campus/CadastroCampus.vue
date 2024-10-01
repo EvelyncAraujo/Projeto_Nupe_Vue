@@ -1,63 +1,44 @@
-<script>
+<script setup>
   import { useStore } from 'vuex';
   import { ref, computed, watch, onMounted } from 'vue';
   
-  export default {
-    props: {
-      campus: {
-        type: Object,
-        default: () => ({}),
-      },
-    },
-    setup(props) {
-      const store = useStore();
-      const currentCampus = ref({ ...props.campus });
-      const institutions = computed(() => store.state.institution.institutions);
-      const locations = computed(() => store.state.location.locations);
-  
-      const fetchAllInstitutions = () => store.dispatch('institution/fetchAllInstitutions');
-      const fetchAllLocations = () => store.dispatch('location/fetchAllLocations');
-      const createCampus = (campus) => store.dispatch('campus/createCampus', campus);
-  
-      const save = async () => {
-        try {
-          if (props.campus.id) {
-            await store.$axios.$patch(`api/v1/campus/${props.campus.id}/`, currentCampus.value);
-          } else {
-            await createCampus(currentCampus.value);
-          }
-          store._vm.$buefy.toast.open({
-            message: 'Sucesso!',
-            type: 'is-success',
-          });
-        } catch (error) {
-          store._vm.$buefy.toast.open({
-            message: 'Algo está Errado!',
-            type: 'is-danger',
-          });
-        }
-      };
-  
-      onMounted(() => {
-        fetchAllInstitutions();
-        fetchAllLocations();
+  const props = defineProps(['campus'])
+  const store = useStore();
+  const currentCampus = ref({ ...props.campus });
+  const institutions = computed(() => store.state.institution.institutions);
+  const locations = computed(() => store.state.location.locations)  
+  const fetchAllInstitutions = () => store.dispatch('institution/fetchAllInstitutions');
+  const fetchAllLocations = () => store.dispatch('location/fetchAllLocations');
+  const createCampus = (campus) => store.dispatch('campus/createCampus', campus)  
+  const save = async () => {
+    try {
+      if (props.campus.id) {
+        await store.$axios.$patch(`api/v1/campus/${props.campus.id}/`, currentCampus.value);
+      } else {
+        await createCampus(currentCampus.value);
+      }
+      store._vm.$buefy.toast.open({
+        message: 'Sucesso!',
+        type: 'is-success',
       });
+    } catch (error) {
+      store._vm.$buefy.toast.open({
+        message: 'Algo está Errado!',
+        type: 'is-danger',
+      });
+    }
+  } 
+  onMounted(() => {
+    fetchAllInstitutions();
+    fetchAllLocations();
+  })  
+  watch(
+    () => props.campus,
+    (newCampus) => {
+      currentCampus.value = { ...newCampus };
+    }
+  );
   
-      watch(
-        () => props.campus,
-        (newCampus) => {
-          currentCampus.value = { ...newCampus };
-        }
-      );
-  
-      return {
-        currentCampus,
-        institutions,
-        locations,
-        save,
-      };
-    },
-  };
   </script>
   <template>
     <section>

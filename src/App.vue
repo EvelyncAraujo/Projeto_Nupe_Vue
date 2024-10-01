@@ -12,7 +12,7 @@ export default {
 <template>
   <div id="app">
     <router-view />
-    <!-- <menu-view /> -->
+    <menu-view /> 
   </div>
 </template>
 
