@@ -32,6 +32,7 @@
     <b-table
       id="table"
       :data="data"
+      :columns="columns"
       :paginated="isPaginated"
       :per-page="perPage"
       :current-page.sync="currentPage"
@@ -91,11 +92,22 @@ export default {
       currentPage: 1,
       perPage: 10,
       // término propriedades da tabela
-      data: [],
+      data: [
+        {
+          'id': 1,
+          'name': 'Setor 1',
+          'description': 'Desc setor 1'
+        },
+        {
+          'id': 2,
+          'name': 'Setor 2',
+          'description': 'Desc setor 2'
+        }
+      ],
       columns: [
         {
           field: "id",
-          label: "ID",
+          label:"ID",
         },
         {
           field: "name",
@@ -109,7 +121,7 @@ export default {
     };
   },
   created() {
-    this.fetchAllSectors();
+    // this.fetchAllSectors();
   },
   methods: {
     async fetchAllSectors() {

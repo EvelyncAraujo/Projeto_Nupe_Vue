@@ -1,18 +1,11 @@
-<script>
-import Menu from '@/views/MenuView.vue'
-
-export default {
-  name: 'App',
-  components: {
-    Menu
-  }
-};
+<script setup>
+import MenuView from '@/views/MenuView.vue'
 </script>
 
 <template>
   <div id="app">
+    <menu-view />
     <router-view />
-    <menu-view /> 
   </div>
 </template>
 
@@ -21,6 +14,6 @@ export default {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  /* margin-top: 60px; */
 }
 </style>
