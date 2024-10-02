@@ -5,11 +5,11 @@ export default {
 
             menuItems: [
                 { text: 'Home', link: '/' },
-                { text: 'estudante ', link: '/student' },
-                { text: 'setor', link: '/sector' },
-                { text: 'atendimento', link: '/atendimento' },
-                { text: 'campos', link: '/campos' },
-                { text: 'Instituição', link: '/instituição' },
+                { text: 'Estudante ', link: '/student' },
+                { text: 'Setor', link: '/sector' },
+                { text: 'Atendimento', link: '/atendimento' },
+                { text: 'Campus', link: '/campus' },
+                { text: 'Instituição', link: '/instituicao' },
             ]
         };
     }
