@@ -76,7 +76,7 @@
     <section>
       <div class="columns is-vcentered">
         <div class="column has-text-centered">
-          <img src="../../../assets/registration.svg" />
+          <!-- <img src="../../../assets/registration.svg" /> -->
         </div>
         <div class="column">
           <h3 class="subtitle has-text-centered">
