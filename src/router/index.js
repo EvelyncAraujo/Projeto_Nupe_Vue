@@ -49,6 +49,7 @@ const router = createRouter({
           path: '/sector',
           name: 'sector',
           component: SectorView
+       
         },
 
       {

@@ -1,10 +1,16 @@
 <script setup>
-import MenuView from '@/views/MenuView.vue'
+import { computed } from 'vue';
+import { useRoute } from 'vue-router';
+import MenuView from '@/views/MenuView.vue';
+
+const route = useRoute();
+const esconderMenu = computed(() => route.name === 'login');
 </script>
 
 <template>
   <div id="app">
-    <menu-view />
+    <MenuView v-if="!esconderMenu" />
+    <!-- <menu-view /> -->
     <router-view />
   </div>
 </template>
