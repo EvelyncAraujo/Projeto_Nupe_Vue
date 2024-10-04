@@ -66,7 +66,7 @@
 
     <Menu-view />
     <section class="section is-main-section">
-      <div class="is-vcentered">
+      <div class="is-vcentered"  >
         <select-attendance
           v-if="editing"
           @cancelEdit="cancelEdit"
