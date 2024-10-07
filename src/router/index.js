@@ -11,7 +11,6 @@ import SectorView from '@/views/SectorView.vue'
 import CampusView from '@/views/CampusView.vue'
 import AttendanceReasonView from '@/views/AttendanceReasonView.vue'
 
-
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -19,21 +18,17 @@ const router = createRouter({
       path: '/',
       component: DefaultLayout,
       children: [
-      
         {
           path: '/about',
           name: 'about',
           component: () => import('../views/AboutView.vue')
-        },
-        
+        }
       ]
-
     },
     {
       path: '/',
       component: BlankLayout,
       children: [
-
         {
           path: '/',
           name: 'home',
@@ -43,51 +38,46 @@ const router = createRouter({
           path: '/login',
           name: 'login',
           component: LoginView
-
         },
         {
           path: '/sector',
           name: 'sector',
           component: SectorView
-       
         },
 
-      {
-        path: '/student',
-        name: 'student',
-        component: StudentView
-      },
-      {
-        path: '/instituicao',
-        name: 'instituicao',
-        component: InstituicaoView
-      },
-      {
-        path: '/atendimento',
-        name: 'atendimento',
-        component: AtendimentoView
-      },
-      {
-        path: '/perfil',
-        name: 'perfil',
-        component: ProfileView
-      },
+        {
+          path: '/student',
+          name: 'student',
+          component: StudentView
+        },
+        {
+          path: '/instituicao',
+          name: 'instituicao',
+          component: InstituicaoView
+        },
+        {
+          path: '/atendimento',
+          name: 'atendimento',
+          component: AtendimentoView
+        },
+        {
+          path: '/perfil',
+          name: 'perfil',
+          component: ProfileView
+        },
 
-      {
-        path: '/campus',
-        name: 'campus',
-        component: CampusView
-      },
-          {
-            path: '/razoes',
-            name: 'RazoesAtendimento',
-            component: AttendanceReasonView
-          },
-      
+        {
+          path: '/campus',
+          name: 'campus',
+          component: CampusView
+        },
+        {
+          path: '/razoes',
+          name: 'RazoesAtendimento',
+          component: AttendanceReasonView
+        }
       ]
     }
-    
-   
   ]
 })
 

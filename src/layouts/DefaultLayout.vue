@@ -1,12 +1,3 @@
-<template>
-  <div>
-    <nav-bar />
-    <aside-menu :menu="menu" />
-    <route-view />
-    <footer-bar />
-  </div>
-</template>
-
 <script setup>
 import NavBar from "@/components/templates/NavBar.vue";
 import AsideMenu from "@/components/templates/AsideMenu.vue";
@@ -109,5 +100,12 @@ import FooterBar from "@/components/templates/FooterBar.vue";
   // },
 // };
 </script>
-
+<template>
+  <div>
+    <nav-bar />
+    <aside-menu :menu="menu" />
+    <route-view />
+    <footer-bar />
+  </div>
+</template>
 <style></style>

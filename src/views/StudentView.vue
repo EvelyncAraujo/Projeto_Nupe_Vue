@@ -6,7 +6,7 @@
   </div>
 
   <div class="perfil">
-    <img src="/public/circuloImagem.jpeg" alt="Foto do Aluno" class="perfil-foto" />
+    <img src="/circuloImagem.jpeg" alt="Foto do Aluno" class="perfil-foto" />
   
     <p class="infoAluno">Nome:</p>
     <p class="infoAluno">Matrícula:</p>
@@ -15,6 +15,8 @@
     <p class="infoAluno">Status: Ativo</p>
     <p class="infoAluno">E-Mail:</p>
     <p class="infoAluno">Entrada:</p>
+    <a href="Perfil">atualizar dados</a>
+    
   </div>
 
   <footer class="footer">
@@ -77,5 +79,15 @@ h2 {
   height: 150px;
   display: block;
   margin: 0px auto;
+}
+ .dark-mode h1, .dark-mode h2, .dark-mode .infoAluno, .dark-mode a{
+  color: #f1f1f1;
+}
+a{
+ margin-left: 7rem;
+}
+a:hover{
+  margin-left: 7rem;
+  color: #9b9898;
 }
 </style>

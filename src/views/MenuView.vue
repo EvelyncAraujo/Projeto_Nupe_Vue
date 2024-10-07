@@ -9,7 +9,8 @@ export default {
         { text: 'Atendimento', link: '/atendimento' },
         { text: 'Campus', link: '/campus' },
         { text: 'Instituição', link: '/instituicao' },
-        { text: 'Razões Atendimento', link: '/razoes'}
+        { text: 'Razões Atendimento', link: '/razoes'},
+        { text: 'Perfil Aluno', link: '/perfil'}
       ],
      isDarkMode: false 
     }
@@ -84,6 +85,7 @@ p {
 
 .menu a:hover {
   text-decoration: underline;
+
 }
 body {
   background-color: #ffffff;
@@ -93,9 +95,12 @@ body {
 body.dark-mode {
   background-color: #121212f1;
 
+
 }
+
 span{
   margin-left: 105rem;
 
 }
+
 </style>
