@@ -9,7 +9,29 @@ export default {
         { text: 'Atendimento', link: '/atendimento' },
         { text: 'Campus', link: '/campus' },
         { text: 'Instituição', link: '/instituicao' }
-      ]
+      ],
+      isDarkMode: false // mover o estado para o data
+    }
+  },
+  mounted() {
+    const savedTheme = localStorage.getItem('darkMode');
+    if (savedTheme) {
+      this.isDarkMode = savedTheme === 'true';
+      this.applyTheme(); // aplicar o tema no mounted
+    }
+  },
+  methods: {
+    applyTheme() {
+      if (this.isDarkMode) {
+        document.body.classList.add('dark-mode');
+      } else {
+        document.body.classList.remove('dark-mode');
+      }
+    },
+    toggleDarkMode() {
+      this.isDarkMode = !this.isDarkMode;
+      localStorage.setItem('darkMode', this.isDarkMode);
+      this.applyTheme();
     }
   }
 }
@@ -23,10 +45,12 @@ export default {
         <a :href="item.link">{{ item.text }}</a>
       </li>
     </ul>
-    <!-- <button @click="toggleDarkMode">
-      {{ isDarkMode ? 'Modo Claro' : 'Modo Escuro' }}
-    </button> --> 
+    <span @click="toggleDarkMode">
+      <img src="@/assets/favicon_io/favicon-32x32.png" alt="">
+    </span>
   </nav>
+ 
+    
 </template>
 
 <style>
@@ -38,6 +62,8 @@ p {
 .menu {
   background-color: #325c32a9;
   padding: 10px;
+  display: flex;
+  margin-bottom: 10rem;
 }
 
 .menu ul {
@@ -60,5 +86,17 @@ p {
 
 .menu a:hover {
   text-decoration: underline;
+}
+body {
+  background-color: #ffffff;
+  margin: 0;
+  height: 100vh;
+}
+body.dark-mode {
+  background-color: #121212f1;
+
+}
+span{
+  margin-left: 105rem;
 }
 </style>
