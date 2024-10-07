@@ -9,7 +9,7 @@ import LoginView from '../views/LoginView.vue'
 import ProfileView from '@/views/ProfileView.vue'
 import SectorView from '@/views/SectorView.vue'
 import CampusView from '@/views/CampusView.vue'
-//import RazoesAtendimentoView from '@/views/RazoesAtendimentoView.vue'
+import AttendanceReasonView from '@/views/AttendanceReasonView.vue'
 
 
 const router = createRouter({
@@ -77,8 +77,13 @@ const router = createRouter({
         path: '/campus',
         name: 'campus',
         component: CampusView
-      }
-     
+      },
+          {
+            path: '/razoes',
+            name: 'RazoesAtendimento',
+            component: AttendanceReasonView
+          },
+      
       ]
     }
     

@@ -8,9 +8,10 @@ export default {
         { text: 'Setor', link: '/sector' },
         { text: 'Atendimento', link: '/atendimento' },
         { text: 'Campus', link: '/campus' },
-        { text: 'Instituição', link: '/instituicao' }
+        { text: 'Instituição', link: '/instituicao' },
+        { text: 'Razões Atendimento', link: '/razoes'}
       ],
-      isDarkMode: false 
+     isDarkMode: false 
     }
   },
   mounted() {
