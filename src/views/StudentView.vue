@@ -7,6 +7,7 @@
 
   <div class="perfil">
     <img src="/public/circuloImagem.jpeg" alt="Foto do Aluno" class="perfil-foto" />
+  
     <p class="infoAluno">Nome:</p>
     <p class="infoAluno">Matrícula:</p>
     <p class="infoAluno">Curso:</p>

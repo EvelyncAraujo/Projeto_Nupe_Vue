@@ -3,21 +3,21 @@ export default {
   data() {
     return {
       menuItems: [
-        // { text: 'Home', link: '/' },
+      
         { text: 'Estudante ', link: '/student' },
         { text: 'Setor', link: '/sector' },
         { text: 'Atendimento', link: '/atendimento' },
         { text: 'Campus', link: '/campus' },
         { text: 'Instituição', link: '/instituicao' }
       ],
-      isDarkMode: false // mover o estado para o data
+      isDarkMode: false 
     }
   },
   mounted() {
     const savedTheme = localStorage.getItem('darkMode');
     if (savedTheme) {
       this.isDarkMode = savedTheme === 'true';
-      this.applyTheme(); // aplicar o tema no mounted
+      this.applyTheme(); 
     }
   },
   methods: {
@@ -48,9 +48,8 @@ export default {
     <span @click="toggleDarkMode">
       <img src="@/assets/favicon_io/favicon-32x32.png" alt="">
     </span>
-  </nav>
  
-    
+  </nav>
 </template>
 
 <style>
@@ -62,8 +61,6 @@ p {
 .menu {
   background-color: #325c32a9;
   padding: 10px;
-  display: flex;
-  margin-bottom: 10rem;
 }
 
 .menu ul {
@@ -98,5 +95,6 @@ body.dark-mode {
 }
 span{
   margin-left: 105rem;
+
 }
 </style>
