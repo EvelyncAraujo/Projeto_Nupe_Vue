@@ -35,7 +35,7 @@
       :columns="columns"
       :paginated="isPaginated"
       :per-page="perPage"
-      :current-page.sync="currentPage"
+ 
       :pagination-simple="isPaginationSimple"
       :pagination-position="paginationPosition"
       :default-sort-direction="defaultSortDirection"

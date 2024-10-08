@@ -1,6 +1,8 @@
 <script setup>
 import FormLogin from '@/components/FormLogin.vue'
 </script>
+
+
 <template>
   <section class="section is-main-section">
     <div class="container">
@@ -24,3 +26,5 @@ import FormLogin from '@/components/FormLogin.vue'
   }
 }
 </style>
+
+
