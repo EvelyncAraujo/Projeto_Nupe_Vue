@@ -44,6 +44,8 @@
       </card-component>
     </div>
   </template>
+
+  <style scoped></style>
   
  
   

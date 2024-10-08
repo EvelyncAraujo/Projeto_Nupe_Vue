@@ -54,7 +54,7 @@ export default {
   </nav>
 </template>
 
-<style>
+<style scoped>
 p {
   font-size: larger;
   color: black;

@@ -66,3 +66,4 @@ export default {
     </div>
   </section>
 </template>
+<style scoped></style>
