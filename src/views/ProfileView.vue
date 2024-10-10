@@ -10,39 +10,51 @@ export default {
         email: '',
         senha: '',
         confirmarSenha: ''
-      }
+      },
+      errorMessage: ''
     }
   },
   methods: {
     checkPasswords() {
+      // Verifica se as senhas correspondem
       if (this.form.senha === this.form.confirmarSenha) {
-        alert('Senhas correspondem!')
+        this.showToast();  // Exibe o toast se as senhas forem iguais
+        alert('Dados atualizados');
+        this.errorMessage = '';
       } else {
-        alert('As senhas não correspondem. Tente novamente.')
+        this.errorMessage = 'As senhas não correspondem. ';
       }
+    },
+    showToast() {
+      // Função para exibir o toast
+      var toast = document.getElementById('toast');
+      toast.className = 'toast show';
+      setTimeout(() => {
+        toast.className = toast.className.replace('show', '');
+      }, 3000);
     }
   }
 }
-</script>
 
+</script>
 <template>
   <div class="perfil-Info">
     <h1 class="atz">Atualizar dados institucionais</h1>
-    <form @submit.prevent="submitForm"></form>
-    <div class="forms">
-      <FormsProfileView />
-    </div>
+    <form @submit.prevent="checkPasswords">
+      <div class="forms">
+        <FormsProfileView />
+      </div>
 
-    <div class="perfil-aluno">
-      <h1 class="atz">Foto de perfil</h1>
-      <img src="/public/circuloImagem.jpeg" alt="Foto do Aluno" class="perfil-foto" />
-      <h2>{{ aluno.nome }}</h2>
-      <p><strong>Arquivo:</strong> {{ aluno.uploadfoto }}</p>
-    </div>
-    <!-- Seção de Cadastro -->
-    <div class="formulario-cadastro">
-      <h2>Cadastro</h2>
-      <form @submit.prevent="submitForm">
+      <div class="perfil-aluno">
+        <h1 class="atz">Foto de perfil</h1>
+        <img src="/public/circuloImagem.jpeg" alt="Foto do Aluno" class="perfil-foto" />
+        <h2>{{ aluno.nome }}</h2>
+        <p><strong>Arquivo:</strong> {{ aluno.uploadfoto }}</p>
+      </div>
+
+      <!-- Seção de Cadastro -->
+      <div class="formulario-cadastro">
+        <h2>Cadastro</h2>
         <div class="form-group">
           <label for="email">Email:</label>
           <input
@@ -73,12 +85,14 @@ export default {
             required
           />
         </div>
+        <div id="toast" class="toast">Ação confirmada!</div>
         <button type="submit">Confirmar</button>
         <p v-if="errorMessage" class="error">{{ errorMessage }}</p>
-      </form>
-    </div>
+      </div>
+    </form>
   </div>
 </template>
+
 
 <style scoped>
 .perfil-aluno {
@@ -159,7 +173,7 @@ h1 {
 }
 
 button {
-  width: 100%;
+  width: 50%;
   padding: 10px;
   border: none;
   border-radius: 4px;
@@ -173,13 +187,57 @@ button:hover {
   background-color: #176327;
 }
 
-.error {
+/* .error {
   color: #dc3545;
   font-size: 14px;
-}
+}  */
 .atz {
   text-align: center;
   color: black;
   font-size: larger;
+}
+.toast {
+  visibility: hidden;
+  min-width: 250px;
+  margin-left: -125px;
+  background-color: #838383;
+  color: #fff;
+  text-align: center;
+  border-radius: 5px;
+  padding: 16px;
+  position: fixed;
+  z-index: 1;
+  left: 50%;
+  bottom: 30px;
+  font-size: 17px;
+}
+
+.toast.show {
+  visibility: visible;
+  animation:
+    fadein 0.5s,
+    fadeout 0.5s 2.5s;
+}
+
+@keyframes fadein {
+  from {
+    bottom: 0;
+    opacity: 0;
+  }
+  to {
+    bottom: 30px;
+    opacity: 1;
+  }
+}
+
+@keyframes fadeout {
+  from {
+    bottom: 30px;
+    opacity: 1;
+  }
+  to {
+    bottom: 0;
+    opacity: 0;
+  }
 }
 </style>
