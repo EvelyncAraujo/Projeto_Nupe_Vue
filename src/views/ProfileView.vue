@@ -18,24 +18,30 @@ export default {
     checkPasswords() {
       // Verifica se as senhas correspondem
       if (this.form.senha === this.form.confirmarSenha) {
-        this.showToast();  // Exibe o toast se as senhas forem iguais
-        alert('Dados atualizados');
-        this.errorMessage = '';
+        this.showToast() // Exibe o toast se as senhas forem iguais
+        alert('Dados atualizados')
+        this.errorMessage = ''
       } else {
-        this.errorMessage = 'As senhas não correspondem. ';
+        this.errorMessage = 'As senhas não correspondem. '
       }
     },
     showToast() {
       // Função para exibir o toast
-      var toast = document.getElementById('toast');
-      toast.className = 'toast show';
+      var toast = document.getElementById('toast')
+      toast.className = 'toast show'
       setTimeout(() => {
-        toast.className = toast.className.replace('show', '');
-      }, 3000);
+        toast.className = toast.className.replace('show', '')
+      }, 3000)
+    },
+    methods: {
+      upload(e) {
+        e.preventDefault()
+        var files = e.target.files
+        this.record.file = files[0]
+      }
     }
   }
 }
-
 </script>
 <template>
   <div class="perfil-Info">
@@ -49,7 +55,7 @@ export default {
         <h1 class="atz">Foto de perfil</h1>
         <img src="/public/circuloImagem.jpeg" alt="Foto do Aluno" class="perfil-foto" />
         <h2>{{ aluno.nome }}</h2>
-        <p><strong>Arquivo:</strong> {{ aluno.uploadfoto }}</p>
+        <p><input @change="upload" type="file" class="arqv"/></p>
       </div>
 
       <!-- Seção de Cadastro -->
@@ -93,7 +99,6 @@ export default {
   </div>
 </template>
 
-
 <style scoped>
 .perfil-aluno {
   max-width: 600px;
@@ -120,7 +125,9 @@ export default {
   object-fit: cover;
   margin-bottom: 20px;
 }
-
+.arqv{
+border-bottom: none;
+}
 h1 {
   text-align: left;
   font-size: larger;
