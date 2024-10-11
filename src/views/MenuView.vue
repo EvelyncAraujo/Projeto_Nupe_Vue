@@ -1,4 +1,4 @@
-<script>
+<script     >
 export default {
   data() {
     return {
@@ -40,66 +40,220 @@ export default {
 </script>
 
 <template>
-  <nav class="menu">
-    <ul>
+    <nav class="menu-hamburger">
+
+<input id="menu-hamburguer" type="checkbox" />
+<label for="menu-hamburguer">
+    <div class="menu">
+        <span class="hamburguer"></span>
+    </div>
+</label>
+   
+<ul class="menu-hamburguer-elements show">
       <p>NupeOnline</p>
       <li v-for="item in menuItems" :key="item.text">
         <a :href="item.link">{{ item.text }}</a>
       </li>
     </ul>
-    <span @click="toggleDarkMode">
+    <span @click="toggleDarkMode" class="toggleTheme">
       <img src="@/assets/favicon_io/favicon-32x32.png" alt="">
     </span>
  
   </nav>
+  
 </template>
 
 <style scoped>
-p {
-  font-size: larger;
-  color: black;
-  font-weight: bolder;
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+    background-color:  #325c32a9;
+} 
+
+
+.toggleTheme, p, li, a, ul, img {
+  background-color: transparent;
 }
+
+
+
+body{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #ffffff;
+} 
+
+.dark-mode {
+  background-color: rgb(255, 0, 0);
+}
+
+header{
+    width: 100%;
+    height: 10%;
+    display: flex;
+    
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: #325c32a9;
+    background-color:  rgba(23, 23, 23, .4);
+}
+
+.menu-hamburger{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.menu-hamburguer-elements{
+    display: flex;
+    width: 80%;
+    height: 10vh;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.menu-hamburguer-elements li{
+    list-style: none;
+    font-size: 1.4rem;
+    margin: 2rem 0;
+    font-size: 1.4rem;
+    list-style: none;
+}
+
+.menu-hamburguer-elements a{
+    color:black;
+    text-decoration: none;
+    
+}
+
+.menu-hamburguer-elements a:hover{
+    color: rgba(20,20,20,.8);
+    text-decoration: underline;
+    
+}
+
+
+/* BOTÃO MENU HAMBURGUER */
 .menu {
-  background-color: #325c32a9;
-  padding: 10px;
-}
-
-.menu ul {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  gap: 6rem;
-  margin-left: 15rem;
-}
-
-.menu li {
-  margin-right: 20px;
-}
-
-.menu a {
-  color: rgb(0, 0, 0);
-  text-decoration: none;
-}
-
-.menu a:hover {
-  text-decoration: underline;
+    background-color: #325c32a9;;
+    width: 60px;
+    height: 60px;
+    margin: 1rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    display: none;
+    position: relative;
 
 }
-body {
-  background-color: #ffffff;
-  margin: 0;
-  height: 100vh;
+    
+
+  
+.hamburguer {
+    position:sticky;
+    display: block;
+    background: #fff;
+    width: 30px;
+    height: 2px;
+    top: 29px;
+    left: 15px;
+    transition: 0.5s ease-in-out;
 }
-body.dark-mode {
-  background-color: #121212f1;
-
-
+  
+.hamburguer:before,
+.hamburguer:after {
+    background: #ffff;
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transition: 0.5s ease-in-out;
+}
+  
+.hamburguer:before {
+    top: -10px;
+}
+  
+.hamburguer:after {
+    bottom: -10px;
+}
+  
+input {
+    display: none;
 }
 
-span{
-  margin-left: 105rem;
+/* rotação dos elementos do span */
+input:checked ~ label .hamburguer {
+    transform: rotate(45deg);
+}
+
+input:checked ~ label .hamburguer:before {
+    transform: rotate(90deg);
+    top: 0;
+}
+  
+input:checked ~ label .hamburguer:after {
+    transform: rotate(90deg);
+    bottom: 0;
+}
+
+input:checked ~ .menu-hamburguer-elements{
+    left: 0;
+}
+
+/* ATIVANDO O BOTÃO HAMBURGUER QUANDO O TAMANHO DA TELA ATINGIR 600PX */
+@media (max-width: 600px){
+    
+    header{
+        height: 20%;
+    }
+
+    .menu-hamburguer-elements a:hover{
+        color: rgb(214, 161, 214);
+    }
+    
+    .menu-hamburger{
+        display: flex;
+        width: auto;
+        flex-direction: column;
+        align-self: flex-start;
+        overflow: auto;
+        z-index: 1;
+        color: white
+    }
+
+    .menu-hamburguer-elements{
+        width: 60%;
+        height: 100%;
+        background-color: rgba(10,10,10,.9);
+        position: fixed;
+        left: -60%;
+        top: 0;
+    
+        transition: left cubic-bezier(1,0,0,1) .8s;
+        
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+    
+        padding-top: 15vh;
+    
+        z-index: -1;
+    }
+
+    .menu{
+        display: flex;
+        height: 60px;
+        width: 60px;
+        background-color:  #325c32a9;;
+    }
 
 }
 
