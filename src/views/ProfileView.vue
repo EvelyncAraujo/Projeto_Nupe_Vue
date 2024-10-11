@@ -18,8 +18,7 @@ export default {
     checkPasswords() {
       // Verifica se as senhas correspondem
       if (this.form.senha === this.form.confirmarSenha) {
-        this.showToast() // Exibe o toast se as senhas forem iguais
-        alert('Dados atualizados')
+        this.showToast()    
         this.errorMessage = ''
       } else {
         this.errorMessage = 'As senhas não correspondem. '
@@ -35,10 +34,11 @@ export default {
     },
     methods: {
       upload(e) {
-        e.preventDefault()
+        e.preventDefault()  
         var files = e.target.files
         this.record.file = files[0]
       }
+      
     }
   }
 }
