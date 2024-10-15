@@ -80,9 +80,7 @@ h2 {
   display: block;
   margin: 0px auto;
 }
- .dark-mode h1, .dark-mode h2, .dark-mode .infoAluno, .dark-mode a{
-  color: #f1f1f1;
-}
+
 a{
  margin-left: 7rem;
 }

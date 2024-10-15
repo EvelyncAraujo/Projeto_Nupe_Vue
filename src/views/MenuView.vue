@@ -1,53 +1,28 @@
-<script>
-export default {
-  data() {
-    return {
-      menuItems: [
-      
-        { text: 'Estudante ', link: '/student' },
-        { text: 'Setor', link: '/sector' },
-        { text: 'Atendimento', link: '/atendimento' },
-        { text: 'Campus', link: '/campus' },
-        { text: 'Instituição', link: '/instituicao' },
-        { text: 'Razões Atendimento', link: '/razoes'},
-        { text: 'Perfil Aluno', link: '/perfil'}
-      ],
-     isDarkMode: false 
-    }
-  },
-  mounted() {
-    const savedTheme = localStorage.getItem('darkMode');
-    if (savedTheme) {
-      this.isDarkMode = savedTheme === 'true';
-      this.applyTheme(); 
-    }
-  },
-  methods: {
-    applyTheme() {
-      if (this.isDarkMode) {
-        document.body.classList.add('dark-mode');
-      } else {
-        document.body.classList.remove('dark-mode');
-      }
-    },
-    toggleDarkMode() {
-      this.isDarkMode = !this.isDarkMode;
-      localStorage.setItem('darkMode', this.isDarkMode);
-      this.applyTheme();
-    }
-  }
-}
+<script setup>
+  import { useTemplateStore } from '@/stores/template.js'
+
+  const menuItems =  [    
+    { text: 'Estudante ', link: '/student' },
+    { text: 'Setor', link: '/sector' },
+    { text: 'Atendimento', link: '/atendimento' },
+    { text: 'Campus', link: '/campus' },
+    { text: 'Instituição', link: '/instituicao' },
+    { text: 'Razões Atendimento', link: '/razoes'},
+    { text: 'Perfil Aluno', link: '/perfil'}
+  ]
+  
+  const templateStore = useTemplateStore()
 </script>
 
 <template>
   <nav class="menu">
+    <p>NupeOnline</p>
     <ul>
-      <p>NupeOnline</p>
       <li v-for="item in menuItems" :key="item.text">
-        <a :href="item.link">{{ item.text }}</a>
+        <router-link :to="item.link">{{ item.text }}</router-link>
       </li>
     </ul>
-    <span @click="toggleDarkMode">
+    <span @click="templateStore.toggleDarkMode">
       <img src="@/assets/favicon_io/favicon-32x32.png" alt="">
     </span>
  
@@ -62,7 +37,12 @@ p {
 }
 .menu {
   background-color: #325c32a9;
-  padding: 10px;
+  padding: 25px 5px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  /* font-size: 1.2rem; */
 }
 
 .menu ul {
@@ -71,7 +51,7 @@ p {
   margin: 0;
   display: flex;
   gap: 6rem;
-  margin-left: 15rem;
+  /* margin-left: 15rem; */
 }
 
 .menu li {
@@ -87,20 +67,9 @@ p {
   text-decoration: underline;
 
 }
-body {
-  background-color: #ffffff;
-  margin: 0;
-  height: 100vh;
-}
-body.dark-mode {
-  background-color: #121212f1;
-
-
-}
-
-span{
+/* span{
   margin-left: 105rem;
 
-}
+} */
 
 </style>
