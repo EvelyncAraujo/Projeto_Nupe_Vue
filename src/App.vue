@@ -26,7 +26,7 @@ const esconderMenu = computed(() => route.name === 'login')
 }
 
 .dark-mode {
-  background-color: rgb(19, 17, 17);
+  background-color: rgba(7, 7, 7, 0.849);
 }
 
 .dark-mode h1, .dark-mode h2, .dark-mode .infoAluno, .dark-mode a{

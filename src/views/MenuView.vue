@@ -1,19 +1,18 @@
 <script setup>
-  import { useTemplateStore } from '@/stores/template.js'
+import { useTemplateStore } from '@/stores/template.js'
 
-  const menuItems =  [    
-    { text: 'Estudante ', link: '/student' },
-    { text: 'Setor', link: '/sector' },
-    { text: 'Atendimento', link: '/atendimento' },
-    { text: 'Campus', link: '/campus' },
-    { text: 'Instituição', link: '/instituicao' },
-    { text: 'Razões Atendimento', link: '/razoes'},
-    { text: 'Perfil Aluno', link: '/perfil'}
-  ]
-  
-  const templateStore = useTemplateStore()
+const menuItems = [
+  { text: 'Estudante ', link: '/student' },
+  { text: 'Setor', link: '/sector' },
+  { text: 'Atendimento', link: '/atendimento' },
+  { text: 'Campus', link: '/campus' },
+  { text: 'Instituição', link: '/instituicao' },
+  { text: 'Razões Atendimento', link: '/razoes' },
+  { text: 'Perfil Aluno', link: '/perfil' }
+]
+
+const templateStore = useTemplateStore()
 </script>
-
 <template>
   <nav class="menu">
     <p>NupeOnline</p>
@@ -23,9 +22,9 @@
       </li>
     </ul>
     <span @click="templateStore.toggleDarkMode">
-      <img src="@/assets/favicon_io/favicon-32x32.png" alt="">
+      <img src="@/assets/favicon_io/favicon-32x32.png" alt="" />
     </span>
- 
+   
   </nav>
 </template>
 
@@ -65,11 +64,9 @@ p {
 
 .menu a:hover {
   text-decoration: underline;
-
 }
 /* span{
   margin-left: 105rem;
 
 } */
-
 </style>
