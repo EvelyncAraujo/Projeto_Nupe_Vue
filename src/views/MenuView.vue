@@ -12,6 +12,7 @@ const menuItems = [
 ]
 
 const templateStore = useTemplateStore()
+
 </script>
 <template>
   <nav class="menu">
@@ -26,6 +27,7 @@ const templateStore = useTemplateStore()
     </span>
    
   </nav>
+
 </template>
 
 <style scoped>

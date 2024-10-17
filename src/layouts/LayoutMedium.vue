@@ -1,23 +1,23 @@
 <script setup>
-  import MediumHeader from '@/components/templates/medium/MediumHeader.vue';
+  // import MediumHeader from '@/components/templates/medium/MediumHeader.vue';
   import MediumAside from '@/components/templates/medium/MediumAside.vue';
-  import MediumFooter from '@/components/templates/medium/MediumFooter.vue';
+  // import MediumFooter from '@/components/templates/medium/MediumFooter.vue';
 </script>
 
 <template>
   <div id="layout-medium">
-    <header>
+    <!-- <header>
       <medium-header />
-    </header>
+    </header> -->
     <aside>
       <medium-aside />
     </aside>
     <main>
       <router-view />
     </main>
-    <footer>
+    <!-- <footer>
       <medium-footer />
-    </footer>
+    </footer> -->
   </div>
 </template>
 
@@ -43,7 +43,7 @@ header {
 
 aside {
   border-right: #eeeeee 1px solid;
-  box-shadow: 0 0 10px 0 #eeeeee;
+  box-shadow: 0 0 10px 0 #742020;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
