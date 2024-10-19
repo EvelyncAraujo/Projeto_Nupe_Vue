@@ -16,17 +16,14 @@ export default {
   },
   methods: {
     checkPasswords() {
-      // Verifica se as senhas correspondem
       if (this.form.senha === this.form.confirmarSenha) {
-        this.showToast() // Exibe o toast se as senhas forem iguais
-        alert('Dados atualizados')
+        this.showToast()    
         this.errorMessage = ''
       } else {
         this.errorMessage = 'As senhas não correspondem. '
       }
     },
     showToast() {
-      // Função para exibir o toast
       var toast = document.getElementById('toast')
       toast.className = 'toast show'
       setTimeout(() => {
@@ -35,10 +32,11 @@ export default {
     },
     methods: {
       upload(e) {
-        e.preventDefault()
+        e.preventDefault()  
         var files = e.target.files
         this.record.file = files[0]
       }
+      
     }
   }
 }
@@ -58,7 +56,6 @@ export default {
         <p><input @change="upload" type="file" class="arqv"/></p>
       </div>
 
-      <!-- Seção de Cadastro -->
       <div class="formulario-cadastro">
         <h2>Cadastro</h2>
         <div class="form-group">
@@ -207,7 +204,7 @@ button:hover {
   visibility: hidden;
   min-width: 250px;
   margin-left: -125px;
-  background-color: #838383;
+  background-color: #176327;
   color: #fff;
   text-align: center;
   border-radius: 5px;

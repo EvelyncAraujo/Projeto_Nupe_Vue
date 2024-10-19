@@ -35,7 +35,7 @@
     <title-bar :title-stack="titleStack" />
 
     <hero-bar>
-      Gerenciamento de Campus
+    <h1>Gerenciamento de Campus</h1> 
       <template v-slot:right>
         <b-button
           v-if="!creating.value && !editing.value"
@@ -67,6 +67,5 @@
 
 
 <style scoped>
-
 
 </style>

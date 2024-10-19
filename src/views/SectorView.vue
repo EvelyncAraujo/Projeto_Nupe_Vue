@@ -1,30 +1,30 @@
-<script >
-import { ref } from "vue";
-import ListSector from "@/components/register/Sector/ListSector";
-import CreateSector from "@/components/register/Sector/CreateSector";
-import SelectSector from "@/components/register/Sector/SelectSector";
+<script>
+import { ref } from 'vue'
+import ListSector from '@/components/register/Sector/ListSector'
+import CreateSector from '@/components/register/Sector/CreateSector'
+import SelectSector from '@/components/register/Sector/SelectSector'
 
 export default {
   components: { ListSector, CreateSector, SelectSector },
   setup() {
-    const editing = ref(false);
-    const currentSector = ref({});
-    const creating = ref(false);
-    const value = ref("");
+    const editing = ref(false)
+    const currentSector = ref({})
+    const creating = ref(false)
+    const value = ref('')
 
     const createSector = (val) => {
-      creating.value = val;
-    };
+      creating.value = val
+    }
 
     const editSector = (sector) => {
-      editing.value = true;
-      currentSector.value = sector;
-    };
+      editing.value = true
+      currentSector.value = sector
+    }
 
     const cancelEdit = () => {
-      editing.value = false;
-      currentSector.value = {};
-    };
+      editing.value = false
+      currentSector.value = {}
+    }
 
     return {
       editing,
@@ -33,10 +33,10 @@ export default {
       value,
       createSector,
       editSector,
-      cancelEdit,
-    };
-  },
-};
+      cancelEdit
+    }
+  }
+}
 </script>
 
 <template>
