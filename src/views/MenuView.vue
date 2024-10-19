@@ -44,9 +44,12 @@ export default {
 
 <input id="menu-hamburguer" type="checkbox" />
 <label for="menu-hamburguer">
+    <h1 class="mobile"> NupeOnline</h1>
     <div class="menu">
         <span class="hamburguer"></span>
+       
     </div>
+     
 </label>
    
 <ul class="menu-hamburguer-elements show">
@@ -54,10 +57,13 @@ export default {
       <li v-for="item in menuItems" :key="item.text">
         <a :href="item.link">{{ item.text }}</a>
       </li>
-    </ul>
+   
+    </ul> 
+   
     <span @click="toggleDarkMode" class="toggleTheme">
       <img src="@/assets/favicon_io/favicon-32x32.png" alt="">
     </span>
+  
  
   </nav>
   
@@ -74,10 +80,22 @@ export default {
 } 
 
 
-.toggleTheme, p, li, a, ul, img {
+.toggleTheme, p, li, a, ul, img, span{
+  background-color: transparent;
+  font-size: large;
+  
+
+  
+}
+.toggleTheme,p{
+  font-weight: bold;
+  color: black;
+}
+.toggleTheme,h1{
+  font-weight: bold;
+  color:transparent;
   background-color: transparent;
 }
-
 
 
 body{
@@ -89,7 +107,7 @@ body{
 } 
 
 .dark-mode {
-  background-color: rgb(255, 0, 0);
+  background-color:black;
 }
 
 header{
@@ -106,16 +124,18 @@ header{
 
 .menu-hamburger{
     width: 100%;
+   
     display: flex;
-    justify-content: center;
-}
+    justify-content:baseline;
 
+}
 .menu-hamburguer-elements{
     display: flex;
     width: 80%;
     height: 10vh;
     justify-content: space-around;
-    align-items: center;
+    align-items:baseline;
+   
 }
 
 .menu-hamburguer-elements li{
@@ -124,31 +144,37 @@ header{
     margin: 2rem 0;
     font-size: 1.4rem;
     list-style: none;
+    align-items: baseline;
+
 }
 
 .menu-hamburguer-elements a{
     color:black;
     text-decoration: none;
+    align-items: baseline;
     
 }
 
 .menu-hamburguer-elements a:hover{
-    color: rgba(20,20,20,.8);
+    color:#fff;
     text-decoration: underline;
+    
     
 }
 
 
 /* BOTÃO MENU HAMBURGUER */
 .menu {
-    background-color: #325c32a9;;
-    width: 60px;
-    height: 60px;
+
+    width: 40px;
+    height: 40px;
     margin: 1rem 1rem;
     border-radius: 5px;
     cursor: pointer;
     display: none;
     position: relative;
+    background-color: transparent;
+
 
 }
     
@@ -158,11 +184,13 @@ header{
     position:sticky;
     display: block;
     background: #fff;
-    width: 30px;
-    height: 2px;
+    width: 27px;
+    height: 1px;
     top: 29px;
     left: 15px;
     transition: 0.5s ease-in-out;
+    z-index: 2;
+ 
 }
   
 .hamburguer:before,
@@ -174,6 +202,7 @@ header{
     height: 100%;
     position: absolute;
     transition: 0.5s ease-in-out;
+
 }
   
 .hamburguer:before {
@@ -215,9 +244,22 @@ input:checked ~ .menu-hamburguer-elements{
     }
 
     .menu-hamburguer-elements a:hover{
-        color: rgb(214, 161, 214);
+        color:darkgreen
     }
+    .menu-hamburguer-elements a{
+      color: #ffffff;;
+    }
+    .menu-hamburguer-elements p{
+      color: darkgreen;
+    }
+    .mobile{
+      color:black;
+      text-align:center;
+      font-size: 30px;
+      text-decoration: solid;
     
+   
+    }
     .menu-hamburger{
         display: flex;
         width: auto;
@@ -229,30 +271,31 @@ input:checked ~ .menu-hamburguer-elements{
     }
 
     .menu-hamburguer-elements{
-        width: 60%;
+        width: 50%;
         height: 100%;
-        background-color: rgba(10,10,10,.9);
-        position: fixed;
-        left: -60%;
-        top: 0;
+        background-color:rgba(0, 0, 0, 0.808);
+        position:absolute;
+        left: -50%;
+        top: 10;
     
         transition: left cubic-bezier(1,0,0,1) .8s;
         
         display: flex;
-        align-items: center;
+        align-items:normal;
         flex-direction: column;
         justify-content: center;
     
-        padding-top: 15vh;
+        padding-top: 25vh;
     
-        z-index: -1;
+        z-index: 1;
+        color: #ffffff;
     }
 
     .menu{
         display: flex;
-        height: 60px;
+        height: 20px;
         width: 60px;
-        background-color:  #325c32a9;;
+     
     }
 
 }
