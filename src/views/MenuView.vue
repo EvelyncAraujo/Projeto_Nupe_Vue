@@ -1,5 +1,6 @@
 <script setup>
-import { useTemplateStore } from '@/stores/template.js'
+import { ref } from 'vue';
+import { useTemplateStore } from '@/stores/template.js';
 
 const menuItems = [
   { text: 'Estudante ', link: '/student' },
@@ -9,15 +10,23 @@ const menuItems = [
   { text: 'Instituição', link: '/instituicao' },
   { text: 'Razões Atendimento', link: '/razoes' },
   { text: 'Perfil Aluno', link: '/perfil' }
-]
+];
 
-const templateStore = useTemplateStore()
+const isMenuOpen = ref(false);
 
+const toggleMenu = () => {
+  isMenuOpen.value = !isMenuOpen.value;
+};
+const templateStore = useTemplateStore();
 </script>
+
 <template>
   <nav class="menu">
     <p>NupeOnline</p>
-    <ul>
+    <button class="hamburger" @click="toggleMenu">
+      ☰
+    </button>
+    <ul :class="{ 'menu-open': isMenuOpen }">
       <li v-for="item in menuItems" :key="item.text">
         <router-link :to="item.link">{{ item.text }}</router-link>
       </li>
@@ -25,12 +34,11 @@ const templateStore = useTemplateStore()
     <span @click="templateStore.toggleDarkMode">
       <img src="@/assets/favicon_io/favicon-32x32.png" alt="" />
     </span>
-   
   </nav>
-
 </template>
 
 <style scoped>
+
 p {
   font-size: larger;
   color: black;
@@ -42,8 +50,7 @@ p {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-around;
-  /* font-size: 1.2rem; */
+  justify-content: space-between;
 }
 
 .menu ul {
@@ -51,8 +58,7 @@ p {
   padding: 0;
   margin: 0;
   display: flex;
-  gap: 6rem;
-  /* margin-left: 15rem; */
+  gap: 2rem;
 }
 
 .menu li {
@@ -67,8 +73,59 @@ p {
 .menu a:hover {
   text-decoration: underline;
 }
-/* span{
-  margin-left: 105rem;
 
-} */
+/* Botão de menu sanduíche (hambúrguer) */
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  position: fixed;
+
+}
+
+/* Estilo responsivo */
+@media (max-width: 768px) {
+  .menu {
+    justify-content:space-around;
+  }
+
+  /* Esconde o menu padrão em telas menores */
+  .menu ul {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    background-color: #325c32a9;
+    padding: 1rem;
+  }
+
+  /* Estilos para exibir o menu quando aberto */
+  .menu ul.menu-open {
+    display: flex;
+    background-color: rgba(5, 119, 53, 0.397);
+    opacity: 1;
+    overflow-x: hidden;
+    
+  
+  }
+
+  /* Exibe o botão de menu sanduíche */
+  .hamburger {
+    display: block;
+  }
+
+  /* Estilo de lista no modo sanduíche */
+  .menu li {
+    margin: 1.5rem 0;
+    text-align: center;
+
+  }
+
+  .menu a {
+    font-size: 1.2rem;
+  }
+}
 </style>
