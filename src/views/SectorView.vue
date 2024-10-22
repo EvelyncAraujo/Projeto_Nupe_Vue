@@ -40,12 +40,26 @@ export default {
 </script>
 
 <template>
-  <section class="section is-main-section">
-    <div class="is-vcentered">
-      <select-sector v-if="editing" :sector="currentSector" @cancelEdit="cancelEdit" />
-      <create-sector v-else-if="creating" @createSector="createSector"></create-sector>
-      <list-sector v-else @createSector="createSector" :value="value" @editSector="editSector" />
-    </div>
-  </section>
-</template>
-<style scoped></style>
+    <section class="section is-main-section">
+      <div class="is-vcentered">
+        <select-sector
+          v-if="editing"
+          :sector="currentSector"
+          @cancelEdit="cancelEdit"
+        />
+        <create-sector
+          v-else-if="creating"
+          @createSector="createSector"
+        ></create-sector>
+        <list-sector
+          v-else
+          @createSector="createSector"
+          :value="value"
+          @editSector="editSector"
+        />
+      </div>
+    </section>
+  </template>
+<style scoped>
+
+</style>
