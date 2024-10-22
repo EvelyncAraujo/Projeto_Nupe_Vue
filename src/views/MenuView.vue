@@ -1,5 +1,6 @@
 <script setup>
-import { useTemplateStore } from '@/stores/template.js'
+import { ref } from 'vue';
+import { useTemplateStore } from '@/stores/template.js';
 
 const menuItems = [
   { text: 'Estudante ', link: '/student' },
@@ -9,11 +10,16 @@ const menuItems = [
   { text: 'Instituição', link: '/instituicao' },
   { text: 'Razões Atendimento', link: '/razoes' },
   { text: 'Perfil Aluno', link: '/perfil' }
-]
+];
 
-const templateStore = useTemplateStore()
+const isMenuOpen = ref(false);
 
+const toggleMenu = () => {
+  isMenuOpen.value = !isMenuOpen.value;
+};
+const templateStore = useTemplateStore();
 </script>
+
 <template>
     <nav class="menu-hamburger">
 
@@ -36,9 +42,7 @@ const templateStore = useTemplateStore()
     <span @click="templateStore.toggleDarkMode">
       <img src="@/assets/favicon_io/favicon-32x32.png" alt="" />
     </span>
-   
   </nav>
-
 </template>
 
 <style scoped>
