@@ -1,6 +1,6 @@
 <script setup>
-import { ref } from 'vue';
-import { useTemplateStore } from '@/stores/template.js';
+import { ref } from 'vue'
+import { useTemplateStore } from '@/stores/template.js'
 
 const menuItems = [
   { text: 'Estudante ', link: '/student' },
@@ -10,30 +10,27 @@ const menuItems = [
   { text: 'Instituição', link: '/instituicao' },
   { text: 'Razões Atendimento', link: '/razoes' },
   { text: 'Perfil Aluno', link: '/perfil' }
-];
+]
 
-const isMenuOpen = ref(false);
+const isMenuOpen = ref(false)
 
 const toggleMenu = () => {
-  isMenuOpen.value = !isMenuOpen.value;
-};
-const templateStore = useTemplateStore();
+  isMenuOpen.value = !isMenuOpen.value
+}
+const templateStore = useTemplateStore()
 </script>
 
 <template>
-    <nav class="menu-hamburger">
-
-<input id="menu-hamburguer" type="checkbox" />
-<label for="menu-hamburguer">
-    <h1 class="mobile"> NupeOnline</h1>
-    <div class="menu">
+  <nav class="menu-hamburger">
+    <input id="menu-hamburguer" type="checkbox" />
+    <label for="menu-hamburguer">
+      <!-- <h1 class="mobile">NupeOnline</h1> -->
+      <div class="menu">
         <span class="hamburguer"></span>
-       
-    </div>
-     
-</label>
-   
-<ul class="menu-hamburguer-elements show">
+      </div>
+    </label>
+
+    <ul class="menu-hamburguer-elements show">
       <p>NupeOnline</p>
       <li v-for="item in menuItems" :key="item.text">
         <router-link :to="item.link">{{ item.text }}</router-link>
@@ -47,232 +44,217 @@ const templateStore = useTemplateStore();
 
 <style scoped>
 
+
 * {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    box-sizing: border-box;
-    background-color:  #325c32a9;
-} 
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  background-color: #325c32;
+}
 
-
-.toggleTheme, p, li, a, ul, img, span{
+.toggleTheme,
+p,
+li,
+a,
+ul,
+img,
+span {
   background-color: transparent;
   font-size: large;
-  
-
-  
 }
-.toggleTheme,p{
+.toggleTheme,
+p {
   font-weight: bold;
   color: black;
 }
-.toggleTheme,h1{
+.toggleTheme,
+h1 {
   font-weight: bold;
-  color:transparent;
+  color: transparent;
   background-color: transparent;
 }
 
-
-body{
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: #ffffff;
-} 
+body {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #ffffff;
+}
 
 .dark-mode {
-  background-color:black;
+  background-color: black;
 }
 
-header{
-    width: 100%;
-    height: 10%;
-    display: flex;
-    
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    color: #325c32a9;
-    background-color:  rgba(23, 23, 23, .4);
+header {
+  width: 100%;
+  height: 10%;
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: #325c32a9;
+  background-color: rgba(23, 23, 23, 0.4);
 }
 
-.menu-hamburger{
-    width: 100%;
-   
-    display: flex;
-    justify-content:baseline;
+.menu-hamburger {
+  width: 100%;
 
+  display: flex;
+  justify-content: baseline;
 }
-.menu-hamburguer-elements{
-    display: flex;
-    width: 80%;
-    height: 10vh;
-    justify-content: space-around;
-    align-items:baseline;
-   
+.menu-hamburguer-elements {
+  display: flex;
+  width: 80%;
+  height: 10vh;
+  justify-content: space-around;
+  align-items: baseline;
 }
 
-.menu-hamburguer-elements li{
-    list-style: none;
-    font-size: 1.4rem;
-    margin: 2rem 0;
-    font-size: 1.4rem;
-    list-style: none;
-    align-items: baseline;
-
+.menu-hamburguer-elements li {
+  list-style: none;
+  font-size: 1.4rem;
+  margin: 2rem 0;
+  font-size: 1.4rem;
+  list-style: none;
+  align-items: baseline;
 }
 
-.menu-hamburguer-elements a{
-    color:black;
-    text-decoration: none;
-    align-items: baseline;
-    
+.menu-hamburguer-elements a {
+  color: black;
+  text-decoration: none;
+  align-items: baseline;
 }
 
-.menu-hamburguer-elements a:hover{
-    color:#fff;
-    text-decoration: underline;
-    
-    
+.menu-hamburguer-elements a:hover {
+  color: #fff;
+  text-decoration: underline;
 }
-
 
 /* BOTÃO MENU HAMBURGUER */
 .menu {
-
-    width: 40px;
-    height: 40px;
-    margin: 1rem 1rem;
-    border-radius: 5px;
-    cursor: pointer;
-    display: none;
-    position: relative;
-    background-color: transparent;
-
-
+  width: 40px;
+  height: 40px;
+  margin: 1rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  display: none;
+  position: relative;
+  background-color: transparent;
 }
-    
 
-  
 .hamburguer {
-    position:sticky;
-    display: block;
-    background: #fff;
-    width: 27px;
-    height: 1px;
-    top: 29px;
-    left: 15px;
-    transition: 0.5s ease-in-out;
-    z-index: 2;
- 
+  position: sticky;
+  display: block;
+  background: #fff;
+  width: 27px;
+  height: 1px;
+  top: 29px;
+  left: 15px;
+  transition: 0.5s ease-in-out;
+  z-index: 2;
 }
-  
+
 .hamburguer:before,
 .hamburguer:after {
-    background: #ffff;
-    content: '';
-    display: block;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    transition: 0.5s ease-in-out;
+  background: #ffff;
+  content: '';
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transition: 0.5s ease-in-out;
+}
 
-}
-  
 .hamburguer:before {
-    top: -10px;
+  top: -10px;
 }
-  
+
 .hamburguer:after {
-    bottom: -10px;
+  bottom: -10px;
 }
-  
+
 input {
-    display: none;
+  display: none;
 }
 
 /* rotação dos elementos do span */
 input:checked ~ label .hamburguer {
-    transform: rotate(45deg);
+  transform: rotate(45deg);
 }
 
 input:checked ~ label .hamburguer:before {
-    transform: rotate(90deg);
-    top: 0;
-}
-  
-input:checked ~ label .hamburguer:after {
-    transform: rotate(90deg);
-    bottom: 0;
+  transform: rotate(90deg);
+  top: 0;
 }
 
-input:checked ~ .menu-hamburguer-elements{
-    left: 0;
+input:checked ~ label .hamburguer:after {
+  transform: rotate(90deg);
+  bottom: 0;
+}
+
+input:checked ~ .menu-hamburguer-elements {
+  left: 0;
 }
 
 /* ATIVANDO O BOTÃO HAMBURGUER QUANDO O TAMANHO DA TELA ATINGIR 600PX */
-@media (max-width: 600px){
-    
-    header{
-        height: 20%;
-    }
+@media (max-width: 600px) {
+  header {
+    height: 20%;
+  }
 
-    .menu-hamburguer-elements a:hover{
-        color:darkgreen
-    }
-    .menu-hamburguer-elements a{
-      color: #ffffff;;
-    }
-    .menu-hamburguer-elements p{
-      color: darkgreen;
-    }
-    .mobile{
-      color:black;
-      text-align:center;
-      font-size: 30px;
-      text-decoration: solid;
-    
-   
-    }
-    .menu-hamburger{
-        display: flex;
-        width: auto;
-        flex-direction: column;
-        align-self: flex-start;
-        overflow: auto;
-        z-index: 1;
-        color: white
-    }
+  .menu-hamburguer-elements a:hover {
+    color: darkgreen;
+  }
+  .menu-hamburguer-elements a {
+    color: #ffffff;
+  }
+  .menu-hamburguer-elements p {
+    color: darkgreen;
+  }
+  .mobile {
+    color: black;
+    text-align: center;
+    font-size: 30px;
+    text-decoration: solid;
+  }
+  .menu-hamburger {
+    display: flex;
+    width: auto;
+    flex-direction: column;
+    align-self: flex-start;
+    overflow: auto;
+    z-index: 1;
+    color: white;
+  }
 
-    .menu-hamburguer-elements{
-        width: 50%;
-        height: 100%;
-        background-color:rgba(0, 0, 0, 0.808);
-        position:absolute;
-        left: -50%;
-        top: 10;
-    
-        transition: left cubic-bezier(1,0,0,1) .8s;
-        
-        display: flex;
-        align-items:normal;
-        flex-direction: column;
-        justify-content: center;
-    
-        padding-top: 25vh;
-    
-        z-index: 1;
-        color: #ffffff;
-    }
+  .menu-hamburguer-elements {
+    width: 50%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.808);
+    position: absolute;
+    left: -50%;
+    top: 10;
 
-    .menu{
-        display: flex;
-        height: 20px;
-        width: 60px;
-     
-    }
+    transition: left cubic-bezier(1, 0, 0, 1) 0.8s;
 
-} 
+    display: flex;
+    align-items: normal;
+    flex-direction: column;
+    justify-content: center;
+
+    padding-top: 25vh;
+
+    z-index: 1;
+    color: #ffffff;
+  }
+
+  .menu {
+    display: flex;
+    height: 20px;
+    width: 60px;
+  }
+}
 </style>
