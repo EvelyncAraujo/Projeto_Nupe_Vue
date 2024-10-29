@@ -15,7 +15,7 @@
     <p class="infoAluno">Status: Ativo</p>
     <p class="infoAluno">E-Mail:</p>
     <p class="infoAluno">Entrada:</p>
-    <a href="Perfil">atualizar dados</a>
+    <a href="Perfil">Atualizar dados</a>
     
   </div>
 

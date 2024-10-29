@@ -33,7 +33,7 @@
       <b-field>
         <b-field class="columns">
           <div class="column is-one-half">
-            <b-button native-type="submit" class="is-primary" expanded
+            <b-button @click="goLogin" native-type="submit" class="is-primary" expanded
               >Login</b-button
             >
           </div>
@@ -50,6 +50,8 @@
 </template>
 
 <script>
+import { useRouter } from 'vue-router';
+
 export default {
   data() {
     return {
@@ -59,6 +61,18 @@ export default {
       },
     };
   },
+  
+  setup(){
+    const router = useRouter();
+
+    const goLogin = () => {
+      router.push('/student');
+    };
+    return {
+      goLogin,
+    };
+  },
+
   computed: {
     labelUsername() {
       return !this.user.username ? "" : "Usuário";
