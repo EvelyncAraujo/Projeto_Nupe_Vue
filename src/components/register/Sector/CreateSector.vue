@@ -9,7 +9,7 @@
           <b-icon icon="map-marker"></b-icon>
           Cadastrar setor
         </h3>
-        <form @submit="createSector">
+        <form @submit.prevent="createSector">
           <b-field label="Setor" :label-position="labelPosition">
             <b-input
               v-model="name"
@@ -64,6 +64,7 @@ export default {
   },
   methods: {
     async createSector() {
+      console.log('oioio')
       try {
         await this.$axios.$post("/api/v1/sector/", {
           name: this.name,
