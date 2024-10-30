@@ -32,8 +32,7 @@
                 autocomplete
               >
                 <template v-slot="props">
-                  <strong>{{ props.option.id }}</strong
-                  >: {{ props.option.full_name }}
+                  {{ props.option.full_name }}
                 </template>
               </b-taginput>
             </b-field>
