@@ -24,7 +24,7 @@ const templateStore = useTemplateStore()
   <nav class="menu-hamburger">
     <input id="menu-hamburguer" type="checkbox" />
     <label for="menu-hamburguer">
-      <!-- <h1 class="mobile">NupeOnline</h1> -->
+      <h1 class="mobile">NupeOnline</h1> 
       <div class="menu">
         <span class="hamburguer"></span>
       </div>
@@ -43,8 +43,17 @@ const templateStore = useTemplateStore()
 </template>
 
 <style scoped>
+@font-face {
+    font-family: 'Oxygen';
+    src: url('../fonts/Oxygen-Regular.woff2') format('woff2');
+    src: url('../fonts/Oxygen-Regular.woff') format('woff');
+    font-weight: normal;
+}
 
 
+h1 {
+  font-family: Barrio;
+}
 * {
   margin: 0;
   padding: 0;
