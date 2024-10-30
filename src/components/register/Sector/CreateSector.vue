@@ -54,6 +54,7 @@
 </template>
 
 <script>
+import axios from 'axios';
 export default {
   data() {
     return {
@@ -64,9 +65,8 @@ export default {
   },
   methods: {
     async createSector() {
-      console.log('oioio')
       try {
-        await this.$axios.$post("/api/v1/sector/", {
+        const { data } = await axios.post("/api/v1/sector/", {
           name: this.name,
           description: this.description,
         });
