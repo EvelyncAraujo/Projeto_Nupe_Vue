@@ -1,35 +1,11 @@
-# projeto_vue
 
-This template should help get you started developing with Vue 3 in Vite.
+O projeto Nupe foi iniciado pela Fábrica de software, e que não foi concluída, com isso foi permitido com que as aluna: Carolina Lückman, Evelyn Araújo, Julia Alves e Rafaella Ulbrich o continuassem, sendo apresentado como projeto final do técnico em informática e apresentado na SEPE (Semana de Ensino, Pesquisa e Extensão ).
 
-## Recommended IDE Setup
+Tendo a funcionalidade de auxiliar o NUPE, sendo um sistema simples mas útil.
+O sistema permite o registro de ocorrências, como faltas, atraso, sem uniforme, retirada de sala… fica salvo na ficha de cada aluno, e caso precise de alguma justificativa teria acesso, tanto os alunos quanto os coordenadores do SISAE.
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
 
-## Customize configuration
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
 
-## Project Setup
 
-```sh
-npm install
-```
 
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
