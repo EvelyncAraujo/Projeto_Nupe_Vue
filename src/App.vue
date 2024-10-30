@@ -11,6 +11,8 @@ const esconderMenu = computed(() => route.name === 'login')
 </script>
 
 <template>
+
+  <header><p>aaa</p></header>
   <div id="app" :class="templateStore.isDarkMode ?'dark-mode' : ''">
     <MenuView v-if="!esconderMenu" />
     <!-- <h1>dfds</h1> -->
@@ -22,7 +24,6 @@ const esconderMenu = computed(() => route.name === 'login')
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   text-align: center;
-  color: #2c3e50;
   min-height: 100vh;
 }
 
@@ -32,6 +33,11 @@ const esconderMenu = computed(() => route.name === 'login')
 
 .dark-mode h1, .dark-mode h2, .dark-mode .infoAluno, .dark-mode a{
   color: #f1f1f1;
+}
+
+header{
+
+  height: 40px;
 }
 
 </style>

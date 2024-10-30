@@ -18,13 +18,15 @@ const toggleMenu = () => {
   isMenuOpen.value = !isMenuOpen.value
 }
 const templateStore = useTemplateStore()
+
+
 </script>
 
 <template>
   <nav class="menu-hamburger">
     <input id="menu-hamburguer" type="checkbox" />
     <label for="menu-hamburguer">
-      <h1 class="mobile">NupeOnline</h1> 
+      <h1  >NupeOnline</h1> 
       <div class="menu">
         <span class="hamburguer"></span>
       </div>
@@ -43,16 +45,24 @@ const templateStore = useTemplateStore()
 </template>
 
 <style scoped>
-@font-face {
-    font-family: 'Oxygen';
-    src: url('../fonts/Oxygen-Regular.woff2') format('woff2');
-    src: url('../fonts/Oxygen-Regular.woff') format('woff');
-    font-weight: normal;
+
+@import url('https://fonts.googleapis.com/css2?family=Julius+Sans+One&family=Red+Rose:wght@300..700&display=swap');
+
+
+
+h1{
+
+  font-family: "Julius Sans One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+
+
+ 
 }
-
-
-h1 {
-  font-family: Barrio;
+p{
+  font-family: "Julius Sans One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 * {
   margin: 0;
@@ -78,11 +88,6 @@ p {
   color: black;
 }
 .toggleTheme,
-h1 {
-  font-weight: bold;
-  color: transparent;
-  background-color: transparent;
-}
 
 body {
   height: 100vh;
@@ -132,9 +137,13 @@ header {
 }
 
 .menu-hamburguer-elements a {
-  color: black;
+  color:aliceblue;
   text-decoration: none;
   align-items: baseline;
+  font-family: "Playfair Display SC", serif;
+  font-weight: 400;
+  font-style: normal;
+ 
 }
 
 .menu-hamburguer-elements a:hover {
