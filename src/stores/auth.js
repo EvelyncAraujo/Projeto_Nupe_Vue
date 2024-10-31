@@ -17,7 +17,7 @@ export const useAuthStore = defineStore('auth', () => {
             state.token = response.data.access
             state.loggedIn = true
         } catch (e){
-            console.log('errrado')
+            console.log('errado')
             return Promise.reject(e)
         }
      }
