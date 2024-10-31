@@ -115,7 +115,7 @@ header {
 
 .menu-hamburger {
   width: 100%;
-
+  height: 50px;
   display: flex;
   justify-content: baseline;
 }
@@ -130,7 +130,7 @@ header {
 .menu-hamburguer-elements li {
   list-style: none;
   font-size: 1.4rem;
-  margin: 2rem 0;
+ 
   font-size: 1.4rem;
   list-style: none;
   align-items: baseline;
@@ -155,7 +155,7 @@ header {
 .menu {
   width: 40px;
   height: 40px;
-  margin: 1rem 1rem;
+
   border-radius: 5px;
   cursor: pointer;
   display: none;
@@ -228,9 +228,17 @@ input:checked ~ .menu-hamburguer-elements {
   }
   .menu-hamburguer-elements a {
     color: #ffffff;
+    margin-bottom: 100px;
+    
+    
+    padding-right: 15px;
   }
   .menu-hamburguer-elements p {
     color: darkgreen;
+    
+  }
+  .menu-hamburguer-elements li {
+   margin-bottom: 15px;
   }
   .mobile {
     color: black;
@@ -248,25 +256,24 @@ input:checked ~ .menu-hamburguer-elements {
     color: white;
   }
 
-  .menu-hamburguer-elements {
+  .menu-hamburguer-elements  {
     width: 50%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.808);
     position: absolute;
     left: -50%;
-    top: 10;
+    top: 0px;
 
     transition: left cubic-bezier(1, 0, 0, 1) 0.8s;
 
     display: flex;
-    align-items: normal;
+    align-items:normal;
     flex-direction: column;
-    justify-content: center;
-
-    padding-top: 25vh;
+    justify-content:center;
 
     z-index: 1;
     color: #ffffff;
+    
   }
 
   .menu {
@@ -274,5 +281,7 @@ input:checked ~ .menu-hamburguer-elements {
     height: 20px;
     width: 60px;
   }
+
+  
 }
 </style>

@@ -4,19 +4,21 @@ import { useRoute } from 'vue-router'
 
 import { useTemplateStore } from '@/stores/template'
 import MenuView from '@/views/MenuView.vue'
+import CabecalhoView from '@/views/CabecalhoView.vue'
 
 const route = useRoute()
 const templateStore = useTemplateStore()
 const esconderMenu = computed(() => route.name === 'login')
+const esconderCabecalho = computed(() => route.name === 'login')
 </script>
 
 <template>
-
-  <header><p>aaa</p></header>
+ <CabecalhoView v-if="!esconderCabecalho"/>
   <div id="app" :class="templateStore.isDarkMode ?'dark-mode' : ''">
     <MenuView v-if="!esconderMenu" />
     <!-- <h1>dfds</h1> -->
     <router-view />
+   
   </div>
 </template>
 
@@ -33,11 +35,6 @@ const esconderMenu = computed(() => route.name === 'login')
 
 .dark-mode h1, .dark-mode h2, .dark-mode .infoAluno, .dark-mode a{
   color: #f1f1f1;
-}
-
-header{
-
-  height: 40px;
 }
 
 </style>
