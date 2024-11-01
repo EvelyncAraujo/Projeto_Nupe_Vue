@@ -1,5 +1,4 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '@/views/HomeView.vue'
 import BlankLayout from '@/layouts/BlankLayout.vue'
 // import DefaultLayout from '@/layouts/DefaultLayout.vue'
 import StudentView from '../views/StudentView.vue'
@@ -35,16 +34,10 @@ const router = createRouter({
           component: LoginView
         },
         {
-          path: '/home',
-          name: 'home',
-          component: HomeView
-        },
-        {
           path: '/sector',
           name: 'sector',
           component: SectorView
         },
-
         {
           path: '/student',
           name: 'student',

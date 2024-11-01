@@ -71,7 +71,7 @@ import { useAuthStore } from '@/stores/auth';
   async function signin() {
       try {
         await authStore.login(user)
-        router.push("/student");
+        router.push("/perfil");
       } catch (err) {
           alert('Algo de errado não está certo!')
       }

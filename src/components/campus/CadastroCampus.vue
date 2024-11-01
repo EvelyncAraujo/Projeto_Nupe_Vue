@@ -1,4 +1,5 @@
 <script setup>
+  // import { axios } from 'axios';
   import { useStore } from 'vuex';
   import { ref, computed, watch, onMounted } from 'vue';
   
@@ -12,8 +13,9 @@
   const createCampus = (campus) => store.dispatch('campus/createCampus', campus)  
   const save = async () => {
     try {
+      // const { data } = data;
       if (props.campus.id) {
-        await store.$axios.$patch(`api/v1/campus/${props.campus.id}/`, currentCampus.value);
+        await store.axios.patch(`api/v1/campus/${props.campus.id}/`, currentCampus.value);
       } else {
         await createCampus(currentCampus.value);
       }
