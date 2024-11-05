@@ -6,6 +6,7 @@ import store from './store/index.js'
 
 import 'buefy/dist/buefy.css'
 import './assets/scss/main.scss'
+import './plugins/axios'
 
 import './plugins/axios'
 //import Vuex from 'vuex'

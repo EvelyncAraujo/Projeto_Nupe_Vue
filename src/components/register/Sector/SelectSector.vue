@@ -71,7 +71,7 @@ export default {
   methods: {
     async atualizar() {
       try {
-        await this.$axios.$patch(`/api/v1/sector/${this.currentSector.id}/`, {
+        const { data } = await axios.patch(`/api/v1/sector/${this.currentSector.id}/`, {
           name: this.currentSector.name,
           description: this.currentSector.description,
         });

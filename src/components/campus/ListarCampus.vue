@@ -1,59 +1,43 @@
-<script>
-  import { ref, computed, onMounted } from "vue";
-  import { useStore } from "vuex";
-  import axios from "axios"; // Assuming you're using axios for HTTP requests
+<script setup>
+  import { ref, onMounted } from "vue";
   
-  export default {
-    props: {},
-    setup(props, { emit }) {
-      const store = useStore();
-      const isPaginated = ref(true);
-      const perPage = ref(10);
+  import { useCampusStore } from "@/stores/campus";
+
+  const emit = defineEmits(['editCampus'])
+  const campusStore = useCampusStore()
+
+  const isPaginated = ref(true);
+  const perPage = ref(10);
   
-      const campus = computed(() => store.state.campus);
-  
-      const editCampus = (campus) => {
-        emit("editCampus", campus);
-      };
-  
-      const deleteCampus = async (campus) => {
-        try {
-          await axios.delete(`/api/v1/campus/${campus.id}/`);
-          // Reload the campus data after deletion
-          store.dispatch("campus/fetchAllCampus");
-        } catch (error) {
-          console.error(error);
-        }
-      };
-  
-      onMounted(() => {
-        store.dispatch("campus/fetchAllCampus");
-      });
-  
-      return {
-        isPaginated,
-        perPage,
-        campus,
-        editCampus,
-        deleteCampus,
-        
-      };
-    },
+  const editCampus = (campus) => {
+    emit("editCampus", campus);
   };
+  
+  const deleteCampus = async (campus) => {
+    try {
+      await campusStore.deleteCampus(campus.id)
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  onMounted(async () => {
+    await campusStore.fetchAllCampus()
+  });
+
   </script>
   <template>
-    <b-table :data="campus" :paginated="isPaginated" :per-page="perPage">
-      <template v-slot="props">
-        <b-table-column label="Nome">
-          {{ props.row["name"] }}
+    <b-table :data="campusStore.campus" :paginated="isPaginated" :per-page="perPage">
+      <b-table-column v-slot="props" label="Nome">
+          {{ props.row.name }}
         </b-table-column>
-        <b-table-column label="Instituição">
-          {{ props.row["institution"].name }}
+        <b-table-column v-slot="props" label="Instituição">
+          {{ props.row.institution }}
         </b-table-column>
-        <b-table-column label="Endereço">
-          {{ props.row["address"] }}
+        <b-table-column v-slot="props" label="Endereço">
+          {{ props.row.address }}
         </b-table-column>
-        <b-table-column custom-key="actions" label="Ações">
+        <b-table-column v-slot="props" custom-key="actions" label="Ações">
           <b-button
             type="is-primary"
             icon-left="pencil"
@@ -65,7 +49,7 @@
             @click="deleteCampus(props.row)"
           ></b-button>
         </b-table-column>
-      </template>
+      <!-- </template> -->
     </b-table>
   </template>
   

@@ -13,6 +13,7 @@
           type="text"
           icon="magnify"
           placeholder="Pesquise na lista"
+          v-model="search"
         />
         <b-button class="is-primary" @click="searchSectors()"
           >Pesquisar</b-button
@@ -73,10 +74,12 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
   data() {
     return {
       filter: ["name"],
+      search: '',
       // propriedades da tabela
       sortable: true,
       hoverable: true,
@@ -93,22 +96,22 @@ export default {
       perPage: 10,
       // término propriedades da tabela
       data: [
-        {
-          'id': 1,
-          'name': 'Setor 1',
-          'description': 'Desc setor 1'
-        },
-        {
-          'id': 2,
-          'name': 'Setor 2',
-          'description': 'Desc setor 2'
-        }
+        // {
+        //   'id': 1,
+        //   'name': 'Setor 1',
+        //   'description': 'Desc setor 1'
+        // },
+        // {
+        //   'id': 2,
+        //   'name': 'Setor 2',
+        //   'description': 'Desc setor 2'
+        // }
       ],
       columns: [
-        {
-          field: "id",
-          label:"ID",
-        },
+        // {
+        //   field: "id",
+        //   label:"ID",
+        // },
         {
           field: "name",
           label: "Setor",
@@ -121,21 +124,22 @@ export default {
     };
   },
   created() {
-    // this.fetchAllSectors();
+    this.fetchAllSectors();
   },
   methods: {
     async fetchAllSectors() {
-      this.data = await this.$axios.$get("/api/v1/sector/");
+      const { data } = await axios.get("/api/v1/sector/");
+      this.data = data
       this.backup = this.data;
     },
 
     async searchSectors() {
-      this.search = await this.$axios.$get(
-        `/api/v1/sector?search=${document.getElementById("searchInput").value}`
+      const { data } = await axios.get(
+        `/api/v1/sector?search=${this.search}`
       );
-      if (this.search.length > 0) {
+      if (data.length > 0) {
         this.data.length = 0;
-        this.data = this.search;
+        this.data = data;
       } else {
         this.$buefy.toast.open({
           message: "Sem resultados válidos!",
