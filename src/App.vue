@@ -4,16 +4,21 @@ import { useRoute } from 'vue-router'
 
 import { useTemplateStore } from '@/stores/template'
 import MenuView from '@/views/MenuView.vue'
+import CabecalhoView from '@/views/CabecalhoView.vue'
 
 const route = useRoute()
 const templateStore = useTemplateStore()
 const esconderMenu = computed(() => route.name === 'login')
+const esconderCabecalho = computed(() => route.name === 'login')
 </script>
 
 <template>
+ <CabecalhoView v-if="!esconderCabecalho"/>
   <div id="app" :class="templateStore.isDarkMode ?'dark-mode' : ''">
     <MenuView v-if="!esconderMenu" />
+    <!-- <h1>dfds</h1> -->
     <router-view />
+   
   </div>
 </template>
 
@@ -21,7 +26,6 @@ const esconderMenu = computed(() => route.name === 'login')
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   text-align: center;
-  color: #2c3e50;
   min-height: 100vh;
 }
 

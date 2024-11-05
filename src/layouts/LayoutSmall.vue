@@ -49,6 +49,7 @@ main {
   padding-bottom: 4rem;
   padding-top: 1.5rem;
   position: relative;
+  /* background-color: red; */
 }
 
 footer {
