@@ -244,6 +244,7 @@ input:checked ~ .menu-hamburguer-elements {
     text-align: center;
     font-size: 30px;
     text-decoration: solid;
+ 
   }
   .menu-hamburger {
     display: flex;
@@ -262,6 +263,7 @@ input:checked ~ .menu-hamburguer-elements {
     position: absolute;
     left: -50%;
     top: 0px;
+
 
     transition: left cubic-bezier(1, 0, 0, 1) 0.8s;
 
