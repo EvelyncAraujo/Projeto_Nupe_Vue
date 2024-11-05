@@ -20,20 +20,6 @@
     </div>
   </div>
 
-  <div class="perfil">
-    <img src="/circuloImagem.jpeg" alt="Foto do Aluno" class="perfil-foto" />
-  
-    <p class="infoAluno">Nome:</p>
-    <p class="infoAluno">Matrícula:</p>
-    <p class="infoAluno">Curso:</p>
-    <p class="infoAluno">Nível:</p>
-    <p class="infoAluno">Status: Ativo</p>
-    <p class="infoAluno">E-Mail:</p>
-    <p class="infoAluno">Entrada:</p>
-    <a href="Perfil">Atualizar dados</a>
-    
-  </div>
-
   <footer class="footer">
     <p>Dias letivos: 200</p>
     <p>total de falta: XX</p>

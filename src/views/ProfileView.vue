@@ -29,7 +29,7 @@ export default {
       setTimeout(() => {
         toast.className = toast.className.replace('show', '')
       }, 3000)
-    },
+    }, 
     methods: {
       upload(e) {
         e.preventDefault()  

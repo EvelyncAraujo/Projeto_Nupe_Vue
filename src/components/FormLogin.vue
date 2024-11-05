@@ -68,12 +68,24 @@ import { useAuthStore } from '@/stores/auth';
       Object.assign(user, {});
   }
 
+  // methods: {
+  //   showToast() {
+  //     var toast = document.getElementById('toast')
+  //     toast.className = 'toast show'
+  //     setTimeout(() => {
+  //       toast.className = toast.className.replace('show', '')
+  //     }, 3000)
+  //   },
+  // }
+
   async function signin() {
       try {
         await authStore.login(user)
         router.push("/home");
-      } catch (err) {
-          alert('Algo de errado não está certo!')
+      } catch {
+        alert('Senha incorreta')
+        // this.showToast()
+        //   <div id="toast" class="toast">Senha incorreta.</div>
       }
     }
 </script>
