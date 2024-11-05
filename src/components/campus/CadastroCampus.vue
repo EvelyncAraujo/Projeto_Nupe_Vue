@@ -1,21 +1,23 @@
 <script setup>
-  import { useStore } from 'vuex';
-  import { ref, computed, watch, onMounted } from 'vue';
+  import { ref, watch, onMounted } from 'vue';
+  import { useCampusStore } from '@/stores/campus';
+  import { useLocationStore } from '@/stores/location';
+  import { useInstitutionStore } from '@/stores/institution';
+
   
   const props = defineProps(['campus'])
-  const store = useStore();
+  const campusStore = useCampusStore()
+  const locationStore = useLocationStore()
+  const institutionStore = useInstitutionStore()
+
   const currentCampus = ref({ ...props.campus });
-  const institutions = computed(() => store.state.institution.institutions);
-  const locations = computed(() => store.state.location.locations)  
-  const fetchAllInstitutions = () => store.dispatch('institution/fetchAllInstitutions');
-  const fetchAllLocations = () => store.dispatch('location/fetchAllLocations');
-  const createCampus = (campus) => store.dispatch('campus/createCampus', campus)  
+  
   const save = async () => {
     try {
       if (props.campus.id) {
-        await store.$axios.$patch(`api/v1/campus/${props.campus.id}/`, currentCampus.value);
+        await campusStore.updateCampus(props.campus.id, currentCampus.value)
       } else {
-        await createCampus(currentCampus.value);
+        await campusStore.createCampus(currentCampus.value);
       }
       store._vm.$buefy.toast.open({
         message: 'Sucesso!',
@@ -28,9 +30,9 @@
       });
     }
   } 
-  onMounted(() => {
-    fetchAllInstitutions();
-    fetchAllLocations();
+  onMounted(async () => {
+    await locationStore.fetchAllLocations();
+    await institutionStore.fetchAllInstitutions();
   })  
   watch(
     () => props.campus,
@@ -95,23 +97,23 @@
         ></b-input>
       </b-field>
   
-      <b-field label="Localização">
+     <b-field label="Localização">
         <b-select
           v-model="currentCampus.location"
           placeholder="Selecione a Localização"
         >
-          <option v-for="loc of locations" :key="loc.id" :value="loc.id">
+          <option v-for="loc of locationStore.locations" :key="loc.id" :value="loc.id">
             {{ loc.name }}
           </option>
         </b-select>
       </b-field>
   
-      <b-field label="Selecione a Instituição">
+       <b-field label="Selecione a Instituição">
         <b-select
           v-model="currentCampus.institution"
           placeholder="Selecione a Instituição"
         >
-          <option v-for="inst of institutions" :key="inst.id" :value="inst.id">
+          <option v-for="inst of institutionStore.institutions" :key="inst.id" :value="inst.id">
             {{ inst.name }}
           </option>
         </b-select>
