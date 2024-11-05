@@ -2,7 +2,6 @@ import { createRouter, createWebHistory } from 'vue-router'
 import BlankLayout from '@/layouts/BlankLayout.vue'
 // import DefaultLayout from '@/layouts/DefaultLayout.vue'
 import StudentView from '../views/StudentView.vue'
-import InstituicaoView from '@/views/InstituicaoView.vue'
 import AtendimentoView from '@/views/AtendimentoView.vue'
 import LoginView from '../views/LoginView.vue'
 import ProfileView from '@/views/ProfileView.vue'
@@ -42,11 +41,6 @@ const router = createRouter({
           path: '/student',
           name: 'student',
           component: StudentView
-        },
-        {
-          path: '/instituicao',
-          name: 'instituicao',
-          component: InstituicaoView
         },
         {
           path: '/atendimento',
