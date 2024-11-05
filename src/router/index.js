@@ -8,6 +8,7 @@ import ProfileView from '@/views/ProfileView.vue'
 import SectorView from '@/views/SectorView.vue'
 import CampusView from '@/views/CampusView.vue'
 import AttendanceReasonView from '@/views/AttendanceReasonView.vue'
+import HomeView from '@/views/HomeView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -28,7 +29,12 @@ const router = createRouter({
       component: BlankLayout,
       children: [
         {
-          path: '/',
+          path: '/home',
+          name: 'home',
+          component: HomeView
+        },
+        {
+          path: '/login',
           name: 'login',
           component: LoginView
         },

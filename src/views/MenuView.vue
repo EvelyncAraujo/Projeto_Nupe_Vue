@@ -25,7 +25,7 @@ const templateStore = useTemplateStore()
   <nav class="menu-hamburger">
     <input id="menu-hamburguer" type="checkbox" />
     <label for="menu-hamburguer">
-      <h1  >NupeOnline</h1> 
+
       <div class="menu">
         <span class="hamburguer"></span>
       </div>
