@@ -68,7 +68,7 @@ p{
   padding: 0;
   border: 0;
   box-sizing: border-box;
-  background-color: #325c32;
+  background-color: #074707;
 }
 
 .toggleTheme,
@@ -121,9 +121,9 @@ header {
 .menu-hamburguer-elements {
   display: flex;
   width: 80%;
-  height: 10vh;
+  height: 20vh;
   justify-content: space-around;
-  align-items: baseline;
+  align-items:baseline;
 }
 
 .menu-hamburguer-elements li {

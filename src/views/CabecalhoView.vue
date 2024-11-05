@@ -21,29 +21,31 @@
 @import url('https://fonts.googleapis.com/css2?family=Julius+Sans+One&family=Red+Rose:wght@300..700&display=swap');
 .cabecalho{
 
-height: 200px;
+height: 150px;
 background-image: linear-gradient(green,#065903);
 
 }
 .logo{
 
-width: 400px;
-padding-top: 70px;
-padding-left: 150px;
+width: 350px;
+padding-top: 60px;
+padding-left: 100px;
+height: 150px;
 
 
 }
 h1{
-    position: absolute;
-  top: 90px;
+  position: absolute;
+  top: 55px;
   right: 0;
-  width: 900px;
+  width: 1100px;
   height: 100px;
-font-size: 40px;
-color: aliceblue;
-font-family: "Julius Sans One", sans-serif;
+  font-size: 40px;
+  color: aliceblue;
+  font-family: "Julius Sans One", sans-serif;
 
 }
+
 
 
 </style>
