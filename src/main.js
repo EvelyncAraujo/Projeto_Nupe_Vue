@@ -8,6 +8,7 @@ import 'buefy/dist/buefy.css'
 import './assets/scss/main.scss'
 import './plugins/axios'
 
+import './plugins/axios'
 //import Vuex from 'vuex'
 import App from './App.vue'
 import router from './router'

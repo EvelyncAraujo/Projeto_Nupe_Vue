@@ -14,6 +14,7 @@
   
   const save = async () => {
     try {
+      // const { data } = data;
       if (props.campus.id) {
         await campusStore.updateCampus(props.campus.id, currentCampus.value)
       } else {

@@ -8,9 +8,9 @@ import FormLogin from '@/components/FormLogin.vue'
       <div class="columns is-vcentered">
       
         <div class="column is-half has-text-centered login-form">
-          <h1>Bem vindo</h1>
-          <form-login icon="" title="Acesso ao sistema"></form-login>
-          <p>esqueceu a senha?</p>
+          <h1>Bem-vindo</h1>
+          <form-login icon="" title="Acesso ao sistema"></form-login> 
+          <a href="ForgotPassword.vue">Esqueceu a senha?</a>
         </div>
         <div class="column is-half has-text-centered logo">
           <img src="/public/ftNupe.png" alt="Imagem">
@@ -21,7 +21,9 @@ import FormLogin from '@/components/FormLogin.vue'
 </template>
 
 <style scoped>
-
+a{
+  color:black;
+}
 .logo {
   background-color: #325C32;
   min-height: 100vh;
@@ -33,7 +35,7 @@ img {
 }
 
 h1 {
-  font-size: 4rem;
+  font-size: 3rem;
 }
 
 .login-page {
