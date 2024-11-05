@@ -8,7 +8,7 @@
       <b-field :label="labelUsername" :label-position="labelPosition">
         <div class="block">
           <b-input
-            v-model="user.username"
+            v-model="user.email"
             type="text"
             placeholder="Usuário"
             required
@@ -49,45 +49,33 @@
   </div>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      labelPosition: "on-border",
-      user: {
-        grant_type: "password",
-      },
-    };
-  },
-  computed: {
-    labelUsername() {
-      return !this.user.username ? "" : "Usuário";
-    },
-    labelPassword() {
-      return !this.user.password ? "" : "Senha";
-    },
-  },
+<script setup>
+import { useRouter } from 'vue-router';
+import { computed, reactive } from 'vue';
 
-  methods: {
-    reset() {
-      this.user = {
-        grant_type: "password",
-      };
-    },
-    async signin() {
+import { useAuthStore } from '@/stores/auth';
+
+  const labelPosition = "on-border"
+  const user = reactive({})
+  const router = useRouter();
+  const authStore = useAuthStore();
+
+  const  labelUsername = computed(() => !user.email ? "" : "Usuário")
+  const labelPassword = computed(() => !user.password ? "" : "Senha")
+    
+  
+  function  reset() {
+      Object.assign(user, {});
+  }
+
+  async function signin() {
       try {
-        await this.$auth.loginWith("customStrategy", {
-          data: this.user,
-        });
-        this.$router.push("/");
+        await authStore.login(user)
+        router.push("/perfil");
       } catch (err) {
-        for (const item in err.response.data) {
-          this.$toast.error(item + ": " + err.response.data[item]);
-        }
+          alert('Algo de errado não está certo!')
       }
-    },
-  },
-};
+    }
 </script>
 
 <style></style>
