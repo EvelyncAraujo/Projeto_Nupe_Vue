@@ -47,6 +47,7 @@ const templateStore = useTemplateStore()
 
 .dark-b{
 margin-left: 6rem;
+margin-bottom: 4rem;
 }
 
 h1 {
