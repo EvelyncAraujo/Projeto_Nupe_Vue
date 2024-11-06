@@ -9,6 +9,8 @@ import SectorView from '@/views/SectorView.vue'
 import CampusView from '@/views/CampusView.vue'
 import AttendanceReasonView from '@/views/AttendanceReasonView.vue'
 import HomeView from '@/views/HomeView.vue'
+import ForgotPasswordView from '@/views/ForgotPasswordView.vue'
+import CadastroLoginView from '@/views/CadastroLoginView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -68,6 +70,16 @@ const router = createRouter({
           path: '/razoes',
           name: 'RazoesAtendimento',
           component: AttendanceReasonView
+        },
+        {
+          path: '/senha',
+          name: 'ForgotPassword',
+          component: ForgotPasswordView
+        },
+        {
+          path: '/cadastro',
+          name: 'CadastroLogin',
+          component: CadastroLoginView
         }
       ]
     }
