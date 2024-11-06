@@ -28,7 +28,9 @@
 </template>
 
 <style scoped>
-
+.registros {
+  margin-top: -18rem;
+}
 .student-items {
   display: flex;
   flex-direction: row;
@@ -40,13 +42,12 @@
 }
 
 .perfil {
-  background-color: rgba(236, 236, 236, 0.288);
+  background-color: rgba(138, 135, 135, 0.123);
   border-radius: 10px;
   text-align: left;
   line-height: 2rem;
   max-width: 20rem;
-  /* margin-left: 90rem;
-  margin-top: -8rem; */
+  margin-top: -10rem;
 }
 
 @media screen and (min-width: 768px) {
@@ -62,7 +63,7 @@
     flex-direction: column;
     /* justify-content: space-between; */
     /* align-items: center; */
-  } 
+  }
 }
 
 .footer {
@@ -90,8 +91,6 @@ h2 {
   margin-top: 1rem;
   margin-left: 2rem;
 }
-
-
 
 .aluno {
   font-size: 15px;
