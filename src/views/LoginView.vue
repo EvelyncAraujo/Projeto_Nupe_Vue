@@ -10,7 +10,7 @@ import FormLogin from '@/components/FormLogin.vue'
         <div class="column is-half has-text-centered login-form">
           <h1>Bem-vindo</h1>
           <form-login icon="" title="Acesso ao sistema"></form-login> 
-          <a href="ForgotPassword.vue">Esqueceu a senha?</a>
+          <a href="Forgot">Esqueceu a senha?</a>
         </div>
         <div class="column is-half has-text-centered logo">
           <img src="/public/ftNupe.png" alt="Imagem">

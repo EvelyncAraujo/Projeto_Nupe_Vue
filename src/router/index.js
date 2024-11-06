@@ -72,7 +72,7 @@ const router = createRouter({
           component: AttendanceReasonView
         },
         {
-          path: '/senha',
+          path: '/forgot',
           name: 'ForgotPassword',
           component: ForgotPasswordView
         },
