@@ -8,8 +8,10 @@ const menuItems = [
   { text: 'Atendimento', link: '/atendimento' },
   { text: 'Campus', link: '/campus' },
   { text: 'Razões Atendimento', link: '/razoes' },
-  { text: 'Perfil Aluno', link: '/perfil' }
+  { text: 'Perfil Aluno', link: '/perfil' },
+
 ]
+
 
 const isMenuOpen = ref(false)
 
@@ -74,6 +76,7 @@ img,
 span {
   background-color: transparent;
   font-size: large;
+  
 }
 .toggleTheme,
 p {

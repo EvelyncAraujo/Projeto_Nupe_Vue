@@ -25,20 +25,17 @@ height: 150px;
 background-image: linear-gradient(green,#065903);
 
 }
-.logo{
-
-width: 350px;
-padding-top: 60px;
-padding-left: 100px;
-height: 150px;
-
+img{
+padding-top: 40px;
+padding-right: 1150px;
+height: 110px;
 
 }
 h1{
   position: absolute;
   top: 55px;
   right: 0;
-  width: 1100px;
+  width: 600px;
   height: 100px;
   font-size: 40px;
   color: aliceblue;
