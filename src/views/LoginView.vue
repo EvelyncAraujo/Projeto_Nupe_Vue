@@ -26,7 +26,7 @@ a{
 }
 .logo {
   background-color: #325C32;
-  min-height: 100vh;
+  min-height: 110vh;
 }
 img {
   max-width: 100%;
@@ -46,7 +46,7 @@ h1 {
 }
 
 .login-form {
-  padding: 20rem;
+  padding: 15%;
 }
 
 p{

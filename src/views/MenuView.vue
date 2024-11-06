@@ -17,15 +17,12 @@ const toggleMenu = () => {
   isMenuOpen.value = !isMenuOpen.value
 }
 const templateStore = useTemplateStore()
-
-
 </script>
 
 <template>
   <nav class="menu-hamburger">
     <input id="menu-hamburguer" type="checkbox" />
     <label for="menu-hamburguer">
-
       <div class="menu">
         <span class="hamburguer"></span>
       </div>
@@ -38,28 +35,25 @@ const templateStore = useTemplateStore()
       </li>
     </ul>
     <span @click="templateStore.toggleDarkMode">
-      <img src="@/assets/favicon_io/favicon-32x32.png" alt="" />
+      <img src="@/assets/favicon_io/favicon-32x32.png" alt="" class="dark-b"/>
     </span>
   </nav>
 </template>
 
 <style scoped>
-
 @import url('https://fonts.googleapis.com/css2?family=Julius+Sans+One&family=Red+Rose:wght@300..700&display=swap');
 
+.dark-b{
+margin-left: 6rem;
+}
 
-
-h1{
-
-  font-family: "Julius Sans One", sans-serif;
+h1 {
+  font-family: 'Julius Sans One', sans-serif;
   font-weight: 400;
   font-style: normal;
-
-
- 
 }
-p{
-  font-family: "Julius Sans One", sans-serif;
+p {
+  font-family: 'Julius Sans One', sans-serif;
   font-weight: 400;
   font-style: normal;
 }
@@ -87,7 +81,6 @@ p {
   color: black;
 }
 .toggleTheme,
-
 body {
   height: 100vh;
   display: flex;
@@ -123,26 +116,25 @@ header {
   width: 80%;
   height: 20vh;
   justify-content: space-around;
-  align-items:baseline;
+  align-items: baseline;
 }
 
 .menu-hamburguer-elements li {
   list-style: none;
   font-size: 1.4rem;
- 
+
   font-size: 1.4rem;
   list-style: none;
   align-items: baseline;
 }
 
 .menu-hamburguer-elements a {
-  color:aliceblue;
+  color: aliceblue;
   text-decoration: none;
   align-items: baseline;
-  font-family: "Playfair Display SC", serif;
+  font-family: 'Playfair Display SC', serif;
   font-weight: 400;
   font-style: normal;
- 
 }
 
 .menu-hamburguer-elements a:hover {
@@ -228,23 +220,20 @@ input:checked ~ .menu-hamburguer-elements {
   .menu-hamburguer-elements a {
     color: #ffffff;
     margin-bottom: 100px;
-    
-    
+
     padding-right: 15px;
   }
   .menu-hamburguer-elements p {
     color: darkgreen;
-    
   }
   .menu-hamburguer-elements li {
-   margin-bottom: 15px;
+    margin-bottom: 15px;
   }
   .mobile {
     color: black;
     text-align: center;
     font-size: 30px;
     text-decoration: solid;
- 
   }
   .menu-hamburger {
     display: flex;
@@ -256,7 +245,7 @@ input:checked ~ .menu-hamburguer-elements {
     color: white;
   }
 
-  .menu-hamburguer-elements  {
+  .menu-hamburguer-elements {
     width: 50%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.808);
@@ -264,17 +253,15 @@ input:checked ~ .menu-hamburguer-elements {
     left: -50%;
     top: 0px;
 
-
     transition: left cubic-bezier(1, 0, 0, 1) 0.8s;
 
     display: flex;
-    align-items:normal;
+    align-items: normal;
     flex-direction: column;
-    justify-content:center;
+    justify-content: center;
 
     z-index: 1;
     color: #ffffff;
-    
   }
 
   .menu {
@@ -282,7 +269,5 @@ input:checked ~ .menu-hamburguer-elements {
     height: 20px;
     width: 60px;
   }
-
-  
 }
 </style>
