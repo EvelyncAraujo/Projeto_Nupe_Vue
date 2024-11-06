@@ -49,12 +49,6 @@
             @click="deleteCampus(props.row)"
           ></b-button>
         </b-table-column>
-      <!-- </template> -->
     </b-table>
   </template>
-  
-  
-  
-  <style>
-  </style>
   

@@ -69,9 +69,9 @@ export default {
             ></b-input>
           </b-field>
 
-          <b-field label="Razão Pai" :label-position="labelPosition">
+          <!-- <b-field label="Razão Pai" :label-position="labelPosition">
             <b-input type="number" v-model="father_reason" placeholder="Número"></b-input>
-          </b-field>
+          </b-field> -->
 
           <b-field>
             <b-field class="columns">

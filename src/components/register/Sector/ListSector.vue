@@ -1,10 +1,11 @@
 <template>
   <div>
     <div class="block">
-      <h2 class="title">Admin / setor</h2>
+      <h2 class="title">Lista de Setores</h2>
     </div>
+    
     <h2 class="subtitle">Todos os setores</h2>
-
+    
     <div class="level">
       <span class="level-left">
         <b-input
@@ -15,49 +16,31 @@
           placeholder="Pesquise na lista"
           v-model="search"
         />
-        <b-button class="is-primary" @click="searchSectors()"
-          >Pesquisar</b-button
-        >
+        <b-button class="is-primary" @click="searchSectors">
+          Pesquisar
+        </b-button>
       </span>
       <span class="level-right">
-        <b-button
-          @click="createSector(true)"
-          type="is-primary"
-          class="level-item"
-        >
-          Criar setor
+        <b-button @click="createSector" type="is-primary" class="level-item">
+          Criar Setor
         </b-button>
       </span>
     </div>
 
+    <!-- Tabela de Setores -->
     <b-table
       id="table"
       :data="data"
-      :columns="columns"
       :paginated="isPaginated"
       :per-page="perPage"
- 
-      :pagination-simple="isPaginationSimple"
-      :pagination-position="paginationPosition"
-      :default-sort-direction="defaultSortDirection"
-      :pagination-rounded="isPaginationRounded"
-      :sort-icon="sortIcon"
-      :hoverable="hoverable"
-      :focusable="focusable"
-      :scrollable="scrollable"
     >
-      <template v-slot="props">
-        <b-table-column
-          v-for="(column, index) in columns"
-          :key="index"
-          :field="column.field"
-          :label="column.label"
-          :sortable="sortable"
-        >
-          {{ props.row[column.field] }}
-        </b-table-column>
-        <b-table-column custom-key="actions" label="Ações">
-          <b-button
+      <b-table-column v-slot="props" field="name" label="Setor" :sortable="true">
+        {{ props.row.name }}
+      </b-table-column>
+
+      <!-- Coluna de Ações -->
+      <b-table-column v-slot="props" label="Ações">
+        <b-button
             type="is-primary"
             icon-left="pencil"
             @click="editSector(props.row)"
@@ -65,122 +48,68 @@
           <b-button
             type="is-danger"
             icon-left="delete"
-            @click="confirmCustomDelete(props.row)"
+            @click="deleteSector(props.row)"
           ></b-button>
-        </b-table-column>
-      </template>
+      </b-table-column>
     </b-table>
   </div>
 </template>
 
-<script>
-import axios from 'axios'
-export default {
-  data() {
-    return {
-      filter: ["name"],
-      search: '',
-      // propriedades da tabela
-      sortable: true,
-      hoverable: true,
-      focusable: true,
-      scrollable: true,
-      isPaginated: true,
-      isPaginationSimple: false,
-      isPaginationRounded: false,
-      paginationPosition: "bottom",
-      defaultSortDirection: "asc",
-      sortIcon: "arrow-up",
-      sortIconSize: "is-small",
-      currentPage: 1,
-      perPage: 10,
-      // término propriedades da tabela
-      data: [
-        // {
-        //   'id': 1,
-        //   'name': 'Setor 1',
-        //   'description': 'Desc setor 1'
-        // },
-        // {
-        //   'id': 2,
-        //   'name': 'Setor 2',
-        //   'description': 'Desc setor 2'
-        // }
-      ],
-      columns: [
-        // {
-        //   field: "id",
-        //   label:"ID",
-        // },
-        {
-          field: "name",
-          label: "Setor",
-        },
-        {
-          field: "description",
-          label: "Descrição",
-        },
-      ],
-    };
-  },
-  created() {
-    this.fetchAllSectors();
-  },
-  methods: {
-    async fetchAllSectors() {
-      const { data } = await axios.get("/api/v1/sector/");
-      this.data = data
-      this.backup = this.data;
-    },
+<script setup>
+import { ref, reactive, onMounted } from 'vue';
+import axios from 'axios';
 
-    async searchSectors() {
-      const { data } = await axios.get(
-        `/api/v1/sector?search=${this.search}`
-      );
-      if (data.length > 0) {
-        this.data.length = 0;
-        this.data = data;
-      } else {
-        this.$buefy.toast.open({
-          message: "Sem resultados válidos!",
-          type: "is-danger",
-        });
-      }
-    },
-    editSector(sector) {
-      this.$emit("editSector", sector);
-    },
-    deleteSector(sector) {
-      try {
-        this.$axios.$delete(`/api/v1/sector/${sector.id}/`);
-      } catch (err) {
-        console.log(err);
-      }
-      window.location.reload();
-    },
-    createSector(value) {
-      this.$emit("createSector", value);
-    },
-    confirmCustomDelete(sector) {
-      this.$buefy.dialog.confirm({
-        title: "Deletar setor",
-        message:
-          "Tem certeza que deseja deletar o " +
-          sector.sector +
-          "? A ação é irreversível",
-        confirmText: "Deletar Setor",
-        type: "is-danger",
-        hasIcon: true,
-        onConfirm: () =>
-          this.$buefy.toast.open({
-            message: "Setor deletado com sucesso!",
-            type: "is-primary",
-          }) && this.deleteSector(sector),
-      });
-    },
-  },
+const data = ref([]);
+const search = ref('');
+const perPage = ref(10);
+const isPaginated = ref(true);
+
+// Funções de API
+const fetchAllSectors = async () => {
+  try {
+    const { data: sectors } = await axios.get("/api/v1/sector/");
+    data.value = sectors;
+  } catch (error) {
+    console.error("Erro ao buscar setores:", error);
+  }
 };
-</script>
 
-<style scoped>
-</style>
+// Função de pesquisa
+const searchSectors = async () => {
+  try {
+    const { data: sectors } = await axios.get(`/api/v1/sector?search=${search.value}`);
+    data.value = sectors.length > 0 ? sectors : [];
+    if (sectors.length === 0) {
+      alert("Nenhum setor encontrado.");
+    }
+  } catch (error) {
+    console.error("Erro ao buscar setores:", error);
+  }
+};
+
+// Função para criar setor
+const createSector = () => {
+  console.log("Criar novo setor");
+  // Pode emitir um evento ou chamar uma função
+};
+
+// Função para editar setor
+  const editSector = (sector) => {
+    emit("editSector", sector);
+  };
+
+// Função para excluir setor
+   const deleteSector = async (sector) => {
+    try {
+      await axios.delete(`/api/v1/sector/${sector.id}`);
+      fetchAllSectors();
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+// Quando o componente for montado, buscar os dados
+onMounted(() => {
+  fetchAllSectors();
+});
+</script>
