@@ -101,5 +101,8 @@
   
   
   <style scoped>
+  .dark-mode level{
+    color: white;
+  }
   </style>
   

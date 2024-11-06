@@ -32,6 +32,7 @@
   margin-top: -18rem;
 }
 .student-items {
+  margin-top: -5rem;
   display: flex;
   flex-direction: row;
   justify-content: space-between;

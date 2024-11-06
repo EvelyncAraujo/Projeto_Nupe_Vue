@@ -36,4 +36,4 @@ const esconderCabecalho = computed(() => route.name === 'login')
   color: #f1f1f1;
 }
 
-</style>
+</style>  
