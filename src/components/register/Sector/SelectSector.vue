@@ -1,7 +1,7 @@
 <template>
   <div class="columns is-vcentered">
     <div class="column has-text-centered">
-      <!-- <img src="../../../assets/registration.svg" width="300px" /> -->
+      <img src="../../../assets/registration.svg" width="300px" />
     </div>
     <div class="column">
       <h3 class="subtitle has-text-centered">

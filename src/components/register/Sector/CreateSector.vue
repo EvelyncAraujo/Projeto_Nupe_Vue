@@ -2,7 +2,7 @@
   <div>
     <div class="columns is-vcentered">
       <div class="column has-text-centered">
-        <!-- <img src="../../../assets/registration.svg" width="300px" alt="" /> -->
+        <img src="../../../assets/registration.svg" width="300px" alt="" />
       </div>
       <div class="column has-text-centered">
         <h3 class="subtitle has-text-centered">
