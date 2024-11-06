@@ -5,21 +5,15 @@ import { useRoute } from 'vue-router'
 import { useTemplateStore } from '@/stores/template'
 import MenuView from '@/views/MenuView.vue'
 import CabecalhoView from '@/views/CabecalhoView.vue'
-// import CadastroLoginView from '@/views/CadastroLoginView.vue'
-// import ForgotPasswordView from '@/views/ForgotPasswordView.vue'
 
 const route = useRoute()
 const templateStore = useTemplateStore()
 const esconderMenu = computed(() => route.name === 'login')
 const esconderCabecalho = computed(() => route.name === 'login')
-// const esconderCadastroLogin = computed(() => route.name === 'login')
-// const esconderForgotPassword = computed(() => route.name === 'login')
 </script>
 
 <template>
- <CabecalhoView v-if="!esconderCabecalho" />
- <!-- <CadastroLoginView v-if="!esconderCadastroLogin" />
- <ForgotPasswordView v-if="!esconderForgotPassword" /> -->
+ <CabecalhoView v-if="!esconderCabecalho"/>
   <div id="app" :class="templateStore.isDarkMode ?'dark-mode' : ''">
     <MenuView v-if="!esconderMenu" />
     <!-- <h1>dfds</h1> -->
@@ -42,4 +36,4 @@ const esconderCabecalho = computed(() => route.name === 'login')
   color: #f1f1f1;
 }
 
-</style>  
+</style>
