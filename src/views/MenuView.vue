@@ -31,20 +31,40 @@ const templateStore = useTemplateStore()
     </label>
 
     <ul class="menu-hamburguer-elements show">
-      <p>NupeOnline</p>
+      <div class="title-on-mobile">
+        <p >NupeOnline</p>
+      </div>
       <li v-for="item in menuItems" :key="item.text">
         <router-link :to="item.link">{{ item.text }}</router-link>
       </li>
     </ul>
-    <span @click="templateStore.toggleDarkMode">
+    <div class="hide-on-mobile"> 
+      <span @click="templateStore.toggleDarkMode">
       <img src="@/assets/favicon_io/favicon-32x32.png" alt="" class="dark-b"/>
-    </span>
+    </span></div>
+    
   </nav>
 </template>
 
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Julius+Sans+One&family=Red+Rose:wght@300..700&display=swap');
 
+.title-on-mobile {
+  display: block;
+}
+@media (max-width: 768px) {
+  .title-on-mobile {
+    display: none;
+  }
+}
+.hide-on-mobile {
+  display: block;
+}
+@media (max-width: 768px) {
+  .hide-on-mobile {
+    display: none;
+  }
+}
 .dark-b{
 margin-left: 6rem;
 margin-bottom: 4rem;

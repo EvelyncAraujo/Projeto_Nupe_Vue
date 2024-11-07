@@ -28,11 +28,10 @@
 </template>
 
 <style scoped>
-.registros {
-  margin-top: -18rem;
-}
+
 .student-items {
-  margin-top: -5rem;
+  margin-top:-10rem;
+ 
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -42,19 +41,16 @@
   /* background-color: red */
 }
 
-.perfil {
-  background-color: rgba(138, 135, 135, 0.123);
-  border-radius: 10px;
-  text-align: left;
-  line-height: 2rem;
-  max-width: 20rem;
-  margin-top: -10rem;
-}
+
 
 @media screen and (min-width: 768px) {
   .perfil {
-    margin-top: 15rem;
-    margin-right: 5rem;
+   margin-top: 20rem;
+   margin-right: 5rem;
+   background-color: rgba(138, 135, 135, 0.123);
+   border-radius: 10px;
+   text-align: left;
+   line-height: 2rem;
   }
 }
 
@@ -62,6 +58,7 @@
   .student-items {
     display: flex;
     flex-direction: column;
+   
     /* justify-content: space-between; */
     /* align-items: center; */
   }
