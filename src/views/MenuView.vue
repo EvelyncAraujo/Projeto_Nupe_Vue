@@ -31,9 +31,7 @@ const templateStore = useTemplateStore()
     </label>
 
     <ul class="menu-hamburguer-elements show">
-      <div class="title-on-mobile">
-        <p >NupeOnline</p>
-      </div>
+      <p >NupeOnline</p>
       <li v-for="item in menuItems" :key="item.text">
         <router-link :to="item.link">{{ item.text }}</router-link>
       </li>
@@ -49,14 +47,6 @@ const templateStore = useTemplateStore()
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Julius+Sans+One&family=Red+Rose:wght@300..700&display=swap');
 
-.title-on-mobile {
-  display: block;
-}
-@media (max-width: 768px) {
-  .title-on-mobile {
-    display: none;
-  }
-}
 .hide-on-mobile {
   display: block;
 }
