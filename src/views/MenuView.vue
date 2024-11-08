@@ -7,7 +7,7 @@ const menuItems = [
   { text: 'Setor', link: '/sector' },
   { text: 'Atendimento', link: '/atendimento' },
   { text: 'Campus', link: '/campus' },
-  { text: 'Razões Atendimento', link: '/razoes' },
+  // { text: 'Razões Atendimento', link: '/razoes' },
   { text: 'Perfil Aluno', link: '/perfil' },
 
 ]
@@ -31,7 +31,7 @@ const templateStore = useTemplateStore()
     </label>
 
     <ul class="menu-hamburguer-elements show">
-      <p >NupeOnline</p>
+      <!-- <p >NupeOnline</p> -->
       <li v-for="item in menuItems" :key="item.text">
         <router-link :to="item.link">{{ item.text }}</router-link>
       </li>
