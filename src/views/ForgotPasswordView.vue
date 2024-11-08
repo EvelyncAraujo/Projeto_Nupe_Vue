@@ -4,11 +4,8 @@
 <template>
   <section class="section is-main-section login-page">
       <div class="columns is-vcentered">
-      
         <div class="column is-half has-text-centered login-form">
           <h1>Bem-vindo</h1>
-            
-
         </div>
         <div class="column is-half has-text-centered logo">
           <img src="/public/ftNupe.png" alt="Imagem">
@@ -45,10 +42,10 @@ h1 {
 .login-form {
   padding: 15%;
 }
-
+/* 
 p{
   text-align: end;
-}
+} */
 
 /* .section {
   height: 100vh; 

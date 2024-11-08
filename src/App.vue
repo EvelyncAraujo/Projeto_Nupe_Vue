@@ -16,7 +16,6 @@ const esconderCabecalho = computed(() => route.name === 'login')
  <CabecalhoView v-if="!esconderCabecalho"/>
   <div id="app" :class="templateStore.isDarkMode ?'dark-mode' : ''">
     <MenuView v-if="!esconderMenu" />
-    <!-- <h1>dfds</h1> -->
     <router-view />
   </div>
 </template>

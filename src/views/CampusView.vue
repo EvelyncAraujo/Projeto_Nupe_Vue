@@ -2,7 +2,7 @@
   import { reactive, ref, computed } from "vue";
   import HeroBar from "@/components/templates/HeroBar";
   import TitleBar from "@/components/templates/TitleBar";
-  import CardComponent from "@/components/templates/CardComponent";
+  // import CardComponent from "@/components/templates/CardComponent";
   import ListarCampus from "@/components/campus/ListarCampus";
   import CadastroCampus from "@/components/campus/CadastroCampus";
 
@@ -52,15 +52,15 @@
       </template>
     </hero-bar>
 
-    <card-component
+    <!-- <card-component
       class="has-table has-mobile-sort-spaced"
       title="Câmpus"
       icon="puzzle"
-    >
+    > -->
       <cadastro-campus v-if="editing" :campus="currentCampus" />
       <cadastro-campus v-else-if="creating" :campus="currentCampus" />
       <listar-campus v-else @editCampus="editCampus" />
-    </card-component>
+    <!-- </card-component> -->
   </div>
 </template>
 
