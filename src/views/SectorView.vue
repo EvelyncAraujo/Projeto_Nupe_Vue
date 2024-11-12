@@ -12,8 +12,8 @@
       ></create-sector>
       <list-sector
         v-else
-        @createSector="createSector"
         :value="value"
+        @createSector="createSector"
         @editSector="editSector"
       />
     </div>

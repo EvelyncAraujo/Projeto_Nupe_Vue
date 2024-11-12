@@ -56,8 +56,10 @@
 </template>
 
 <script setup>
-import { ref, reactive, onMounted } from 'vue';
+import { ref, onMounted } from 'vue';
 import axios from 'axios';
+
+const emit = defineEmits(['createSector', 'editSector'])
 
 const data = ref([]);
 const search = ref('');
@@ -89,8 +91,7 @@ const searchSectors = async () => {
 
 // Função para criar setor
 const createSector = () => {
-  console.log("Criar novo setor");
-  // Pode emitir um evento ou chamar uma função
+  emit('createSector')
 };
 
 // Função para editar setor
@@ -101,7 +102,7 @@ const createSector = () => {
 // Função para excluir setor
    const deleteSector = async (sector) => {
     try {
-      await axios.delete(`/api/v1/sector/${sector.id}`);
+      await axios.delete(`/api/v1/sector/${sector.id}/`);
       fetchAllSectors();
     } catch (error) {
       console.error(error);

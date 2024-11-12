@@ -10,7 +10,7 @@
           Cadastrar setor
         </h3>
         <form @submit.prevent="createSector">
-          <b-field label="Setor" :label-position="labelPosition">
+          <b-field label="Setor" :label-position="labelPosition"> 
             <b-input
               v-model="name"
               type="text"
