@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import BlankLayout from '@/layouts/BlankLayout.vue'
-// import DefaultLayout from '@/layouts/DefaultLayout.vue'
+import DefaultLayout from '@/layouts/DefaultLayout.vue'
 import StudentView from '../views/StudentView.vue'
 import AtendimentoView from '@/views/AtendimentoView.vue'
 import LoginView from '../views/LoginView.vue'
@@ -11,30 +11,36 @@ import AttendanceReasonView from '@/views/AttendanceReasonView.vue'
 import HomeView from '@/views/HomeView.vue'
 import ForgotPasswordView from '@/views/ForgotPasswordView.vue'
 import CadastroLoginView from '@/views/CadastroLoginView.vue'
+// import LayoutFull from '@/layouts/LayoutFull.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
-    // {
-    //   path: '/login',
-    //   component: LoginView,
-    //   children: [
-    //     {
-    //       path: '/about',
-    //       name: 'about',
-    //       component: () => import('../views/AboutView.vue')
-    //     }
-    //   ]
-    // },
     {
       path: '/',
       component: BlankLayout,
       children: [
         {
-          path: '/',
+          path: '',
           name: 'login',
-          component: LoginView,
+          component: LoginView
         },
+        {
+          path: 'forgot',
+          name: 'ForgotPassword',
+          component: ForgotPasswordView
+        },
+        {
+          path: 'cadastro',
+          name: 'CadastroLogin',
+          component: CadastroLoginView
+        }
+      ]
+    },
+    {
+      path: '/',
+      component: DefaultLayout,
+      children: [
         {
           path: '/home',
           name: 'home',
@@ -70,19 +76,11 @@ const router = createRouter({
           path: '/razoes',
           name: 'RazoesAtendimento',
           component: AttendanceReasonView
-        },
-        {
-          path: '/forgot',
-          name: 'ForgotPassword',
-          component: ForgotPasswordView
-        },
-        {
-          path: '/cadastro',
-          name: 'CadastroLogin',
-          component: CadastroLoginView
         }
       ]
-    }
+    },
+
+  
   ]
 })
 
