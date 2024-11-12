@@ -12,7 +12,8 @@ import FormLogin from '@/components/FormLogin.vue'
           <form-login icon="" title="Acesso ao sistema"></form-login> 
           <Router-Link :to="{name: 'ForgotPassword'}">Esqueceu a senha?</Router-Link>
           <br>
-          <a href="Cadastro">Ainda não tem uma conta? Cadastre-se</a>
+          <Router-Link :to="{name: 'CadastroLogin'}">Ainda não tem uma conta? Cadastre-se</Router-Link>
+        
         </div>
         <div class="column is-half has-text-centered logo">
           <img src="/public/ftNupe.png" alt="Imagem">
@@ -23,9 +24,7 @@ import FormLogin from '@/components/FormLogin.vue'
 </template>
 
 <style scoped>
-a{
-  color:black;
-}
+
 .logo {
   background-color: #325C32;
   min-height: 110vh;

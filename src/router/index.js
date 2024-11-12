@@ -31,7 +31,7 @@ const router = createRouter({
           component: ForgotPasswordView
         },
         {
-          path: '/cadastro',
+          path: 'cadastro',
           name: 'CadastroLogin',
           component: CadastroLoginView
         }
