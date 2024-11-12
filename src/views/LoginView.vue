@@ -10,7 +10,7 @@ import FormLogin from '@/components/FormLogin.vue'
         <div class="column is-half has-text-centered login-form">
           <h1>Bem-vindo</h1>
           <form-login icon="" title="Acesso ao sistema"></form-login> 
-          <a href="Forgot">Esqueceu a senha?</a>
+          <Router-Link :to="{name: 'ForgotPassword'}">Esqueceu a senha?</Router-Link>
           <br>
           <a href="Cadastro">Ainda não tem uma conta? Cadastre-se</a>
         </div>
