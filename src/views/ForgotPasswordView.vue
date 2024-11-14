@@ -69,15 +69,7 @@ export default {
         <button type="submit">Enviar link de recuperação</button>
       </form>
       
-      <h2>Redefinir senha</h2>
-      <form @submit.prevent="resetPassword">
-        <label for="password">Nova Senha:</label>
-        <input v-model="password" type="password" id="password" required />
-        <label for="confirmPassword">Confirmar Senha:</label>
-        <input v-model="confirmPassword" type="password" id="confirmPassword" required />
-        <button type="submit">Redefinir Senha</button>
-      </form>
-      <p v-if="message">{{ message }}</p>
+        <p v-if="message">{{ message }}</p>
     </div>
 
     <div class="logo">
@@ -89,28 +81,25 @@ export default {
 <style scoped>
 .container {
   display: flex;
-  min-height: 100vh;
+  height: 100vh;
   align-items: center;
-  justify-content: center;
-  margin-left: 0rem;
-  width: 100rem;
+  /* justify-content: center; */
+  /* margin-left: 0rem; */
+  width: 150vh;
+  margin-left: 40rem;
+  
 }
 
 .forms-login {
   flex: 1;
   padding: 2rem;
-  
+  margin-right: 15rem;
 }
 
 .logo {
-  /* width: 100vh;
-  flex: 1; */
-  background-color: #325C32;
-  display: flex;
-  align-items: center;
-  justify-content: end;
-  height: 100vh;
- 
+   background-color: #325C32;
+   height: 100vh;
+   
 }
 
 h1 {
@@ -120,6 +109,6 @@ h1 {
 img {
   max-width: 100%;
   height: 90vh;
-
+  
 }
 </style>
