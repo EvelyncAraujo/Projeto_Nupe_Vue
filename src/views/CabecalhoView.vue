@@ -28,8 +28,9 @@ background-image: linear-gradient(green,#065903);
 }
 img{
 padding-top: 40px;
-padding-right: 1150px;
+left: 85px;
 height: 110px;
+position:absolute;
 
 }
 h1{

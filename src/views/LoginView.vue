@@ -10,9 +10,10 @@ import FormLogin from '@/components/FormLogin.vue'
         <div class="column is-half has-text-centered login-form">
           <h1>Bem-vindo</h1>
           <form-login icon="" title="Acesso ao sistema"></form-login> 
-          <a href="Forgot">Esqueceu a senha?</a>
+          <Router-Link :to="{name: 'ForgotPassword'}">Esqueceu a senha?</Router-Link>
           <br>
-          <a href="Cadastro">Ainda não tem uma conta? Cadastre-se</a>
+          <Router-Link :to="{name: 'CadastroLogin'}">Ainda não tem uma conta? Cadastre-se</Router-Link>
+        
         </div>
         <div class="column is-half has-text-centered logo">
           <img src="/public/ftNupe.png" alt="Imagem">
@@ -23,9 +24,7 @@ import FormLogin from '@/components/FormLogin.vue'
 </template>
 
 <style scoped>
-a{
-  color:black;
-}
+
 .logo {
   background-color: #325C32;
   min-height: 110vh;

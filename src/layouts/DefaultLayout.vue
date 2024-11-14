@@ -1,7 +1,10 @@
 <script setup>
-import NavBar from "@/components/templates/NavBar.vue";
-import AsideMenu from "@/components/templates/AsideMenu.vue";
-import FooterBar from "@/components/templates/FooterBar.vue";
+// import NavBar from "@/components/templates/NavBar.vue";
+// import AsideMenu from "@/components/templates/AsideMenu.vue";
+// import FooterBar from "@/components/templates/FooterBar.vue";
+import CabecalhoView from '@/views/CabecalhoView.vue'
+import MenuView from '@/views/MenuView.vue'
+
 // import { mapActions } from "vuex";
 
 // export default {
@@ -102,10 +105,10 @@ import FooterBar from "@/components/templates/FooterBar.vue";
 </script>
 <template>
   <div>
-    <nav-bar />
-    <aside-menu :menu="menu" />
-    <route-view />
-    <footer-bar />
+    <CabecalhoView />
+    <MenuView/>
+    <router-view />
+    <!-- <footer-bar /> -->
   </div>
 </template>
 <style></style>

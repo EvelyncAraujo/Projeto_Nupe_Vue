@@ -1,23 +1,23 @@
 <script setup>
-import { computed } from 'vue'
-import { useRoute } from 'vue-router'
+// import { computed } from 'vue'
+// import { useRoute } from 'vue-router'
 
 import { useTemplateStore } from '@/stores/template'
-import MenuView from '@/views/MenuView.vue'
-import CabecalhoView from '@/views/CabecalhoView.vue'
+// import MenuView from '@/views/MenuView.vue'
+// import CabecalhoView from '@/views/CabecalhoView.vue'
 
-const route = useRoute()
+// const route = useRoute()
 const templateStore = useTemplateStore()
-const esconderMenu = computed(() => route.name === 'login')
-const esconderCabecalho = computed(() => route.name === 'login')
+// const esconderMenu = computed(() => route.name === 'login')
+// const esconderCabecalho = computed(() => route.name === 'login')
 </script>
 
 <template>
- <CabecalhoView v-if="!esconderCabecalho"/>
   <div id="app" :class="templateStore.isDarkMode ?'dark-mode' : ''">
-    <MenuView v-if="!esconderMenu" />
     <router-view />
   </div>
+  <!-- <CabecalhoView v-if="!esconderCabecalho"/> -->
+    <!-- <MenuView v-if="!esconderMenu" /> -->
 </template>
 
 <style>

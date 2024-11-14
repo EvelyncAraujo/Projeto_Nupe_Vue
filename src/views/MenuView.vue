@@ -31,15 +31,16 @@ const templateStore = useTemplateStore()
     </label>
 
     <ul class="menu-hamburguer-elements show">
-      <!-- <p >NupeOnline</p> -->
+      <p >NupeOnline</p> 
       <li v-for="item in menuItems" :key="item.text">
         <router-link :to="item.link">{{ item.text }}</router-link>
       </li>
     </ul>
-    <div class="hide-on-mobile"> 
-      <span @click="templateStore.toggleDarkMode">
-      <img src="@/assets/favicon_io/favicon-32x32.png" alt="" class="dark-b"/>
-    </span></div>
+ 
+    <div class="switch__container" >
+  <input id="switch-shadow" class="switch switch--shadow" type="checkbox" @click="templateStore.toggleDarkMode"/>
+  <label for="switch-shadow"></label>
+</div>
     
   </nav>
 </template>
@@ -47,6 +48,58 @@ const templateStore = useTemplateStore()
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Julius+Sans+One&family=Red+Rose:wght@300..700&display=swap');
 
+
+.switch {
+  position: absolute;
+  margin-left: -9999px;
+  visibility: hidden;
+}
+
+.switch + label {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  outline: none;
+  user-select: none;
+}
+.switch--shadow + label {
+  top: 4px;
+  padding: 1px; /* Reduzindo padding */
+  width: 80px; /* Diminuindo largura */
+  height: 40px; /* Diminuindo altura */
+  background-color:black;
+  border-radius: 40px; /* Ajuste o arredondamento para o novo tamanho */
+  left: px;
+}
+.switch--shadow + label:before,
+.switch--shadow + label:after {
+  display: block;
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  bottom: 1px;
+  content: '';
+}
+.switch--shadow + label:before {
+  right: 1px;
+  background-color:black;
+  border-radius: 60px;
+  transition: all 0.4s;
+}
+.switch--shadow + label:after {
+  width: 36px; /* Reduzindo o tamanho do círculo interno */
+  height: 36px; /* Adicionando altura para manter o círculo proporcional */
+  background-color: #fff;
+  border-radius: 100%;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); /* Ajuste da sombra */
+  transition: all 0.4s;
+}
+.switch--shadow:checked + label:before {
+  background-color:#ffffff;
+}
+.switch--shadow:checked + label:after {
+  transform: translateX(40px); /* Ajustando a posição final do círculo */
+}
 .hide-on-mobile {
   display: block;
 }
@@ -261,11 +314,12 @@ input:checked ~ .menu-hamburguer-elements {
 
   .menu-hamburguer-elements {
     width: 50%;
-    height: 100%;
+    height: 125%;
     background-color: rgba(0, 0, 0, 0.808);
-    position: absolute;
+    position:absolute;
     left: -50%;
     top: 0px;
+
 
     transition: left cubic-bezier(1, 0, 0, 1) 0.8s;
 
