@@ -1,5 +1,6 @@
 <script setup>
-import { ref } from 'vue'
+
+import { ref, onMounted, onBeforeUnmount } from "vue";
 import { useTemplateStore } from '@/stores/template.js'
 
 const menuItems = [
@@ -12,6 +13,20 @@ const menuItems = [
 
 ]
 
+const isMobile = ref(false);
+
+const checkIfMobile = () => {
+  isMobile.value = window.innerWidth <= 768; // Define o breakpoint
+};
+
+onMounted(() => {
+  checkIfMobile();
+  window.addEventListener("resize", checkIfMobile);
+});
+
+onBeforeUnmount(() => {
+  window.removeEventListener("resize", checkIfMobile);
+});
 
 const isMenuOpen = ref(false)
 
@@ -37,10 +52,12 @@ const templateStore = useTemplateStore()
       </li>
     </ul>
  
-    <div class="switch__container" >
+    <div  class="['checkbox-container', isMobile ? 'mobile' : 'desktop']" >
   <input id="switch-shadow" class="switch switch--shadow" type="checkbox" @click="templateStore.toggleDarkMode"/>
   <label for="switch-shadow"></label>
 </div>
+
+
     
   </nav>
 </template>
@@ -49,10 +66,19 @@ const templateStore = useTemplateStore()
 @import url('https://fonts.googleapis.com/css2?family=Julius+Sans+One&family=Red+Rose:wght@300..700&display=swap');
 
 
+
+.checkbox-container.mobile {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+
+
+}
 .switch {
   position: absolute;
   margin-left: -9999px;
   visibility: hidden;
+
 }
 
 .switch + label {
@@ -61,6 +87,7 @@ const templateStore = useTemplateStore()
   cursor: pointer;
   outline: none;
   user-select: none;
+
 }
 .switch--shadow + label {
   top: 4px;
