@@ -66,9 +66,9 @@ export default {
       <form @submit.prevent="submitEmail">
         <label for="email">Email:</label>
         <input v-model="email" type="email" id="email" required />
-        <button type="submit">Enviar link de recuperação</button>
+        <button type="submit" class="link">Enviar link de recuperação</button>
       </form>
-      
+      <button class="conf">voltar ao login</button>
         <p v-if="message">{{ message }}</p>
     </div>
 
@@ -79,36 +79,84 @@ export default {
 </template>
 
 <style scoped>
+h1{
+  font-size: 50px;
+}
+label{
+  font-size: 20px;
+}
+
+input{
+  margin-left: 10px;
+  margin-top: 10px;
+  padding: 5px 15px;
+  border-radius: 5px;
+}
 .container {
   display: flex;
   height: 100vh;
-  align-items: center;
-  /* justify-content: center; */
-  /* margin-left: 0rem; */
-  width: 150vh;
-  margin-left: 40rem;
+  width: 100%;
   
+}
+.conf {
+  color: #000000;
+  border: 1px solid #325C32;
+  border-radius: 8px;
+  padding: 8px 20px;
+  margin-left: 9rem;
+  margin-top: 5px;
+  display: inline-block;
+  font-family: "Lucida Console", Monaco, monospace;
+  font-size: 11px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  box-shadow: inset 0 0 0 0 #325c328c;
+  -webkit-transition: ease-out 0.4s;
+  -moz-transition: ease-out 0.4s;
+  transition: ease-out 0.4s;
+}
+.link {
+  margin-left: 9px;
+  color: #000000;
+  border: 1px solid #325C32;
+  border-radius: 8px;
+  padding: 5px 10px;
+  box-shadow: inset 0 0 0 0 #325c3291;
+  -webkit-transition: ease-out 0.4s;
+  -moz-transition: ease-out 0.4s;
+  transition: ease-out 0.4s;
+}
+.conf:hover  {
+  box-shadow: inset 400px 0 0 0 #325c3280;
+}
+.link:hover{
+  box-shadow: inset 400px 0 0 0 #325c3277;
 }
 
 .forms-login {
   flex: 1;
   padding: 2rem;
-  margin-right: 15rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+ 
 }
 
 .logo {
-   background-color: #325C32;
-   height: 100vh;
-   
-}
-
-h1 {
-  font-size: 3rem;
+  margin-right: -40rem;
+  flex: 2; /* Faz com que ocupe metade da largura */
+  background-color: #325C32;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* width: 100rem; */
 }
 
 img {
   max-width: 100%;
-  height: 90vh;
+  max-height: 150%;
+  /* object-fit: contain; */
   
 }
 </style>
