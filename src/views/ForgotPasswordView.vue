@@ -6,7 +6,7 @@ export default {
       message: '',
       password: '',
       confirmPassword: ''
-    };
+    }
   },
   methods: {
     async submitEmail() {
@@ -15,48 +15,48 @@ export default {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ email: this.email })
-        });
+        })
 
-        const data = await response.json();
+        const data = await response.json()
 
         if (response.ok) {
-          this.message = 'Verifique seu email para o link de recuperação!';
+          this.message = 'Verifique seu email para o link de recuperação!'
         } else {
-          this.message = data.error || 'Erro ao enviar o email';
+          this.message = data.error || 'Erro ao enviar o email'
         }
       } catch (error) {
-        console.error('Erro:', error);
-        this.message = 'Erro ao conectar ao servidor';
+        console.error('Erro:', error)
+        this.message = 'Erro ao conectar ao servidor'
       }
     },
     async resetPassword() {
       if (this.password !== this.confirmPassword) {
-        this.message = 'As senhas não correspondem';
-        return;
+        this.message = 'As senhas não correspondem'
+        return
       }
 
-      const token = this.$route.params.token;
+      const token = this.$route.params.token
       try {
         const response = await fetch(`http://localhost:3000/api/auth/reset-password/${token}`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ password: this.password })
-        });
+        })
 
-        const data = await response.json();
+        const data = await response.json()
 
         if (response.ok) {
-          this.message = 'Senha redefinida com sucesso';
+          this.message = 'Senha redefinida com sucesso'
         } else {
-          this.message = data.error || 'Erro ao redefinir a senha';
+          this.message = data.error || 'Erro ao redefinir a senha'
         }
       } catch (error) {
-        console.error('Erro:', error);
-        this.message = 'Erro ao conectar ao servidor';
+        console.error('Erro:', error)
+        this.message = 'Erro ao conectar ao servidor'
       }
     }
   }
-};
+}
 </script>
 
 <template>
@@ -69,24 +69,23 @@ export default {
         <button type="submit" class="link">Enviar link de recuperação</button>
       </form>
       <button class="conf">voltar ao login</button>
-        <p v-if="message">{{ message }}</p>
+      <p v-if="message">{{ message }}</p>
     </div>
-
     <div class="logo">
-      <img src="/public/ftNupe.png" alt="Imagem">
+      <img src="/public/ftNupe.png" alt="Imagem" />
     </div>
   </div>
 </template>
 
 <style scoped>
-h1{
+h1 {
   font-size: 50px;
 }
-label{
+label {
   font-size: 20px;
 }
 
-input{
+input {
   margin-left: 10px;
   margin-top: 10px;
   padding: 5px 15px;
@@ -96,17 +95,15 @@ input{
   display: flex;
   height: 100vh;
   width: 100%;
-  
 }
 .conf {
   color: #000000;
-  border: 1px solid #325C32;
+  border: 1px solid #325c32;
   border-radius: 8px;
   padding: 8px 20px;
   margin-left: 9rem;
   margin-top: 5px;
   display: inline-block;
-  font-family: "Lucida Console", Monaco, monospace;
   font-size: 11px;
   letter-spacing: 1px;
   cursor: pointer;
@@ -118,7 +115,7 @@ input{
 .link {
   margin-left: 9px;
   color: #000000;
-  border: 1px solid #325C32;
+  border: 1px solid #325c32;
   border-radius: 8px;
   padding: 5px 10px;
   box-shadow: inset 0 0 0 0 #325c3291;
@@ -126,10 +123,10 @@ input{
   -moz-transition: ease-out 0.4s;
   transition: ease-out 0.4s;
 }
-.conf:hover  {
+.conf:hover {
   box-shadow: inset 400px 0 0 0 #325c3280;
 }
-.link:hover{
+.link:hover {
   box-shadow: inset 400px 0 0 0 #325c3277;
 }
 
@@ -140,13 +137,12 @@ input{
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
- 
 }
 
 .logo {
   margin-right: -40rem;
   flex: 2; /* Faz com que ocupe metade da largura */
-  background-color: #325C32;
+  background-color: #325c32;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -157,6 +153,5 @@ img {
   max-width: 100%;
   max-height: 150%;
   /* object-fit: contain; */
-  
 }
 </style>

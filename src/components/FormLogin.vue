@@ -37,11 +37,11 @@
               >Login</b-button
             >
           </div>
-          <div class="column is-one-half">
+          <!-- <div class="column is-one-half">
             <b-button type="is-primary is-outlined" @click="reset" expanded>
               Cancelar
             </b-button>
-          </div>
+          </div> -->
         </b-field>
       </b-field>
 
