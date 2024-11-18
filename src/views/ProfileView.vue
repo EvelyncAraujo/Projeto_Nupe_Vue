@@ -9,7 +9,8 @@ export default {
       form: {
         email: '',
         senha: '',
-        confirmarSenha: ''
+        confirmarSenha: '',
+        avatar: ''
       },
       errorMessage: ''
     }
@@ -17,27 +18,32 @@ export default {
   methods: {
     checkPasswords() {
       if (this.form.senha === this.form.confirmarSenha) {
-        this.showToast()    
+        this.showToast()
         this.errorMessage = ''
       } else {
         this.errorMessage = 'As senhas não correspondem. '
       }
     },
+    upload(e) {
+        console.log('eee')
+        e.preventDefault()
+        var files = e.target.files
+        this.form.avatar =  URL.createObjectURL(files[0])
+      },
     showToast() {
       var toast = document.getElementById('toast')
       toast.className = 'toast show'
       setTimeout(() => {
         toast.className = toast.className.replace('show', '')
       }, 3000)
-    }, 
-    methods: {
-      upload(e) {
-        e.preventDefault()  
-        var files = e.target.files
-        this.record.file = files[0]
-      }
-      
-    }
+    },
+    // handleFileUpload(e) {
+    //   const target = e.target
+    //   if (target && target.files) {
+    //     const file = target.files[0]
+    //     user.avatar = URL.createObjectURL(file)
+    //   }
+    // }
   }
 }
 </script>
@@ -51,10 +57,10 @@ export default {
 
       <div class="perfil-aluno">
         <h1 class="atz">Foto de perfil</h1>
-        <img src="/public/circuloImagem.jpeg" alt="Foto do Aluno" class="perfil-foto" />
+        <input type="file" id="avatarField" @change="upload" />
+        <img v-if="form.avatar" :src="form.avatar" />
         <h2>{{ aluno.nome }}</h2>
-        <p><input @change="upload" type="file" class="arqv"/></p>
-      </div>
+        </div>
 
       <div class="formulario-cadastro">
         <h2>Cadastro</h2>
@@ -122,8 +128,8 @@ export default {
   object-fit: cover;
   margin-bottom: 20px;
 }
-.arqv{
-border-bottom: none;
+.arqv {
+  border-bottom: none;
 }
 h1 {
   text-align: left;
