@@ -12,19 +12,32 @@ export default {
       message: ''
     }
   },
-  methods: {
+
+methods: {
+    showToast(message, type) {
+      const toast = document.createElement("div");
+      toast.className = `toast ${type}`;
+      toast.innerText = message;
+
+      document.body.appendChild(toast);
+
+      setTimeout(() => {
+        toast.remove();
+      }, 3000); // Remove o toast após 3 segundos
+    },
     registerUser() {
       if (this.password !== this.confirmPassword) {
-        this.message = 'A senha está incorreta!'
-        // } else if (!this.gender || !this.userType || !this.city) {
-        //   this.message = 'Por favor, preencha todos os campos!'
+        this.showToast("As senhas não coincidem!", "error");
+      // } else if (!this.name || !this.email || !this.password || !this.gender || !this.city || !this.userType) {
+      //   this.showToast("Por favor, preencha todos os campos obrigatórios!", "warning");
       } else {
-        this.message = 'Cadastro realizado com sucesso!'
-        // Aqui você pode adicionar lógica para enviar os dados ao servidor
+        // this.showToast("Cadastro realizado com sucesso!", "success");
+        // Redireciona para a página inicial
+        this.$router.push("/home");
       }
-    }
-  }
-}
+    },
+  },
+};
 </script><template>
   <div class="register-container">
     <div class="register-page">
@@ -45,8 +58,9 @@ export default {
         <label>Gênero:</label>
         <div class="radio-group">
           <input v-model="gender" type="radio" id="female" value="Feminino" />
-          <label for="female">  Feminino</label>
-
+          <label for="female"> Feminino</label>
+        </div>
+        <div class="radio-group 2">
           <input v-model="gender" type="radio" id="male" value="Masculino" />
           <label for="male">Masculino</label>
         </div>
@@ -80,8 +94,10 @@ export default {
           <option>Secretaria Escolar e Acadêmica</option>
           <option>Assessor de Ensino</option>
         </select>
-        <button type="submit">Cadastrar</button>
-        <button class="back">volta ao login</button>
+        <div class="conteiner">
+     
+       <a href="/src/views/HomeView.vue"><button type="submit">Cadastrar</button></a>
+        </div>
       </form>
       <p v-if="message">{{ message }}</p>
     </div>
@@ -93,20 +109,25 @@ export default {
 
 
 <style scoped>
-.register-page {
-  max-width: 40rem;
-  /* margin: 5 auto; */
-  /* padding: 3rem; */
-  background-color: #aaaaaa00;
-  border-radius: 8px;
-  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
-  margin-top: 9rem;
-  margin-left: 11rem;
-}
+/* .radio-group{
+margin-left: -5rem;
+  
+} */
 
 h1 {
   text-align: center;
   font-size: 2rem;
+}
+
+.register-page {
+  max-width: 50rem;
+  padding: 2rem;
+  /* margin: 5 auto; */
+  /* padding: 3rem; */
+  background-color: #21631400;
+
+  /* margin-top: 9rem;
+  margin-left: 11rem; */
 }
 
 form {
@@ -163,13 +184,13 @@ button:hover {
   margin-top: 2rem;
 }
 
-.register-page {
+/* .register-page {
   flex: 1;
   max-width: 60%;
   padding: 1rem;
   background-color: #f9f9f913;
   border-radius: 8px;
-}
+} */
 
 .logo {
   /* flex: 0 0 auto; */
@@ -177,7 +198,7 @@ button:hover {
   background-color: rgba(50, 92, 50, 1);
   width: -40rem;
   /* height: 90rem; */
-  padding: 22rem;
+  padding: 19rem;
   justify-content: center;
   margin-top: -15rem;
 
@@ -190,4 +211,9 @@ button:hover {
   /* height: auto;  */
   /* border-radius: 10px; */
 }
+
+.container {
+  float: left;
+}
+
 </style>

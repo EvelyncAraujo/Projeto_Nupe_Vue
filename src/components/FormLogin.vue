@@ -33,8 +33,7 @@
       <b-field>
         <b-field class="columns">
           <div class="column is-one-half">
-            <b-button native-type="submit" class="is-primary" expanded
-              >Login</b-button
+            <b-button  native-type="submit" class="is-primary" expanded >Login</b-button
             >
           </div>
           <!-- <div class="column is-one-half">

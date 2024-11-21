@@ -97,9 +97,9 @@ input {
   width: 100%;
 }
 .conf {
-  color: #000000;
-  border: 1px solid #325c32;
-  border-radius: 8px;
+  color: #094b09;
+  /* border: 1px solid #325c32;
+  border-radius: 8px; */
   padding: 8px 20px;
   margin-left: 9rem;
   margin-top: 5px;
@@ -107,28 +107,23 @@ input {
   font-size: 11px;
   letter-spacing: 1px;
   cursor: pointer;
-  box-shadow: inset 0 0 0 0 #325c328c;
+  /* box-shadow: inset 0 0 0 0 #325c328c;
   -webkit-transition: ease-out 0.4s;
   -moz-transition: ease-out 0.4s;
-  transition: ease-out 0.4s;
+  transition: ease-out 0.4s; */
 }
 .link {
   margin-left: 9px;
-  color: #000000;
-  border: 1px solid #325c32;
-  border-radius: 8px;
+  color: #0e5205e1;
+  /* border: 1px solid #325c32;
+  border-radius: 8px; */
   padding: 5px 10px;
-  box-shadow: inset 0 0 0 0 #325c3291;
+  /* box-shadow: inset 0 0 0 0 #325c3291;
   -webkit-transition: ease-out 0.4s;
   -moz-transition: ease-out 0.4s;
-  transition: ease-out 0.4s;
+  transition: ease-out 0.4s; */
 }
-.conf:hover {
-  box-shadow: inset 400px 0 0 0 #325c3280;
-}
-.link:hover {
-  box-shadow: inset 400px 0 0 0 #325c3277;
-}
+
 
 .forms-login {
   flex: 1;
@@ -153,5 +148,6 @@ img {
   max-width: 100%;
   max-height: 150%;
   /* object-fit: contain; */
+  margin-right: 20rem;
 }
 </style>

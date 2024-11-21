@@ -13,6 +13,7 @@ import './plugins/axios'
 import App from './App.vue'
 import router from './router'
 import Buefy from 'buefy'
+
 const app = createApp(App)
 
 app.use(createPinia())
@@ -20,6 +21,7 @@ app.use(store)
 app.use(router)
 app.use(Buefy)
 app.mount('#app')
+
 
 //import "./store/index.js"
 
