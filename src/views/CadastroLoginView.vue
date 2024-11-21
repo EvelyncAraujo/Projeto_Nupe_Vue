@@ -7,7 +7,7 @@ export default {
       password: '',
       confirmPassword: '',
       gender: '',
-      userType: '', 
+      userType: '',
       city: '',
       message: ''
     }
@@ -15,9 +15,9 @@ export default {
   methods: {
     registerUser() {
       if (this.password !== this.confirmPassword) {
-        this.message = 'As senhas não coincidem!'
-      } else if (!this.gender || !this.userType || !this.city) {
-        this.message = 'Por favor, preencha todos os campos!'
+        this.message = 'A senha está incorreta!'
+        // } else if (!this.gender || !this.userType || !this.city) {
+        //   this.message = 'Por favor, preencha todos os campos!'
       } else {
         this.message = 'Cadastro realizado com sucesso!'
         // Aqui você pode adicionar lógica para enviar os dados ao servidor
@@ -45,7 +45,7 @@ export default {
         <label>Gênero:</label>
         <div class="radio-group">
           <input v-model="gender" type="radio" id="female" value="Feminino" />
-          <label for="female">Feminino</label>
+          <label for="female">  Feminino</label>
 
           <input v-model="gender" type="radio" id="male" value="Masculino" />
           <label for="male">Masculino</label>
@@ -80,12 +80,12 @@ export default {
           <option>Secretaria Escolar e Acadêmica</option>
           <option>Assessor de Ensino</option>
         </select>
-
         <button type="submit">Cadastrar</button>
+        <button class="back">volta ao login</button>
       </form>
       <p v-if="message">{{ message }}</p>
     </div>
-    <div class="column is-half has-text-centered logo">
+    <div class="logo">
       <img src="/public/ftNupe.png" alt="Imagem" />
     </div>
   </div>
@@ -95,13 +95,13 @@ export default {
 <style scoped>
 .register-page {
   max-width: 40rem;
-  margin: 5 auto;
-  padding: 3rem;
+  /* margin: 5 auto; */
+  /* padding: 3rem; */
   background-color: #aaaaaa00;
   border-radius: 8px;
   /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
-  margin-top: 10rem;
-  margin-left: 10rem;
+  margin-top: 9rem;
+  margin-left: 11rem;
 }
 
 h1 {
@@ -112,10 +112,13 @@ h1 {
 form {
   display: flex;
   flex-direction: column;
+  width: 45rem;
+  margin-left: 5rem;
 }
 
 label {
   margin-top: 1rem;
+  margin-right: 40rem;
 }
 
 input,
@@ -139,6 +142,7 @@ button {
   background-color: #325c32;
   color: white;
   cursor: pointer;
+  width: 15rem;
 }
 
 button:hover {
@@ -170,18 +174,20 @@ button:hover {
 .logo {
   /* flex: 0 0 auto; */
   margin-right: -40rem;
-  background-color:  rgba(50, 92, 50, 1);
-  /* width: 30rem; */
+  background-color: rgba(50, 92, 50, 1);
+  width: -40rem;
   /* height: 90rem; */
-  padding: 15rem;
+  padding: 22rem;
   justify-content: center;
+  margin-top: -15rem;
+
 }
 
 .logo img {
-  max-width: 800px;
- justify-content: center;
+  max-width: 75rem;
+  justify-content: center;
+
   /* height: auto;  */
   /* border-radius: 10px; */
 }
-
 </style>
