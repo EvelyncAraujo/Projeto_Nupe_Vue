@@ -8,7 +8,7 @@ export default {
       confirmPassword: '',
       gender: '',
       userType: '',
-      city: '',
+      location: '',
       message: ''
     }
   },
@@ -65,8 +65,16 @@ methods: {
           <label for="male">Masculino</label>
         </div>
 
-        <label for="city">Cidade:</label>
-        <select v-model="city" id="city" required>
+        <label for="city">Cidade:
+          <select
+          v-model="currentCampus.location"
+        >
+          <option v-for="loc of locationStore.locations" :key="loc.id" :value="loc.id">
+            {{ loc.name }}
+          </option>
+          </select>
+        </label>
+        <!-- <select v-model="city" id="city" required>
           <option disabled value="">Selecione a cidade</option>
           <option>Abelardo Luz</option>
           <option>Ibirama</option>
@@ -83,7 +91,7 @@ methods: {
           <option>Blumenau</option>
           <option>São Francisco do Sul</option>
           <option>Araquari</option>
-        </select>
+        </select> -->
 
         <label for="person">Servidor:</label>
         <select v-model="person" id="person" required>

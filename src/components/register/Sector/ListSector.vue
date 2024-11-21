@@ -34,7 +34,7 @@
       :paginated="isPaginated"
       :per-page="perPage"
     >
-      <b-table-column v-slot="props" field="name" label="Setor" :sortable="true">
+      <b-table-column v-slot="props" field="name" label="Setor">
         {{ props.row.name }}
       </b-table-column>
 
