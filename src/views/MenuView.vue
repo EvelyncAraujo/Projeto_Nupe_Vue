@@ -46,7 +46,7 @@ const templateStore = useTemplateStore()
     </label>
 
     <ul class="menu-hamburguer-elements show">
-      <p >NupeOnline</p> 
+     <a href="Home"><p>NupeOnline</p></a> 
       <li v-for="item in menuItems" :key="item.text">
         <router-link :to="item.link">{{ item.text }}</router-link>
       </li>
@@ -55,18 +55,13 @@ const templateStore = useTemplateStore()
     <div  class="['checkbox-container', isMobile ? 'mobile' : 'desktop']" >
   <input id="switch-shadow" class="switch switch--shadow" type="checkbox" @click="templateStore.toggleDarkMode"/>
   <label for="switch-shadow"></label>
-</div>
-
-
-    
+</div> 
   </nav>
 </template>
 
 <style scoped>
+
 @import url('https://fonts.googleapis.com/css2?family=Julius+Sans+One&family=Red+Rose:wght@300..700&display=swap');
-
-
-
 .checkbox-container.mobile {
   position: absolute;
   top: 10px;
@@ -365,4 +360,5 @@ input:checked ~ .menu-hamburguer-elements {
     width: 60px;
   }
 }
+
 </style>
