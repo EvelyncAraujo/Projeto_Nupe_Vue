@@ -114,6 +114,7 @@ margin-left: -5rem;
   
 } */
 
+
 h1 {
   text-align: center;
   font-size: 2rem;
@@ -196,24 +197,28 @@ button:hover {
   /* flex: 0 0 auto; */
   margin-right: -40rem;
   background-color: rgba(50, 92, 50, 1);
-  width: -40rem;
+
   /* height: 90rem; */
   padding: 19rem;
-  justify-content: center;
+
   margin-top: -15rem;
 
 }
 
-.logo img {
-  max-width: 75rem;
-  justify-content: center;
+.img {
+  max-width: 100%;
+  max-height: 150%;
+  /* object-fit: contain; */
 
-  /* height: auto;  */
-  /* border-radius: 10px; */
+
+  margin-top: 1rem;
+
 }
 
 .container {
-  float: left;
+display: flex;
+  height: 100vh;
+
 }
 
 </style>
