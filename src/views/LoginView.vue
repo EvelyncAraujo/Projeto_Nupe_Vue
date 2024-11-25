@@ -31,8 +31,12 @@ import FormLogin from '@/components/FormLogin.vue'
 }
 img {
   max-width: 100%;
-  /* left: 0; */
-  height: 95vh;
+  max-height: 150%;
+  /* object-fit: contain; */
+  margin-right: 20rem;
+  margin-left: 15rem;
+  margin-top: 12rem;
+
 }
 
 h1 {
