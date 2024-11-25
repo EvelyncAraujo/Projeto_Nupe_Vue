@@ -46,7 +46,7 @@ const templateStore = useTemplateStore()
     </label>
 
     <ul class="menu-hamburguer-elements show">
-     <a href="Home"><p>NupeOnline</p></a> 
+     <a href="Home"><p class="logo">NupeOnline</p></a> 
       <li v-for="item in menuItems" :key="item.text">
         <router-link :to="item.link">{{ item.text }}</router-link>
       </li>
@@ -156,7 +156,6 @@ p {
 .toggleTheme,
 p,
 li,
-a,
 ul,
 img,
 span {

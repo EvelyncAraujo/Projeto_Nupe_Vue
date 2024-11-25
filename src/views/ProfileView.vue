@@ -37,6 +37,15 @@ export default {
         toast.className = toast.className.replace('show', '')
       }, 3000)
     },
+    // async deleteCampus(campusId) {
+    //   try {
+    //     this.campuses = this.campuses.filter((campus) => campus.id !== campusId);
+    //     this.showToast(); // Mostra um toast informando sucesso
+    //   } catch (error) {
+    //     console.error('Erro ao excluir o campus:', error);
+    //   }
+    // },
+
     // handleFileUpload(e) {
     //   const target = e.target
     //   if (target && target.files) {
@@ -44,6 +53,7 @@ export default {
     //     user.avatar = URL.createObjectURL(file)
     //   }
     // }
+    
   }
 }
 </script>
@@ -60,8 +70,13 @@ export default {
         <input type="file" id="avatarField" @change="upload" />
         <img v-if="form.avatar" :src="form.avatar" />
         <h2>{{ aluno.nome }}</h2>
+        <!-- <b-button
+            type="is-danger"
+            icon-left="delete"
+            @click="deleteCampus(props.row)"
+          ></b-button> -->
         </div>
-
+      
       <div class="formulario-cadastro">
         <h2>Cadastro</h2>
         <div class="form-group">

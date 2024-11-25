@@ -28,16 +28,16 @@
   </script>
   <template>
     <b-table :data="campusStore.campus" :paginated="isPaginated" :per-page="perPage">
-      <b-table-column v-slot="props" label="Nome">
+      <b-table-column v-slot="props" class="nome" label="Nome">
           {{ props.row.name }}
         </b-table-column>
-        <b-table-column v-slot="props" label="Instituição">
+        <b-table-column v-slot="props" class="inst" label="Instituição">
           {{ props.row.institution }}
         </b-table-column>
-        <b-table-column v-slot="props" label="Endereço">
+        <b-table-column v-slot="props" class="end" label="Endereço">
           {{ props.row.address }}
         </b-table-column>
-        <b-table-column v-slot="props" custom-key="actions" label="Ações">
+        <b-table-column v-slot="props" custom-key="actions" class="acoes" label="Ações">
           <b-button
             type="is-primary"
             icon-left="pencil"
@@ -51,4 +51,8 @@
         </b-table-column>
     </b-table>
   </template>
+  <style>
+
+
+</style>
   
