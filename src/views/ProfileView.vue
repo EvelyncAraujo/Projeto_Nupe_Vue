@@ -67,8 +67,8 @@ export default {
 
       <div class="perfil-aluno">
         <h1 class="atz">Foto de perfil</h1>
-        <input type="file" id="avatarField" @change="upload" />
-        <img v-if="form.avatar" :src="form.avatar" />
+        <img v-if="form.avatar" :src="form.avatar" style="border-radius: 50%; width: 250px; height: 250px;"/>
+         <input type="file" id="avatarField" @change="upload" />
         <h2>{{ aluno.nome }}</h2>
         <!-- <b-button
             type="is-danger"
