@@ -2,10 +2,14 @@
 import { ref } from 'vue'
 
 const items = ref([
-  { src: '/public/img1.png', alt: 'Descrição da imagem 1' },
-  { src: '/public/img2.png', alt: 'Descrição da imagem 2' },
-  { src: '/public/img3.png', alt: 'Descrição da imagem 3' }
+  { src: '/public/img3.jpg', alt: 'Descrição da imagem 3' },
+  { src: '/public/img1.jpg', alt: 'Descrição da imagem 1' },
+  { src: '/public/img2.jpg', alt: 'Descrição da imagem 2' },
+  { src: '/public/img4.jpg', alt: 'Descrição da imagem 4' },
+  { src: '/public/img5.jpg', alt: 'Descrição da imagem 5' },
+
 ])
+
 
 const currentIndex = ref(0)
 
@@ -35,6 +39,7 @@ function goToSlide(index) {
     <button @click="nextSlide" class="carousel-control next">›</button>
 
     <div class="carousel-indicators">
+      
       <span
         v-for="(item, index) in items"
         :key="index"
@@ -43,6 +48,7 @@ function goToSlide(index) {
       ></span>
     </div>
   </div>
+
 </template>
 
 <style scoped>

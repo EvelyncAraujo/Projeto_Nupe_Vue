@@ -12,51 +12,40 @@ export default {
         confirmarSenha: '',
         avatar: ''
       },
-      errorMessage: ''
-    }
+      errorMessage: '',
+      showPassword: false
+    };
   },
   methods: {
+    togglePasswordVisibility() {
+      this.showPassword = !this.showPassword;
+    },
     checkPasswords() {
       if (this.form.senha === this.form.confirmarSenha) {
-        this.showToast()
-        this.errorMessage = ''
+        this.showToast();
+        this.errorMessage = '';
       } else {
-        this.errorMessage = 'As senhas não correspondem. '
+        this.errorMessage = 'As senhas não correspondem.';
       }
     },
     upload(e) {
-        console.log('eee')
-        e.preventDefault()
-        var files = e.target.files
-        this.form.avatar =  URL.createObjectURL(files[0])
-      },
-    showToast() {
-      var toast = document.getElementById('toast')
-      toast.className = 'toast show'
-      setTimeout(() => {
-        toast.className = toast.className.replace('show', '')
-      }, 3000)
+      e.preventDefault();
+      const files = e.target.files;
+      if (files.length) {
+        this.form.avatar = URL.createObjectURL(files[0]);
+      }
     },
-    // async deleteCampus(campusId) {
-    //   try {
-    //     this.campuses = this.campuses.filter((campus) => campus.id !== campusId);
-    //     this.showToast(); // Mostra um toast informando sucesso
-    //   } catch (error) {
-    //     console.error('Erro ao excluir o campus:', error);
-    //   }
-    // },
-
-    // handleFileUpload(e) {
-    //   const target = e.target
-    //   if (target && target.files) {
-    //     const file = target.files[0]
-    //     user.avatar = URL.createObjectURL(file)
-    //   }
-    // }
-    
+    showToast() {
+      const toast = document.getElementById('toast');
+      toast.className = 'toast show';
+      setTimeout(() => {
+        toast.className = toast.className.replace('show', '');
+      }, 3000);
+    }
   }
-}
+};
 </script>
+
 <template>
   <div class="perfil-Info">
     <h1 class="atz">Atualizar dados institucionais</h1>
@@ -67,7 +56,7 @@ export default {
 
       <div class="perfil-aluno">
         <h1 class="atz">Foto de perfil</h1>
-        <img v-if="form.avatar" :src="form.avatar" style="border-radius: 50%; width: 250px; height: 250px;"/>
+        <img v-if="form.avatar" :src="form.avatar" style="border-radius: 50%; width: 250px; height: 260px;"/>
          <input type="file" id="avatarField" @change="upload" />
         <h2>{{ aluno.nome }}</h2>
         <!-- <b-button
@@ -89,6 +78,23 @@ export default {
             required
           />
         </div>
+        <!-- <label for="senha">Senha:</label>
+  <div style="position: relative;">
+    <input
+      :type="showPassword ? 'text' : 'password'"
+      id="senha"
+      v-model="form.senha"
+      placeholder="Digite sua senha"
+      required
+    />
+    <button
+      type="button"
+      @click="togglePasswordVisibility"
+      style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); background: none; border: none; cursor: pointer;"
+    >
+      {{ showPassword ? 'Esconder' : 'Mostrar' }}
+    </button>
+  </div> -->
         <div class="form-group">
           <label for="senha">Senha:</label>
           <input
@@ -98,6 +104,7 @@ export default {
             placeholder="Digite sua senha"
             required
           />
+          
         </div>
         <div class="form-group">
           <label for="confirmar-senha">Confirmar Senha:</label>
@@ -109,7 +116,7 @@ export default {
             required
           />
         </div>
-        <div id="toast" class="toast">Ação confirmada!</div>
+        <div id="toast" class="toast">Ação confirmada!</div>  
         <button type="submit">Confirmar</button>
         <p v-if="errorMessage" class="error">{{ errorMessage }}</p>
       </div>
