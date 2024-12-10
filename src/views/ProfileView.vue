@@ -125,6 +125,7 @@ export default {
 </template>
 
 <style scoped>
+
 .perfil-aluno {
   max-width: 600px;
   margin-top: 15rem;
@@ -272,4 +273,7 @@ button:hover {
     opacity: 0;
   }
 }
+
+
+
 </style>
