@@ -4,7 +4,6 @@
   import { useLocationStore } from '@/stores/location';
   import { useInstitutionStore } from '@/stores/institution';
 
-  
   const props = defineProps(['campus'])
   const campusStore = useCampusStore()
   const locationStore = useLocationStore()
@@ -39,9 +38,9 @@
     (newCampus) => {
       currentCampus.value = { ...newCampus };
     }
-  );
-  
+  );  
   </script>
+
   <template>
     <section>
       <b-field label="Nome">

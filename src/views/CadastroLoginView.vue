@@ -1,4 +1,8 @@
 <script>
+import { useLocationStore } from '@/stores/location'
+import { useFunctionStore } from '@/stores/function'
+import { onMounted } from 'vue'
+
 export default {
   data() {
     return {
@@ -9,36 +13,50 @@ export default {
       gender: '',
       userType: '',
       city: '',
-      message: ''
+      message: '',
+      function: '',
+    }
+  },
+  setup() {
+    const locationStore = useLocationStore()
+    const functionStore = useFunctionStore()
+    onMounted(async () => {
+      await locationStore.fetchAllLocations()
+      await functionStore.fetchAllFunctions()
+    })
+    return {
+      locationStore, functionStore
     }
   },
 
-methods: {
+  methods: {
     showToast(message, type) {
-      const toast = document.createElement("div");
-      toast.className = `toast ${type}`;
-      toast.innerText = message;
+      const toast = document.createElement('div')
+      toast.className = `toast ${type}`
+      toast.innerText = message
 
-      document.body.appendChild(toast);
+      document.body.appendChild(toast)
 
       setTimeout(() => {
-        toast.remove();
-      }, 3000); // Remove o toast após 3 segundos
+        toast.remove()
+      }, 3000) // Remove o toast após 3 segundos
     },
     registerUser() {
       if (this.password !== this.confirmPassword) {
-        this.showToast("As senhas não coincidem!", "error");
-      // } else if (!this.name || !this.email || !this.password || !this.gender || !this.city || !this.userType) {
-      //   this.showToast("Por favor, preencha todos os campos obrigatórios!", "warning");
+        this.showToast('As senhas não coincidem!', 'error')
+        // } else if (!this.name || !this.email || !this.password || !this.gender || !this.city || !this.userType) {
+        //   this.showToast("Por favor, preencha todos os campos obrigatórios!", "warning");
       } else {
         // this.showToast("Cadastro realizado com sucesso!", "success");
         // Redireciona para a página inicial
-        this.$router.push("/home");
+        this.$router.push('/home')
       }
-    },
-  },
-};
-</script><template>
+    }
+  }
+}
+</script>
+
+<template>
   <div class="register-container">
     <div class="register-page">
       <h1>Bem-vindo</h1>
@@ -65,40 +83,27 @@ methods: {
           <label for="male">Masculino</label>
         </div>
 
-        <label for="city">Cidade:
-        <select v-model="city" id="city" required>
-          <option disabled value="">Selecione a cidade</option>
-          <option>Abelardo Luz</option>
-          <option>Ibirama</option>
-          <option>Sombrio</option>
-          <option>Videira</option>
-          <option>Luzerna</option>
-          <option>Fraiburgo</option>
-          <option>Concórdia</option>
-          <option>São Bento do Sul</option>
-          <option>Santa Rosa do Sul</option>
-          <option>Rio do Sul</option>
-          <option>Camboriú</option>
-          <option>Brusque</option>
-          <option>Blumenau</option>
-          <option>São Francisco do Sul</option>
-          <option>Araquari</option>
-        </select></label>
+        <label for="city">
+        Cidade:
+          <select v-model="city">
+            <option v-for="loc of locationStore.locations" :key="loc.id" :value="loc.id">
+              {{ loc.name }}
+            </option>
+          </select>
+        </label>
 
-        <label for="person">Servidor:</label>
-        <select v-model="person" id="person" required>
-          <option>Estudante</option>
-          <option>Servidor Nupe</option>
-          <option>Coordenadoria-Geral de Assistência Estudantil</option>
-          <option>Coordenação PROEJA</option>
-          <option>Secretaria Escolar e Acadêmica</option>
-          <option>Assessor de Ensino</option>
+        <label for="function">Servidor:</label>
+        <select v-model="person">
+        <option v-for="fun of functionStore.functions" :key="fun.id" :value="fun.id">
+            {{ fun.name }}
+        </option>
         </select>
+
         <div class="conteiner">
-     
-       <a href="/src/views/HomeView.vue"><button type="submit">Cadastrar</button></a>
+          <a href="/src/views/HomeView.vue"><button type="submit">Cadastrar</button></a>
         </div>
       </form>
+      
       <p v-if="message">{{ message }}</p>
     </div>
     <div class="logo">
@@ -107,13 +112,11 @@ methods: {
   </div>
 </template>
 
-
 <style scoped>
 /* .radio-group{
 margin-left: -5rem;
   
 } */
-
 
 h1 {
   text-align: center;
@@ -202,7 +205,6 @@ button:hover {
   padding: 19rem;
 
   margin-top: -15rem;
-
 }
 
 .img {
@@ -210,15 +212,11 @@ button:hover {
   max-height: 150%;
   /* object-fit: contain; */
 
-
   margin-top: 1rem;
-
 }
 
 .container {
-display: flex;
+  display: flex;
   height: 100vh;
-
 }
-
 </style>
