@@ -1,6 +1,5 @@
 <script setup>
-
-import { ref, onMounted, onBeforeUnmount } from "vue";
+import { ref, onMounted, onBeforeUnmount } from 'vue'
 import { useTemplateStore } from '@/stores/template.js'
 
 const menuItems = [
@@ -8,25 +7,23 @@ const menuItems = [
   { text: 'Setor', link: '/sector' },
   { text: 'Atendimento', link: '/atendimento' },
   { text: 'Campus', link: '/campus' },
-  // { text: 'Razões Atendimento', link: '/razoes' },
-  { text: 'Perfil Aluno', link: '/perfil' },
-
+  { text: 'Perfil Aluno', link: '/perfil' }
 ]
 
-const isMobile = ref(false);
+const isMobile = ref(false)
 
 const checkIfMobile = () => {
-  isMobile.value = window.innerWidth <= 768; // Define o breakpoint
-};
+  isMobile.value = window.innerWidth <= 768
+}
 
 onMounted(() => {
-  checkIfMobile();
-  window.addEventListener("resize", checkIfMobile);
-});
+  checkIfMobile()
+  window.addEventListener('resize', checkIfMobile)
+})
 
 onBeforeUnmount(() => {
-  window.removeEventListener("resize", checkIfMobile);
-});
+  window.removeEventListener('resize', checkIfMobile)
+})
 
 const isMenuOpen = ref(false)
 
@@ -46,51 +43,61 @@ const templateStore = useTemplateStore()
     </label>
 
     <ul class="menu-hamburguer-elements show">
-     <a href="Home"><p class="logo">NupeOnline</p></a> 
+      <a href="Home"><p class="logo">NupeOnline</p></a>
       <li v-for="item in menuItems" :key="item.text">
         <router-link :to="item.link">{{ item.text }}</router-link>
       </li>
     </ul>
- 
-    <div  class="['checkbox-container', isMobile ? 'mobile' : 'desktop']" >
-  <input id="switch-shadow" class="switch switch--shadow" type="checkbox" @click="templateStore.toggleDarkMode"/>
-  <label for="switch-shadow"></label>
-</div> 
+
+    <div :class="['checkbox-container', isMobile ? 'mobile' : 'desktop']">
+      <input
+        id="switch-shadow"
+        class="switch switch--shadow"
+        type="checkbox"
+        @click="templateStore.toggleDarkMode"
+      />
+      <label for="switch-shadow"></label>
+    </div>
   </nav>
 </template>
 
 <style scoped>
-
 @import url('https://fonts.googleapis.com/css2?family=Julius+Sans+One&family=Red+Rose:wght@300..700&display=swap');
 .checkbox-container.mobile {
   position: absolute;
   top: 10px;
   right: 10px;
-
-
-}
+ }
 .switch {
   position: absolute;
-  margin-left: -9999px;
+  /* margin-left: -9999px; */
   visibility: hidden;
-
 }
 
+.checkbox-container.mobile {
+  position: fixed; /* Para fixar no canto */
+  top: 10px; /* Distância do topo */
+  right: 10px; /* Distância da borda direita */
+  z-index: 1000; /* Garante que fique acima de outros elementos */
+}
+
+.checkbox-container.desktop {
+  position: static; /* Permanece na posição padrão em desktops */
+} 
 .switch + label {
   display: block;
   position: relative;
   cursor: pointer;
   outline: none;
   user-select: none;
-
 }
 .switch--shadow + label {
   top: 4px;
-  padding: 1px; /* Reduzindo padding */
-  width: 80px; /* Diminuindo largura */
-  height: 40px; /* Diminuindo altura */
-  background-color:black;
-  border-radius: 40px; /* Ajuste o arredondamento para o novo tamanho */
+  padding: 1px;
+  width: 80px;
+  height: 40px;
+  background-color: black;
+  border-radius: 40px;
   left: px;
 }
 .switch--shadow + label:before,
@@ -104,35 +111,35 @@ const templateStore = useTemplateStore()
 }
 .switch--shadow + label:before {
   right: 1px;
-  background-color:black;
+  background-color: rgba(0, 0, 0, 0.247);
   border-radius: 60px;
-  transition: all 0.4s;
+  transition: all 0.2s;
 }
 .switch--shadow + label:after {
-  width: 36px; /* Reduzindo o tamanho do círculo interno */
-  height: 36px; /* Adicionando altura para manter o círculo proporcional */
+  width: 36px; 
+  height: 36px; 
   background-color: #fff;
   border-radius: 100%;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); /* Ajuste da sombra */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); 
   transition: all 0.4s;
 }
 .switch--shadow:checked + label:before {
-  background-color:#ffffff;
+  background-color: #ffffff;
 }
 .switch--shadow:checked + label:after {
-  transform: translateX(40px); /* Ajustando a posição final do círculo */
+  transform: translateX(40px); 
 }
 .hide-on-mobile {
   display: block;
 }
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
   .hide-on-mobile {
     display: none;
   }
-}
-.dark-b{
-margin-left: 6rem;
-margin-bottom: 4rem;
+} */
+.dark-b {
+  margin-left: 6rem;
+  margin-bottom: 4rem;
 }
 
 h1 {
@@ -161,7 +168,6 @@ img,
 span {
   background-color: transparent;
   font-size: large;
-  
 }
 .toggleTheme,
 p {
@@ -230,7 +236,6 @@ header {
   text-decoration: underline;
 }
 
-/* BOTÃO MENU HAMBURGUER */
 .menu {
   width: 40px;
   height: 40px;
@@ -277,7 +282,6 @@ input {
   display: none;
 }
 
-/* rotação dos elementos do span */
 input:checked ~ label .hamburguer {
   transform: rotate(45deg);
 }
@@ -297,11 +301,13 @@ input:checked ~ .menu-hamburguer-elements {
 }
 
 /* ATIVANDO O BOTÃO HAMBURGUER QUANDO O TAMANHO DA TELA ATINGIR 600PX */
-@media (max-width: 600px) {
+@media (max-width: 900px) {
   header {
     height: 20%;
   }
-
+ .switch {
+  justify-content: end;
+ }
   .menu-hamburguer-elements a:hover {
     color: darkgreen;
   }
@@ -311,9 +317,9 @@ input:checked ~ .menu-hamburguer-elements {
 
     padding-right: 15px;
   }
-  .menu-hamburguer-elements p {
+  /* .menu-hamburguer-elements p {
     color: darkgreen;
-  }
+  } */
   .menu-hamburguer-elements li {
     margin-bottom: 15px;
   }
@@ -336,11 +342,10 @@ input:checked ~ .menu-hamburguer-elements {
   .menu-hamburguer-elements {
     width: 50%;
     height: 125%;
-    background-color: rgba(0, 0, 0, 0.808);
-    position:absolute;
+    background-color: rgb(0, 0, 0);
+    position: absolute;
     left: -50%;
     top: 0px;
-
 
     transition: left cubic-bezier(1, 0, 0, 1) 0.8s;
 
@@ -357,7 +362,20 @@ input:checked ~ .menu-hamburguer-elements {
     display: flex;
     height: 20px;
     width: 60px;
-  }
-}
 
+  }
+  * {
+    background-color: #ffffff00;
+  }
+  .hamburguer{
+  background-color: black;
+  }
+  .checkbox{
+    justify-content: end;
+  }
+  /* .menu-hamburguer-elements {
+    display: none;
+    color: #b30808;
+  } */
+}
 </style>

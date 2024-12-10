@@ -1,124 +1,129 @@
-<script setup>
-import { ref } from 'vue'
-
-const items = ref([
-  { src: '/public/img3.jpg', alt: 'Descrição da imagem 3' },
-  { src: '/public/img1.jpg', alt: 'Descrição da imagem 1' },
-  { src: '/public/img2.jpg', alt: 'Descrição da imagem 2' },
-  { src: '/public/img4.jpg', alt: 'Descrição da imagem 4' },
-  { src: '/public/img5.jpg', alt: 'Descrição da imagem 5' },
-
-])
-
-
-const currentIndex = ref(0)
-
-function nextSlide() {
-  currentIndex.value = (currentIndex.value + 1) % items.value.length
-}
-
-function prevSlide() {
-  currentIndex.value = (currentIndex.value - 1 + items.value.length) % items.value.length
-}
-
-function goToSlide(index) {
-  currentIndex.value = index
-}
-</script>
-
 <template>
-  <img src="/public/PortariaIFC.png" alt="" class="Portaria" />
-  <div class="carousel">
-    <div class="carousel-inner" :style="{ transform: `translateX(-${currentIndex * 100}%)` }">
-      <div v-for="(item, index) in items" :key="index" class="carousel-item">
-        <img :src="item.src" :alt="item.alt" />
+  <img src="/public/PortariaIFC.png" alt="" class="Portaria">
+  <div class="container">
+
+    <main class="main">
+      <h1>Turmas:</h1>
+      <h2>IFC - Campus Araquari</h2>
+      <div class="grid-buttons">
+
+        <button class="info">1INFO1</button>
+        <button class="info">1INFO2</button>
+        <button class="info">1INFO3</button>
+        <button class="info">2INFO1</button>
+        <button class="info">2INFO2</button>
+        <button class="info">2INFO3</button>
+        <button class="info">3INFO1</button>
+        <button class="info">3INFO2</button>
+        <button class="info">3INFO3</button>
+        <button class="agro">1AGRO1</button>
+        <button class="agro">1AGRO2</button>
+        <button class="agro">1AGRO3</button>
+        <button class="agro">2AGRO1</button>
+        <button class="agro">2AGRO2</button>
+        <button class="agro">2AGRO3</button>
+        <button class="agro">3AGRO1</button>
+        <button class="agro">3AGRO2</button>
+        <button class="agro">3AGRO3</button>
+        <button class="quimi">1QUIMI</button>
+        <button class="quimi">2QUIMI</button>
+        <button class="quimi">3QUIMI</button>
+
       </div>
-    </div>
-
-    <button @click="prevSlide" class="carousel-control prev">‹</button>
-    <button @click="nextSlide" class="carousel-control next">›</button>
-
-    <div class="carousel-indicators">
-      
-      <span
-        v-for="(item, index) in items"
-        :key="index"
-        :class="{ active: index === currentIndex }"
-        @click="goToSlide(index)"
-      ></span>
-    </div>
+    </main>
   </div>
-
 </template>
+
+<script setup>
+
+</script>
 
 <style scoped>
 .Portaria {
   margin-top: 2rem;
   margin-bottom: 2rem;
 }
-.carousel {
-  position: relative;
-  width: 100%;
-  max-width: 700px;
-  overflow: hidden;
-  margin: auto;
+
+.container {
+  font-family: Arial, sans-serif;
 }
 
-.carousel-inner {
-  display: flex;
-  transition: transform 0.5s ease;
+.main {
+  text-align: center;
+  margin: 20px;
 }
 
-.carousel-item {
-  min-width: 100%;
-  box-sizing: border-box;
+h1 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  font-weight: bold;
 }
 
-.carousel-item img {
-  width: 100%;
-  height: 600px; /* Ajuste o tamanho da imagem conforme necessário */
-  object-fit: cover;
+h2 {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+
 }
 
-.carousel-control {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: rgba(0, 0, 0, 0.5);
+.grid-buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 100px;
+}
+
+button {
+  font-size: 0.9rem;
+  padding: 15px 20px;
+  border: 2px solid transparent;
+  border-radius: 15px;
+
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+button.info {
+  border-color: #2d7ddb;
+  color: #2d7ddb;
+}
+
+button.info:hover {
+  background-color: #2d7ddb;
   color: white;
-  border: none;
-  font-size: 24px;
-  padding: 10px;
-  cursor: pointer;
-  z-index: 10;
 }
 
-.prev {
-  left: 10px;
+button.agro {
+  border-color: #3b6e39;
+  color: #3b6e39;
 }
 
-.next {
-  right: 10px;
+button.agro:hover {
+  background-color: #3b6e39;
+  color: white;
 }
 
-.carousel-indicators {
-  position: absolute;
-  bottom: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 5px;
+button.quimi {
+  border-color: #7a3e8c;
+  color: #7a3e8c;
 }
 
-.carousel-indicators span {
-  width: 10px;
-  height: 10px;
-  background-color: rgba(255, 255, 255, 0.5);
-  border-radius: 50%;
-  cursor: pointer;
+button.quimi:hover {
+  background-color: #7a3e8c;
+  color: white;
 }
 
-.carousel-indicators .active {
-  background-color: white;
+/* Responsividade */
+@media (max-width: 768px) {
+  .grid-buttons {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  button {
+    font-size: 0.8rem;
+    padding: 10px 15px;
+  }
 }
 </style>
