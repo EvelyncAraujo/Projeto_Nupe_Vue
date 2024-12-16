@@ -6,7 +6,7 @@
       <h1>Turmas:</h1>
       <h2>IFC - Campus Araquari</h2>
       <div class="grid-buttons">
-        <button class="info" v-for="tea of teamStore.teams" :key="tea.id" @click="">{{ tea.name }}</button>
+        <button class="info" v-for="tea of teamStore.teams" :key="tea.id" @click="goToPage">{{ tea.name }}</button>
       </div>
     </main>
   </div>
@@ -14,9 +14,15 @@
 
 <script>
 import { onMounted } from 'vue'
-import { useTeamStore } from '@/stores/teams'
+import { useTeamStore } from '@/stores/team'
 
 export default {
+  methods:{
+    goToPage() {
+      this.$router.push('/turma');
+    }
+  },
+
   setup() {
   const teamStore = useTeamStore()
 
@@ -24,7 +30,7 @@ export default {
     await teamStore.fetchAllTeams()
   })
   return { teamStore }
-  }
+  },
 }
 </script>
 

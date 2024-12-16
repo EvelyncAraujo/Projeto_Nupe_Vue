@@ -11,6 +11,7 @@ import AttendanceReasonView from '@/views/AttendanceReasonView.vue'
 import HomeView from '@/views/HomeView.vue'
 import ForgotPasswordView from '@/views/ForgotPasswordView.vue'
 import CadastroLoginView from '@/views/CadastroLoginView.vue'
+import TeamView from '@/views/TeamView.vue'
 // import LayoutFull from '@/layouts/LayoutFull.vue'
 
 const router = createRouter({
@@ -76,7 +77,12 @@ const router = createRouter({
           path: '/razoes',
           name: 'RazoesAtendimento',
           component: AttendanceReasonView
-        }
+        },
+        {
+          path: '/turma',
+          name: 'turma',
+          component: TeamView
+        },
       ]
     },
 
