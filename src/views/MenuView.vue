@@ -25,16 +25,14 @@ onBeforeUnmount(() => {
   window.removeEventListener('resize', checkIfMobile)
 })
 
-const isMenuOpen = ref(false)
 
-const toggleMenu = () => {
-  isMenuOpen.value = !isMenuOpen.value
-}
+
+
 const templateStore = useTemplateStore()
 </script>
 
 <template>
-  <nav class="menu-hamburger">
+ <div class="responsive-menu"> <nav class="menu-hamburger">
     <input id="menu-hamburguer" type="checkbox" />
     <label for="menu-hamburguer">
       <div class="menu">
@@ -59,18 +57,63 @@ const templateStore = useTemplateStore()
       <label for="switch-shadow"></label>
     </div>
   </nav>
+</div>
 </template>
 
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Julius+Sans+One&family=Red+Rose:wght@300..700&display=swap');
+
+/* Smartphones */
+@media (max-width: 480px) {
+  /* Ajustes específicos para telas muito pequenas */
+}
+
+/* Tablets */
+@media (min-width: 481px) and (max-width: 768px) {
+  /* Ajustes para tablets */
+}
+
+/* Telas intermediárias */
+@media (min-width: 769px) and (max-width: 1024px) {
+  /* Ajustes específicos para telas menores, mas maiores que celulares */
+}
+
+body {
+  font-size: 100%; /* Base relativa ao navegador */
+}
+
+@media (max-width: 768px) {
+  body {
+    font-size: 90%; /* Reduz tamanho em telas menores */
+  }
+}
+.menu-hamburguer-elements a {
+  padding: 0.5rem 1rem; /* Escala bem em telas pequenas */
+}
+
+@media (max-width: 768px) {
+  .checkbox-container {
+    top: auto;
+    bottom: 370px;
+    right: 15px;
+  }
+}
+.checkbox-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: -5px;
+  background-color: transparent;
+}
+
+
 .checkbox-container.mobile {
-  position: absolute;
-  top: 10px;
-  right: 10px;
- }
+  top: 15px;
+  right: 15px;
+}
 .switch {
   position: absolute;
-  /* margin-left: -9999px; */
+
   visibility: hidden;
 }
 
@@ -165,14 +208,15 @@ p,
 li,
 ul,
 img,
-span {
+span,
+a {
   background-color: transparent;
   font-size: large;
 }
 .toggleTheme,
 p {
   font-weight: bold;
-  color: black;
+
 }
 .toggleTheme,
 body {
@@ -203,7 +247,7 @@ header {
   width: 100%;
   height: 50px;
   display: flex;
-  justify-content: baseline;
+
 }
 .menu-hamburguer-elements {
   display: flex;
@@ -250,7 +294,7 @@ header {
 .hamburguer {
   position: sticky;
   display: block;
-  background: #fff;
+  background-color: black;
   width: 27px;
   height: 1px;
   top: 29px;
@@ -308,18 +352,18 @@ input:checked ~ .menu-hamburguer-elements {
  .switch {
   justify-content: end;
  }
+ @media (max-width: 768px) {
+  .menu-hamburguer-elements {
+    height: 100vh;
+  }
+}
   .menu-hamburguer-elements a:hover {
     color: darkgreen;
   }
   .menu-hamburguer-elements a {
-    color: #ffffff;
-    margin-bottom: 100px;
-
-    padding-right: 15px;
-  }
-  /* .menu-hamburguer-elements p {
-    color: darkgreen;
-  } */
+  padding: 10px 15px;
+  text-align: center;
+}
   .menu-hamburguer-elements li {
     margin-bottom: 15px;
   }
@@ -359,23 +403,21 @@ input:checked ~ .menu-hamburguer-elements {
   }
 
   .menu {
-    display: flex;
-    height: 20px;
-    width: 60px;
-
-  }
-  * {
-    background-color: #ffffff00;
-  }
+  display: flex;
+  cursor: pointer;
+  z-index: 2;
+}
+ 
   .hamburguer{
-  background-color: black;
+  background-color:white
   }
   .checkbox{
     justify-content: end;
   }
-  /* .menu-hamburguer-elements {
-    display: none;
-    color: #b30808;
-  } */
+
+}
+img {
+  max-width: 100%;
+  height: auto;
 }
 </style>
