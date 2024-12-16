@@ -2,9 +2,9 @@
   import { reactive, ref, computed } from "vue";
   import HeroBar from "@/components/templates/HeroBar";
   import TitleBar from "@/components/templates/TitleBar";
-  // import CardComponent from "@/components/templates/CardComponent";
   import ListarCampus from "@/components/campus/ListarCampus";
   import CadastroCampus from "@/components/campus/CadastroCampus";
+   
 
   const editing = ref(false);
   const creating = ref(false);
