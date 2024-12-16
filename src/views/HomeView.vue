@@ -6,36 +6,26 @@
       <h1>Turmas:</h1>
       <h2>IFC - Campus Araquari</h2>
       <div class="grid-buttons">
-
-        <button class="info">1INFO1</button>
-        <button class="info">1INFO2</button>
-        <button class="info">1INFO3</button>
-        <button class="info">2INFO1</button>
-        <button class="info">2INFO2</button>
-        <button class="info">2INFO3</button>
-        <button class="info">3INFO1</button>
-        <button class="info">3INFO2</button>
-        <button class="info">3INFO3</button>
-        <button class="agro">1AGRO1</button>
-        <button class="agro">1AGRO2</button>
-        <button class="agro">1AGRO3</button>
-        <button class="agro">2AGRO1</button>
-        <button class="agro">2AGRO2</button>
-        <button class="agro">2AGRO3</button>
-        <button class="agro">3AGRO1</button>
-        <button class="agro">3AGRO2</button>
-        <button class="agro">3AGRO3</button>
-        <button class="quimi">1QUIMI</button>
-        <button class="quimi">2QUIMI</button>
-        <button class="quimi">3QUIMI</button>
-
+        <button class="info" v-for="tea of teamStore.teams" :key="tea.id" @click="">{{ tea.name }}</button>
       </div>
     </main>
   </div>
 </template>
 
-<script setup>
+<script>
+import { onMounted } from 'vue'
+import { useTeamStore } from '@/stores/teams'
 
+export default {
+  setup() {
+  const teamStore = useTeamStore()
+
+  onMounted(async () => {
+    await teamStore.fetchAllTeams()
+  })
+  return { teamStore }
+  }
+}
 </script>
 
 <style scoped>
