@@ -20,7 +20,6 @@ export default {
       <div>
         <div class="img"></div>
       </div>
-
       <div class="info">
         <p>{{ stu.full_name }}</p>
         <p>Matricula: {{ stu.registration }}</p>
