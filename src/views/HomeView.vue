@@ -13,6 +13,7 @@
 </template>
 
 <script>
+
 import { onMounted } from 'vue'
 import { useTeamStore } from '@/stores/team'
 
@@ -35,6 +36,8 @@ export default {
 </script>
 
 <style scoped>
+
+
 .Portaria {
   margin-top: 2rem;
   margin-bottom: 2rem;

@@ -104,12 +104,14 @@ body {
   align-items: center;
   margin-top: -5px;
   background-color: transparent;
+  position: fixed;
 }
 
 
 .checkbox-container.mobile {
   top: 15px;
   right: 15px;
+  position:fixed;
 }
 .switch {
   position: absolute;
@@ -125,7 +127,7 @@ body {
 }
 
 .checkbox-container.desktop {
-  position: static; /* Permanece na posição padrão em desktops */
+  position:static; /* Permanece na posição padrão em desktops */
 } 
 .switch + label {
   display: block;
@@ -183,6 +185,7 @@ body {
 .dark-b {
   margin-left: 6rem;
   margin-bottom: 4rem;
+;
 }
 
 h1 {
@@ -229,6 +232,7 @@ body {
 
 .dark-mode {
   background-color: black;
+
 }
 
 header {
@@ -413,6 +417,7 @@ input:checked ~ .menu-hamburguer-elements {
   }
   .checkbox{
     justify-content: end;
+   
   }
 
 }

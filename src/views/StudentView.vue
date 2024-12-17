@@ -4,13 +4,13 @@ export default {
   data() {
     return {
       aluno: {
-        nome: "",
-        matricula: "",
-        curso: "",
-        nivel: "",
-        status: "",
-        email: "",
-        entrada: "",
+        nome: " Ana Clara Fidêncio da Silva",
+        matricula: "2022314325",
+        curso: " Informática para Internet",
+        nivel: "3",
+        status: "Matriculado",
+        email: "fidenciosilvaanaclara@gmail.com",
+        entrada: "2022",
       },
       form: {
         avatar: "",
@@ -45,8 +45,17 @@ export default {
   <div class="student-items">
     <div class="registros">
       <h1>Últimos registros</h1>
-      <h2>Não tem nenhuma pendência do aluno</h2>
-    </div>
+    
+     <div class=" ocorrencia">
+      <p >Chegada tardia 24/11/2024</p>
+      <p>Sem Uniforme-Geografia-12/10/2024</p> 
+      <p>Sem Uniforme-Geografia-18/10/2024</p>
+      <p>Sem Uniforme-Geografia-16/10/2024</p>
+      <p>Sem Uniforme-Geografia-11/10/2024</p>
+      <p>Sem Uniforme-Geografia-15/10/2024</p></div> 
+    
+ 
+        </div>
 
     <div class="perfil">
       <img
@@ -149,5 +158,10 @@ margin-bottom: 1rem;
 }
 .perfil{
   width: 25rem ;
+}
+.ocorrencia{
+  text-align:left;
+  margin-left: 2rem;
+  color: red;
 }
 </style>
