@@ -1,56 +1,96 @@
+<script>
+export default {
+  name: "PerfilAluno",
+  data() {
+    return {
+      aluno: {
+        nome: "",
+        matricula: "",
+        curso: "",
+        nivel: "",
+        status: "",
+        email: "",
+        entrada: "",
+      },
+      form: {
+        avatar: "",
+      },
+    };
+  },
+  methods: {
+    upload(e) {
+      e.preventDefault();
+      const files = e.target.files;
+      if (files.length) {
+        this.form.avatar = URL.createObjectURL(files[0]);
+      }
+    },
+    async fetchStudentData() {
+      try {
+        const response = await fetch("/api/student-data"); // Substitua pelo seu endpoint real
+        const data = await response.json();
+        this.aluno = data;
+      } catch (error) {
+        console.error("Erro ao buscar dados do aluno:", error);
+      }
+    },
+  },
+  created() {
+    this.fetchStudentData();
+  },
+};
+</script>
+
 <template>
   <div class="student-items">
     <div class="registros">
       <h1>Últimos registros</h1>
       <h2>Não tem nenhuma pendência do aluno</h2>
-      <!-- <a href="link">Ver detalhes</a> -->
     </div>
 
     <div class="perfil">
-      <!-- <img src="/circuloImagem.jpeg" alt="Foto do Aluno" class="perfil-foto" /> -->
-
-      <p class="infoAluno">Nome:</p>
-      <p class="infoAluno">Matrícula:</p>
-      <p class="infoAluno">Curso:</p>
-      <p class="infoAluno">Nível:</p>
-      <p class="infoAluno">Status: Ativo</p>
-      <p class="infoAluno">E-Mail:</p>
-      <p class="infoAluno">Entrada:</p>
-      <a href="Perfil">atualizar dados</a>
+      <img
+        v-if="form.avatar"
+        :src="form.avatar"
+        style="border-radius: 55%; width: 280px; height: 290px"
+        alt="Foto do Aluno"
+      />
+      <input type="file" id="avatarField" @change="upload" />
+      <p class="infoAluno">Nome: {{ aluno.nome }}</p>
+      <p class="infoAluno">Matrícula: {{ aluno.matricula }}</p>
+      <p class="infoAluno">Curso: {{ aluno.curso }}</p>
+      <p class="infoAluno">Nível: {{ aluno.nivel }}</p>
+      <p class="infoAluno">Status: {{ aluno.status }}</p>
+      <p class="infoAluno">E-Mail: {{ aluno.email }}</p>
+      <p class="infoAluno">Entrada: {{ aluno.entrada }}</p>
     </div>
   </div>
 
   <footer class="footer">
     <p>Dias letivos: 200</p>
-    <p>total de falta: XX</p>
-    <p>percentual de falta durante o período letivo: XX%</p>
+    <p>Total de faltas: XX</p>
+    <p>Percentual de falta durante o período letivo: XX%</p>
   </footer>
 </template>
 
 <style scoped>
-
 .student-items {
-  margin-top:-10rem;
- 
+  margin-top: -10rem;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   overflow-y: scroll;
-  /* min-height?  */
-  /* background-color: red */
 }
-
-
 
 @media screen and (min-width: 768px) {
   .perfil {
-   margin-top: 20rem;
-   margin-right: 5rem;
-   background-color: rgba(138, 135, 135, 0.123);
-   border-radius: 10px;
-   text-align: left;
-   line-height: 2rem;
+    margin-top: 20rem;
+    margin-right: 5rem;
+    background-color: rgba(138, 135, 135, 0.123);
+    border-radius: 10px;
+    text-align: left;
+    line-height: 2rem;
   }
 }
 
@@ -58,9 +98,6 @@
   .student-items {
     display: flex;
     flex-direction: column;
-   
-    /* justify-content: space-between; */
-    /* align-items: center; */
   }
 }
 
@@ -90,29 +127,27 @@ h2 {
   margin-left: 2rem;
 }
 
-.aluno {
-  font-size: 15px;
-  text-align: end;
-  margin-right: 4rem;
-  position: absolute;
-}
-
 .infoAluno {
   font-size: 18px;
   margin-right: 4rem;
-}
-.perfil-foto {
-  width: 150px;
-  height: 150px;
-  display: block;
-  /* margin: 0px auto; */
 }
 
 a {
   margin-left: 7rem;
 }
+
 a:hover {
   margin-left: 7rem;
   color: #9b9898;
+}
+img{
+margin: 0 auto;
+display: block;
+text-align: center;
+margin-top: 1rem;
+margin-bottom: 1rem;
+}
+.perfil{
+  width: 25rem ;
 }
 </style>
